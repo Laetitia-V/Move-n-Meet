@@ -1,0 +1,58 @@
+*{
+		font-family: comic sans ms;
+		border: solid 2px;
+		overflow: scroll;
+}
+body {
+	background-color: #A58ECD;
+	width: 1500px;
+	height: 1000px;
+}
+/*
+img{
+	width:300px;
+	height:100px;}*/
+
+.ongletsPageA {
+	background-image: url("../images/mtp_accueil.jpg");
+	background-size: 100%;
+	width:1450px;
+	height:300px;
+	max-width: 100%;
+	background-repeat: no-repeat;
+	padding-top: 25px;
+	font-weight: bold;
+}	
+.onglets{
+	font-weight: bold;
+	}
+
+p {
+	font-size: 23px;
+}
+#connec{
+	padding-left: 1100px;
+	color: #512A51;
+	border: #512A51 2px solid;
+	font-weight: bold;
+}
+a{
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+option{
+	font-size: 50px;
+}
+span{
+	margin-left: 65px;
+	margin-right: 65px;
+}
+.rechercher{
+	background-color: black;
+	color: white;
+	text-align: right;
+	width: 125px;
+}
+
+

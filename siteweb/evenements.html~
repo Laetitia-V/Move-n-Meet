@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
+<title>Move n' Meet</title>
+</head>
+
+<body>
+<p > <a id="connec" href="../c/connecIns.php" >S'inscrire/Se connecter</a> </p>
+<span><a href="pageA"> <img src="images/logo-copie.png" alt="logo"></a></span>
+<span><a href="pageA"><img src="images/titre.png" alt="titre"/></a></span>
+
+<p class="onglets">
+<span>TROUVER UNE ACTIVITÉ</span>
+<span>BONS PLANS </span>
+<span>ACTIVITÉS DE GROUPE</span>
+<span>ÉVENEMENTS </span>

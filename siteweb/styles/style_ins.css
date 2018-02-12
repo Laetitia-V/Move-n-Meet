@@ -1,0 +1,65 @@
+*{
+		font-family: comic sans ms;
+		%border: solid 2px;
+		font-size: 15px;
+		%margin-left: auto;
+		%margin-right: auto;
+		overflow: auto;
+}
+
+html{
+	background-image: url("../images/photo_ins.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0% 24%;
+	padding-bottom: 50px;
+	width: 1500px;
+	height: 1000px;
+}
+#ins{
+	margin-top: 50px;
+	border:2px solid #3F06D0;
+	width: 500px;
+	height: 700px;
+	text-align: center;
+	background-image: url(../images/fond_ins.png);
+	float: left;
+	margin-left: 150px;
+	overflow: hidden;
+}
+#connec{
+	margin-top: 200px;
+	border:2px solid #3F06D0;
+	width: 500px;
+	height: 350px;
+	text-align: center;
+	background-image: url(../images/fond_connec.png);
+	float: right;
+	margin-right: 150px;
+	overflow: hidden;
+}
+
+.titre{
+	font-weight: bolder;
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+
+.bouton{
+	border: 2px solid #3F06D0;
+	color: black;
+	padding:5px;
+	margin-top: 60px;
+	width: 100px;
+	height: 25px;
+	margin-left: auto;
+	margin-right:auto;
+	background-image: url(../images/fond_bouton.png);
+}
+p{
+	margin-bottom:30px; 
+}
+a{
+	text-decoration: none;
+	color: black;
+}

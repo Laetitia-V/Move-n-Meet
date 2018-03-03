@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!doctype html>
 <html>
 <head>
@@ -7,7 +10,14 @@
 </head>
 
 <body>
-<p > <a id="connec" href="connecIns.html" >S'inscrire/Se connecter</a> </p>
+<?php if(isset($_SESSION['utilisateur'])){
+echo "Bonjour ".$_SESSION['utilisateur'][1]."";
+			echo "<a href='deconnexion.php'> deconnexion </a>";
+			}
+			
+	else{
+	echo "<a id='connec' href='connecIns.php' > S'inscrire/Se connecter </a>"; }
+?>
 
 <span><img src="images/logo-copie.png" alt="logo"></span>
 <span><img src="images/titre.png" alt="titre"/></span>

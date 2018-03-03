@@ -1,26 +1,32 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le :  lun. 12 fév. 2018 à 13:29
--- Version du serveur :  5.6.34-log
--- Version de PHP :  7.1.5
+-- Hôte : localhost
+-- Généré le :  lun. 12 fév. 2018 à 16:23
+-- Version du serveur :  5.6.38
+-- Version de PHP :  7.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `movenmeet`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activite`
+--
+
+CREATE TABLE `activite` (
+  `Id_culture` int(11) NOT NULL,
+  `Id_Ext` int(3) NOT NULL,
+  `Id_divers` int(11) NOT NULL,
+  `Id_Etabl` int(11) NOT NULL,
+  `Id_activite` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1580,19 +1586,27 @@ CREATE TABLE `type_act_groupe` (
 --
 
 CREATE TABLE `utilisateur` (
-  `Id_utilisateur` bigint(20) NOT NULL,
+  `Id_utilisateur` int(20) NOT NULL,
   `Nom` varchar(50) NOT NULL,
   `Prenom` varchar(50) NOT NULL,
-  `Date_naissance` date NOT NULL,
-  `Sexe` varchar(20) NOT NULL,
-  `Description` varchar(255) NOT NULL,
-  `Photo` varchar(255) NOT NULL,
-  `Pseudo` varchar(30) NOT NULL
+  `Date_naissance` date DEFAULT NULL,
+  `Sexe` varchar(20) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  `Mail` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `activite`
+--
+ALTER TABLE `activite`
+  ADD PRIMARY KEY (`Id_activite`),
+  ADD KEY `Id_culture` (`Id_culture`),
+  ADD KEY `Id_divers` (`Id_divers`);
 
 --
 -- Index pour la table `adresse`
@@ -1617,7 +1631,9 @@ ALTER TABLE `divers`
 --
 ALTER TABLE `groupe`
   ADD PRIMARY KEY (`Id_groupe`),
-  ADD KEY `Id_Adresse` (`Id_Adresse`);
+  ADD KEY `Id_Adresse` (`Id_Adresse`),
+  ADD KEY `Id_Type` (`Id_Type`),
+  ADD KEY `Id_Createur` (`Id_Createur`);
 
 --
 -- Index pour la table `participant`
@@ -1646,22 +1662,30 @@ ALTER TABLE `utilisateur`
 --
 ALTER TABLE `groupe`
   MODIFY `Id_groupe` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `Id_utilisateur` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_utilisateur` int(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
+-- Contraintes pour la table `activite`
+--
+ALTER TABLE `activite`
+  ADD CONSTRAINT `activite_ibfk_1` FOREIGN KEY (`Id_culture`) REFERENCES `culture` (`Id_culture`),
+  ADD CONSTRAINT `activite_ibfk_2` FOREIGN KEY (`Id_divers`) REFERENCES `divers` (`Id_divers`);
+
+--
 -- Contraintes pour la table `groupe`
 --
 ALTER TABLE `groupe`
-  ADD CONSTRAINT `groupe_ibfk_1` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  ADD CONSTRAINT `groupe_ibfk_1` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
+  ADD CONSTRAINT `groupe_ibfk_2` FOREIGN KEY (`Id_Type`) REFERENCES `type_act_groupe` (`Id_Type`),
+  ADD CONSTRAINT `groupe_ibfk_3` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
+  ADD CONSTRAINT `groupe_ibfk_4` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
+  ADD CONSTRAINT `groupe_ibfk_5` FOREIGN KEY (`Id_Createur`) REFERENCES `utilisateur` (`Id_utilisateur`);

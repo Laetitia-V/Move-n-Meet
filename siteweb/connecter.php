@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +11,15 @@ content="text/html; charset=UTF-8" />
 media="screen"	/>
 
 <?php 
-	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root', 'root'); 
-	$rep=$bdd->query("SELECT * FROM utilisateur WHERE Nom=".$_GET.['n']. "AND Mdp=".$_GET.['mdp1']."'");
-	$rep->closeCursor();
-	if($_GET['n']=="" || $_GET['mdp1']=="";
-				echo '<meta http-equiv="refresh" content="2; URL=connexion.php">';
-	}
-	else{
-	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root', 'root'); 
-	$rep=$bdd->query("SELECT * FROM utilisateur WHERE Nom=".$_GET.['n']."'  AND Mdp=".$_GET['mdp1']."'" );
-	while($ligne=$rep ->fetch()) {
+	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+	$mail=$_GET['mail'];
+	$mdp=$_GET['mdp'];
+	$sql= ("Select * from utilisateur where utilisateur.Mail='".$mail."'");
+	$rep = $bdd->query($sql);
+	$ligne=$rep ->fetch();
+	
+	if(isset($ligne['Mail']) AND $ligne['Mdp']==$mdp){
+		
 		$id=$ligne['Id_utilisateur'];
 		$nom=$ligne['Nom'];
 		$prenom=$ligne['Prenom'];
@@ -26,16 +27,14 @@ media="screen"	/>
 		$sexe=$ligne['Sexe'];
 		$description=$ligne['Description'];
 		$photo=$ligne['Photo'];
-		$pseudo=$ligne['Pseudo'];
-		$mail=$ligne['Mail'];
-		$mdp=$ligne['Mdp'];
+		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
+		echo "<meta http-equiv='refresh' content='2; URL=pageA.php'>";
 	}
-	$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$pseudo,$mail,$mdp);
-	$rep->closeCursor();
-		echo "Connexion en cours";
-		echo "<meta http-equiv='refresh' content='2; URL=index.php'>";		
+	else{
+		echo "<meta http-equiv='refresh' content='2; URL=connecIns.php?mail=".$mail."'>";
+
 	}
-	
+	$rep ->closeCursor();
 	?>
 
 </head>

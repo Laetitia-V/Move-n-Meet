@@ -51,14 +51,13 @@ Confirmation du mot de passe :
 <form action="connecter.php" method="get" autocomplete="off">
 <div id="connec">
 <p class="titre"> Connexion </p>
-<form action=".php" method="get" autocomplete="off">
       <p>
 Adresse mail :
             <input type="text" name="mail" value="<?php if(isset($_GET['mail'])) echo $_GET['mail']; ?>"/>
       </p>
       <p>
 Mot de passe :
-            <input type="password" name="mdp1" value=""/>
+            <input type="password" name="mdp" value=""/>
       </p>
      <p class="bouton">
       <input type="submit" value="Connexion">

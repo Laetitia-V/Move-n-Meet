@@ -9,9 +9,6 @@
 </head>
 
 <body>
-<?php 
-	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8', 'root', 'root'); 
-?>
 <span><a href="pageA"> <img src="images/logo-copie.png" alt="logo"></a></span>
 <span><a href="pageA"><img src="images/titre.png" alt="titre"/></a></span>
 
@@ -33,13 +30,7 @@ Prénom :
 Adresse mail :
             <input type="text" name="mail" value="<?php if(isset($_GET['mail'])) echo $_GET['mail']; ?>"/>
       </p>
-      <p>
-      Homme :
-<INPUT type="radio" name="genre" value="M"/><br /></p>
-<p>
-Femme :
-<INPUT type="radio" name="genre" value="F"/>
-</p>
+   
 <p>
 Mot de passe :
             <input type="password" name="mdp1" value=""/>

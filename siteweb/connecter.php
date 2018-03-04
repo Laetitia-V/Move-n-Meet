@@ -27,7 +27,9 @@ media="screen"	/>
 		$sexe=$ligne['Sexe'];
 		$description=$ligne['Description'];
 		$photo=$ligne['Photo'];
+		
 		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
+		
 		echo "<meta http-equiv='refresh' content='2; URL=pageA.php'>";
 	}
 	else{

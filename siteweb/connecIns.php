@@ -1,3 +1,10 @@
+<?php
+
+$n = isset($_GET['n']) ?  $_GET['n'] : "";
+
+?>
+
+
 <!doctype html>
 <html>
 <head>
@@ -19,7 +26,7 @@
 <form action="enregistrement.php" method="get" autocomplete="off">
       <p>
 Nom :
-            <input type="text" name="n" value="<?php if(isset($_GET['n'])) echo $_GET['n']; ?>"/>
+            <input type="text" name="n" value="<?php echo $n?>"/>
       </p>
 <p>
 Prénom :

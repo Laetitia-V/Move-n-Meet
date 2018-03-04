@@ -21,14 +21,10 @@
 <?php
 	
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	$sql= "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max) VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."')";
+	$sql = "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max) VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."')";
 	$rep = $bdd->query($sql);
-	$rep ->closeCursor();
-		
-
-
-
-
+	$rep -> closeCursor();	
+	
 ?>
 <p class="onglets">
 <span><a href="trouver_act.html"> TROUVER UNE ACTIVITÉ</a></span>

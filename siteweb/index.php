@@ -10,6 +10,7 @@ session_start()
 </head>
 
 <body>
+
 <?php if(isset($_SESSION['utilisateur'])){
 echo "Bonjour ".$_SESSION['utilisateur'][1]."";
 			echo "<a href='deconnexion.php'> deconnexion </a>";
@@ -23,7 +24,7 @@ echo "Bonjour ".$_SESSION['utilisateur'][1]."";
 <span><img src="images/titre.png" alt="titre"/></span>
 
 <p class="ongletsPageA">
-<span><a href="trouver_act.html"> TROUVER UNE ACTIVITÉ</a></span>
+<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
 <span><a href="bons_plans.html">BONS PLANS </a></span>
 <span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVENEMENTS</a> </span>

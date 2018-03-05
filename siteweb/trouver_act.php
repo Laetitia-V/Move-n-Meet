@@ -1,6 +1,3 @@
-<?php
-session_start()
-?>
 <!doctype html>
 <html>
 <head>
@@ -12,28 +9,11 @@ session_start()
 <body>
 
 <?php 
-	$bdd = new PDO('mysql:host=localhost:8888;dbname=movenmeet;charset=utf8',
-'root', 'root');
+	$bdd = new PDO('mysql:host=localhost:8889;dbname=Vinno;charset=utf8',
+'root', 'root'); 
 ?>
 
-<?php 
-if(isset($_SESSION['utilisateur'])){
-	echo "Bonjour ".$_SESSION['utilisateur'][1]."";
-	echo "<a href='deconnexion.php'> deconnexion </a>";
-			}
-	else{
-	echo "<a id='connec' href='connecIns.php' > S'inscrire/Se connecter </a>"; }
-?>
-
-<span><img src="images/logo-copie.png" alt="logo"></span>
-<span><img src="images/titre.png" alt="titre"/></span>
-
-<p class="ongletsPageA">
-<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="bons_plans.html">BONS PLANS </a></span>
-<span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
-
+<p > <a id="connec" href="connecIns.html" >S'inscrire/Se connecter</a> </p>
 
 <form>
 <input type="texte" name="Bar, restaurant, événement,..." id=texte />
@@ -69,10 +49,11 @@ if(isset($_SESSION['utilisateur'])){
 </span>
 </form>
 
-<span>
-<p class="rechercher">Rechercher</p>
-</span>
+<span><a href="pageA"> <img src="images/logo-copie.png" alt="logo"></a></span>
+<span><a href="pageA"><img src="images/titre.png" alt="titre"/></a></span>
 
-
-</body>
-</html>
+<p class="onglets">
+<span><a href="trouver_act.html"> TROUVER UNE ACTIVITÉ</a></span>
+<span><a href="bons_plans.html">BONS PLANS </a></span>
+<span><a href="act_grp.html"> ACTIVITÉS DE GROUPE</a></span>
+<span><a href="evenements.html"> ÉVENEMENTS</a> </span>

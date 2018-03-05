@@ -18,9 +18,19 @@
 <span><a href="act_grp.html"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.html"> ÉVENEMENTS</a> </span>
 
-<form action="creation.php" method="get" autocomplete="off">
-      <input type="submit" value="Creation">
-</form> 
+<?php
+
+if(isset($_SESSION['utilisateur'])){
+	echo('<form action="creation.php" method="get" autocomplete="off">
+		  <input type="submit" value="Creation">
+	</form>'); 
+}
+else{
+	echo ('<form action="../connexion/connecIns.php" method="get" autocomplete="off">
+		  <input type="submit" value="Creation">
+	</form>');
+}
+?>
 
 <table border="1">
 	<?php 

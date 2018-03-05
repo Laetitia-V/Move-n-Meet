@@ -11,11 +11,16 @@ session_start()
 
 <body>
 
-<?php if(isset($_SESSION['utilisateur'])){
-echo "Bonjour ".$_SESSION['utilisateur'][1]."";
-			echo "<a href='deconnexion.php'> deconnexion </a>";
+<?php 
+	$bdd = new PDO('mysql:host=localhost:8888;dbname=movenmeet;charset=utf8',
+'root', 'root');
+?>
+
+<?php 
+if(isset($_SESSION['utilisateur'])){
+	echo "Bonjour ".$_SESSION['utilisateur'][1]."";
+	echo "<a href='deconnexion.php'> deconnexion </a>";
 			}
-			
 	else{
 	echo "<a id='connec' href='connecIns.php' > S'inscrire/Se connecter </a>"; }
 ?>

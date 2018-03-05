@@ -18,7 +18,7 @@
 <?php
 
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	$sql = "SELECT * FROM groupe where Id_groupe='".$idGroupe."'";
+	$sql = ("SELECT * FROM groupe where Id_groupe='".$idGroupe."'");
 	$rep = $bdd->query($sql);
 
 	while ($ligne = $rep ->fetch()) {

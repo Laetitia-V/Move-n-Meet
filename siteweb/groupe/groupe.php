@@ -36,8 +36,10 @@ else{
 	<?php 
 		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 		$rep = $bdd->query('select * from groupe');
+		
 		while ($ligne = $rep ->  fetch () ){
-			echo "<tr><td>".$ligne['Date']."</td><td>".$ligne['Titre']."'>".$ligne['Descriptif']."</td><td>".$ligne['Adresse']."</td><td>".$ligne['Nombre_max']."</td></tr>";
+			$idGroupe=$ligne['Id_groupe'];
+			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Descriptif']."</td><td>".$ligne['Adresse']."</td><td>".$ligne['Nombre_max']."</td></tr>";
 		}
 		$rep -> closeCursor();
 	?>

@@ -14,7 +14,7 @@
 <span><a href="pageA"> <img src="images/logo-copie.png" alt="logo"></a></span>
 <span><a href="pageA"><img src="images/titre.png" alt="titre"/></a></span>
 
-<form action="nouvelleSortie.php" method="get" autocomplete="off">
+<form action="newS.php" method="get" autocomplete="off">
 
 		  <p>
 	Titre :

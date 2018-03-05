@@ -23,7 +23,9 @@
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 	$sql = "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max) VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."')";
 	$rep = $bdd->query($sql);
-	$rep -> closeCursor();	
+	$rep -> closeCursor();
+	echo "Votre sortie a bien été enregistré";
+	echo "<meta http-equiv='refresh' content='3; URL=../index.php'>";
 	
 ?>
 <p class="onglets">

@@ -1,11 +1,7 @@
 <?php
 	session_start();
-	$titre=$_GET['titre'];
-	$date=$_GET['date'];
-	$desc=$_GET['desc'];
-	$adr=$_GET['adr'];
-	$nbMax=$_GET['max'];
 ?>
+
 <!doctype html>
 <html>
 <head>
@@ -18,22 +14,21 @@
 <p > <a id="connec" href="../connexion/connecIns.php" >S'inscrire/Se connecter</a> </p>
 <span><a href="../index.php"> <img src="images/logo-copie.png" alt="logo"></a></span>
 <span><a href="../index.php"><img src="images/titre.png" alt="titre"/></a></span>
+
 <?php
-	
+
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	$sql = "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max) VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."')";
+	$sql = "SELECT * FROM groupe where Id_groupe='".$idGroupe."'";
 	$rep = $bdd->query($sql);
+
+	while ($ligne = $rep ->fetch()) {
+				echo  "<h2>".$ligne['Titre']."</h2>";
+				echo "Date : ".$ligne['Date']; 
+				echo "Horaire : ".$ligne['Horaire'];
+				echo "Lieu : ".$ligne['Adresse'];
+				echo $ligne['Descriptif'];
+			}	
+	
 	$rep -> closeCursor();	
 	
 ?>
-<p class="onglets">
-<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="bons_plans.html">BONS PLANS </a></span>
-<span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
-</p>
-
-
-
-</body>
-</html>

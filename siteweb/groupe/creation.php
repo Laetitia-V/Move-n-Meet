@@ -16,34 +16,35 @@
 
 <form action="nouvelleSortie.php" method="get" autocomplete="off">
 
-      <p>
-Titre :
-            <input type="text" name="titre" value=""/>
-      </p>
-<p>
-Date :
-            <input type="date" name="date" value="jj/mm/aaaa"/>
-      </p>
-<p>
+		  <p>
+	Titre :
+				<input type="text" name="titre" value=""/>
+		  </p>
+		  <p>
+	Date :
+				<input type="date" name="date" value="jj/mm/aaaa"/>
+		  </p>
+		  <p>
 
-Description :
-            <input type="text" name="desc" value=""/>
-      </p>
-   
-<p>
-Adresse :
-            <input type="text" name="adr" value=""/>
-      </p>
-      <p>
-Nombre de participants  :
-            <input type="number" name="max" value=""/>
-      </p>
-      
-      <p class="bouton">
-      <input type="submit" value="Ajouter"></p>
-</p>
-</div>
+	Description :
+				<input type="text" name="desc" value=""/>
+		  </p>
+	   
+		   <p>
+	Adresse :
+				<input type="text" name="adr" value=""/>
+		  </p>
+		  <p>
+	Nombre de participants  :
+				<input type="number" name="max" value=""/>
+		  </p>
+		  
+		  <p class="bouton">
+		  <input type="submit" value="Ajouter"></p>
+		  </p>
 </form>
+</div>
+
 
 
 

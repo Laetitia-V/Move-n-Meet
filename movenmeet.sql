@@ -1,23 +1,31 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.5
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  lun. 05 mars 2018 à 13:01
--- Version du serveur :  5.6.38
--- Version de PHP :  7.1.12
+-- Host: localhost:8889
+-- Generation Time: Mar 05, 2018 at 02:33 PM
+-- Server version: 5.6.34-log
+-- PHP Version: 7.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Base de données :  `movenmeet`
+-- Database: `movenmeet`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `activite`
+-- Table structure for table `activite`
 --
 
 CREATE TABLE `activite` (
@@ -31,7 +39,7 @@ CREATE TABLE `activite` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `adresse`
+-- Table structure for table `adresse`
 --
 
 CREATE TABLE `adresse` (
@@ -45,7 +53,7 @@ CREATE TABLE `adresse` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `culture`
+-- Table structure for table `culture`
 --
 
 CREATE TABLE `culture` (
@@ -59,7 +67,7 @@ CREATE TABLE `culture` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `culture`
+-- Dumping data for table `culture`
 --
 
 INSERT INTO `culture` (`Osm_id`, `Rue`, `Numero_Rue`, `Ville`, `Nom`, `Type`, `Id_culture`) VALUES
@@ -97,7 +105,7 @@ INSERT INTO `culture` (`Osm_id`, `Rue`, `Numero_Rue`, `Ville`, `Nom`, `Type`, `I
 -- --------------------------------------------------------
 
 --
--- Structure de la table `divers`
+-- Table structure for table `divers`
 --
 
 CREATE TABLE `divers` (
@@ -108,7 +116,7 @@ CREATE TABLE `divers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `divers`
+-- Dumping data for table `divers`
 --
 
 INSERT INTO `divers` (`Osm_id`, `Type`, `Nom`, `Id_divers`) VALUES
@@ -177,7 +185,7 @@ INSERT INTO `divers` (`Osm_id`, `Type`, `Nom`, `Id_divers`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `etablissement`
+-- Table structure for table `etablissement`
 --
 
 CREATE TABLE `etablissement` (
@@ -193,7 +201,7 @@ CREATE TABLE `etablissement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `etablissement`
+-- Dumping data for table `etablissement`
 --
 
 INSERT INTO `etablissement` (`osm_id`, `Rue`, `Numéro`, `Type`, `Nom`, `Horaires`, `Cuisine`, `Photo`, `Id_Etabl`) VALUES
@@ -1389,21 +1397,7 @@ INSERT INTO `etablissement` (`osm_id`, `Rue`, `Numéro`, `Type`, `Nom`, `Horaire
 -- --------------------------------------------------------
 
 --
--- Structure de la table `evenement`
---
-
-CREATE TABLE `evenement` (
-  `id_eve` int(11) NOT NULL,
-  `nom` varchar(60) NOT NULL,
-  `lieu` varchar(60) NOT NULL,
-  `date` date NOT NULL,
-  `horaire` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `exterieure`
+-- Table structure for table `exterieure`
 --
 
 CREATE TABLE `exterieure` (
@@ -1422,7 +1416,7 @@ CREATE TABLE `exterieure` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `exterieure`
+-- Dumping data for table `exterieure`
 --
 
 INSERT INTO `exterieure` (`Nom`, `Longueur`, `Duree`, `Difficulté`, `Depart`, `Description`, `Type`, `Ville`, `Classement`, `Distance`, `Eau`, `Id_Ext`) VALUES
@@ -1555,25 +1549,37 @@ INSERT INTO `exterieure` (`Nom`, `Longueur`, `Duree`, `Difficulté`, `Depart`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groupe`
+-- Table structure for table `groupe`
 --
 
 CREATE TABLE `groupe` (
   `Id_groupe` int(11) NOT NULL,
-  `Horaire` datetime NOT NULL,
+  `Horaire` datetime DEFAULT NULL,
   `Date` date NOT NULL,
   `Descriptif` text NOT NULL,
   `Titre` varchar(255) NOT NULL,
+  `Adresse` varchar(255) NOT NULL,
   `Nombre_max` int(11) NOT NULL,
-  `Id_Createur` int(11) NOT NULL,
-  `Id_Adresse` int(11) NOT NULL,
-  `Id_Type` int(11) NOT NULL
+  `Id_Createur` int(11) DEFAULT NULL,
+  `Id_Adresse` int(11) DEFAULT NULL,
+  `Id_Type` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `groupe`
+--
+
+INSERT INTO `groupe` (`Id_groupe`, `Horaire`, `Date`, `Descriptif`, `Titre`, `Adresse`, `Nombre_max`, `Id_Createur`, `Id_Adresse`, `Id_Type`) VALUES
+(2, NULL, '2020-02-28', 'qdsfddfdsfsf', 'srgfsgdfg', 'fsdfsdfsdf', 10, NULL, NULL, NULL),
+(3, NULL, '2020-02-28', 'qdsfddfdsfsf', 'srgfsgdfg', 'fsdfsdfsdf', 10, NULL, NULL, NULL),
+(4, NULL, '2018-03-04', 'qdcqdcqc', 'sqcqc', 'qscqcqsc', 23, NULL, NULL, NULL),
+(5, NULL, '2018-03-02', ';jhkjk', 'jyfjygjg', 'jhgjh', 20, NULL, NULL, NULL),
+(6, NULL, '2018-03-05', ',hjgj', 'jhgj', 'hhfhgf', 20, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `participant`
+-- Table structure for table `participant`
 --
 
 CREATE TABLE `participant` (
@@ -1585,7 +1591,7 @@ CREATE TABLE `participant` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `type_act_groupe`
+-- Table structure for table `type_act_groupe`
 --
 
 CREATE TABLE `type_act_groupe` (
@@ -1596,7 +1602,7 @@ CREATE TABLE `type_act_groupe` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur`
+-- Table structure for table `utilisateur`
 --
 
 CREATE TABLE `utilisateur` (
@@ -1612,18 +1618,19 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Dumping data for table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`Id_utilisateur`, `Nom`, `Prenom`, `Date_naissance`, `Sexe`, `Description`, `Photo`, `Mail`, `Mdp`) VALUES
-(1, '\".$n.\"', '\".$p.\"', NULL, NULL, NULL, NULL, '\".$mail.\"', '\".$mdp.\"');
+(464, 'lol', 'lol', NULL, NULL, NULL, NULL, 'lol', 'lol'),
+(466, 'fpa', 'lol', NULL, NULL, NULL, NULL, 'ok', 'ok');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `activite`
+-- Indexes for table `activite`
 --
 ALTER TABLE `activite`
   ADD PRIMARY KEY (`Id_activite`),
@@ -1631,31 +1638,25 @@ ALTER TABLE `activite`
   ADD KEY `Id_divers` (`Id_divers`);
 
 --
--- Index pour la table `adresse`
+-- Indexes for table `adresse`
 --
 ALTER TABLE `adresse`
   ADD PRIMARY KEY (`Id_adresse`);
 
 --
--- Index pour la table `culture`
+-- Indexes for table `culture`
 --
 ALTER TABLE `culture`
   ADD PRIMARY KEY (`Id_culture`);
 
 --
--- Index pour la table `divers`
+-- Indexes for table `divers`
 --
 ALTER TABLE `divers`
   ADD PRIMARY KEY (`Id_divers`);
 
 --
--- Index pour la table `evenement`
---
-ALTER TABLE `evenement`
-  ADD PRIMARY KEY (`id_eve`);
-
---
--- Index pour la table `groupe`
+-- Indexes for table `groupe`
 --
 ALTER TABLE `groupe`
   ADD PRIMARY KEY (`Id_groupe`),
@@ -1664,52 +1665,51 @@ ALTER TABLE `groupe`
   ADD KEY `Id_Createur` (`Id_Createur`);
 
 --
--- Index pour la table `participant`
+-- Indexes for table `participant`
 --
 ALTER TABLE `participant`
-  ADD PRIMARY KEY (`Id_groupe`,`Id_utilisateur`);
+  ADD PRIMARY KEY (`Id_groupe`,`Id_utilisateur`),
+  ADD KEY `Id_utilisateur` (`Id_utilisateur`);
 
 --
--- Index pour la table `type_act_groupe`
+-- Indexes for table `type_act_groupe`
 --
 ALTER TABLE `type_act_groupe`
   ADD PRIMARY KEY (`Id_Type`);
 
 --
--- Index pour la table `utilisateur`
+-- Indexes for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`Id_utilisateur`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `groupe`
+-- AUTO_INCREMENT for table `groupe`
 --
 ALTER TABLE `groupe`
-  MODIFY `Id_groupe` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `Id_groupe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT pour la table `utilisateur`
+-- AUTO_INCREMENT for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `Id_utilisateur` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_utilisateur` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=467;
+--
+-- Constraints for dumped tables
+--
 
 --
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `activite`
+-- Constraints for table `activite`
 --
 ALTER TABLE `activite`
   ADD CONSTRAINT `activite_ibfk_1` FOREIGN KEY (`Id_culture`) REFERENCES `culture` (`Id_culture`),
   ADD CONSTRAINT `activite_ibfk_2` FOREIGN KEY (`Id_divers`) REFERENCES `divers` (`Id_divers`);
 
 --
--- Contraintes pour la table `groupe`
+-- Constraints for table `groupe`
 --
 ALTER TABLE `groupe`
   ADD CONSTRAINT `groupe_ibfk_1` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
@@ -1717,3 +1717,14 @@ ALTER TABLE `groupe`
   ADD CONSTRAINT `groupe_ibfk_3` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
   ADD CONSTRAINT `groupe_ibfk_4` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
   ADD CONSTRAINT `groupe_ibfk_5` FOREIGN KEY (`Id_Createur`) REFERENCES `utilisateur` (`Id_utilisateur`);
+
+--
+-- Constraints for table `participant`
+--
+ALTER TABLE `participant`
+  ADD CONSTRAINT `participant_ibfk_1` FOREIGN KEY (`Id_utilisateur`) REFERENCES `utilisateur` (`Id_utilisateur`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

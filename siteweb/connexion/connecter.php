@@ -30,7 +30,7 @@ media="screen"	/>
 		
 		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
 		
-		echo "<meta http-equiv='refresh' content='2; URL=pageA.php'>";
+		echo "<meta http-equiv='refresh' content='2; URL=../index.php'>";
 	}
 	else{
 		echo "<meta http-equiv='refresh' content='2; URL=connecIns.php?mail=".$mail."'>";

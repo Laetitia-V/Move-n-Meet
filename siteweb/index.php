@@ -12,12 +12,11 @@ session_start()
 <body>
 
 <?php if(isset($_SESSION['utilisateur'])){
-echo "Bonjour ".$_SESSION['utilisateur'][1]."";
-			echo "<a href='deconnexion.php'> deconnexion </a>";
+			echo "<a id='connec' href='connexion/deconnexion.php'> deconnexion </a>";
 			}
 			
 	else{
-	echo "<a id='connec' href='connecIns.php' > S'inscrire/Se connecter </a>"; }
+	echo "<a id='connec' href='connexion/connecIns.php' > S'inscrire/Se connecter </a>"; }
 ?>
 
 <span><img src="images/logo-copie.png" alt="logo"></span>
@@ -28,12 +27,16 @@ echo "Bonjour ".$_SESSION['utilisateur'][1]."";
 <span><a href="bons_plans.html">BONS PLANS </a></span>
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVENEMENTS</a> </span>
+</p>
 
+<?php if(isset($_SESSION['utilisateur'])){
+echo "Bonjour ".$_SESSION['utilisateur'][1]." !";}
+?>
 
 <form>
 <input type="texte" name="Bar, restaurant, événement,..." id=texte />
 </form>
-</p>
+
 
 <FORM>
 <span class="select-wrapper">

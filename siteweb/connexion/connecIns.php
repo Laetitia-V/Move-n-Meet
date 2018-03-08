@@ -9,15 +9,15 @@ $n = isset($_GET['n']) ?  $_GET['n'] : "";
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <link rel="stylesheet" href="styles/style_ins.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="../styles/style_ins.css" type="text/css" media="screen" />
 <title>Move n' Meet</title>
 
 
 </head>
 
 <body>
-<span><a href="pageA"> <img src="images/logo-copie.png" alt="logo"></a></span>
-<span><a href="pageA"><img src="images/titre.png" alt="titre"/></a></span>
+<span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
+<span><a href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
 
 
 

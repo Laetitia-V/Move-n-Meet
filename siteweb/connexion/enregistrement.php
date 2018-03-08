@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +15,7 @@ function enregistrer($n,$p,$mail,$mdp)
 		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 		$sql= "INSERT INTO utilisateur (Id_utilisateur, nom, prenom, mail, mdp) VALUES (NULL,'".$n."','".$p."','".$mail."','".$mdp."')";
 		$rep = $bdd->query($sql);
+		$_SESSION['client']=array($n, $p, $mail, $mdp);	
 		$rep ->closeCursor();
 		
 }
@@ -26,7 +31,7 @@ function enregistrer($n,$p,$mail,$mdp)
 	 }
 	 else{
 		enregistrer($_GET['n'],$_GET['p'],$_GET['mail'],$_GET['mdp1']);
-		echo "<meta http-equiv='refresh' content='1; URL=pageA.php'>" ;
+		echo "<meta http-equiv='refresh' content='1; URL=../index.php'>" ;
 	 }
 ?>
 

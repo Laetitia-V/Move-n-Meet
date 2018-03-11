@@ -33,13 +33,13 @@
 
 <p>Je cherche à : </p>
 <FORM method="get" action="trouver.php" autocomplete="off">
-Manger :<INPUT type="checkbox" name="genre" value=<?php echo $_GET['manger'] ?>><br />
-Boire un verre :<INPUT type="checkbox" name="genre" value=<?php echo $_GET['boire'] ?>><br />
-Sortir :<INPUT type="checkbox" name="genre" value=<?php echo $_GET['sortir'] ?>><br />
-Me promener : <INPUT type="checkbox" name="genre" value=<?php echo $_GET['promener'] ?>><br />
-Me baigner :<INPUT type="checkbox" name="genre" value=<?php echo $_GET['baigner'] ?>><br />
-Me cultiver : <INPUT type="checkbox" name="genre" value=<?php echo $_GET['cultiver'] ?>><br />
-Faire du sport :<INPUT type="checkbox" name="genre" value=<?php echo $_GET['sport'] ?>>
+Manger :<INPUT type="radio" name="genre" value=<?php echo $_GET['manger'] ?>><br />
+Boire un verre :<INPUT type="radio" name="genre" value=<?php echo $_GET['boire'] ?>><br />
+Sortir :<INPUT type="radio" name="genre" value=<?php echo $_GET['sortir'] ?>><br />
+Me promener : <INPUT type="radio" name="genre" value=<?php echo $_GET['promener'] ?>><br />
+Me baigner :<INPUT type="radio" name="genre" value=<?php echo $_GET['baigner'] ?>><br />
+Me cultiver : <INPUT type="radio" name="genre" value=<?php echo $_GET['cultiver'] ?>><br />
+Faire du sport :<INPUT type="radio" name="genre" value=<?php echo $_GET['sport'] ?>>
 <INPUT type="submit" value="Rechercher">
 </FORM> 
 

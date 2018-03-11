@@ -20,27 +20,28 @@
 <span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVENEMENTS</a> </span>
 
-<?php
+<//?php
 $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-$manger="";
-$boire="";
-$sortir="";
-$promener="";
-$baigner='';
-$cultiver="";
-$sport="";
-if (isset($_GET['Rechercher'])){
-	if(isset($_GET['choix'])) {
-		$tab = $_GET['choix'];
-		$manger = in_array("mange",$tab) ? "checked" : "";
-		$boire = in_array("bois",$tab) ? "checked" : ""; 
-		$sortir = in_array("sors",$tab) ? "checked" : "";
-		$promener = in_array("promene",$tab) ? "checked" : "";
-		$cultiver = in_array("cultive",$tab) ? "checked" : "";
-		$sport = in_array("pratique",$tab) ? "checked" : "";
-	}
-	$rep = $bdd->query('select * from movenmeet where');
+$choix=$_GET['choix'];
+echo $choix;
+
 }
+?>
+<?php
+
+	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+
+
+	
+	if(isset($_GET['choix'])) {
+		$choix=$_GET['choix'];
+
+		$reponse = $bdd->query('select * from  '.$choix.' ');
+		while($donne = $reponse->fetch()){
+		echo $donne['Nom'];?><br><?php		
+		}
+
+	}
 ?>
 
 </body>

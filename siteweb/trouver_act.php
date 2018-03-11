@@ -8,7 +8,7 @@
 
 <body>
 
-<body>
+
 <p > <a id="connec" href="connecIns.html" >S'inscrire/Se connecter</a> </p>
 
 <span><img src="images/logo-copie.png" alt="logo"></span>
@@ -21,7 +21,7 @@
 <span><a href="evenements.php"> ÉVENEMENTS</a> </span>
 
 <p>Je cherche à : </p>
-<FORM method="get" action="trouver.php" autocomplete="off">
+<!--<FORM method="get" action="trouver.php" autocomplete="off">
 Manger :<INPUT type="checkbox" name="choix[]" value="mange"<?php echo $_GET['manger'] ?>><br />
 Boire un verre :<INPUT type="checkbox" name="choix[]" value="bois"<?php echo $_GET['boire'] ?>><br />
 Sortir :<INPUT type="checkbox" name="choix[]" value="sors"<?php echo $_GET['sortir'] ?>><br />
@@ -30,7 +30,17 @@ Me baigner :<INPUT type="checkbox" name="choix[]" value="baigne"<?php echo $_GET
 Me cultiver : <INPUT type="checkbox" name="choix[]" value="cultive"<?php echo $_GET['cultiver'] ?>><br />
 Faire du sport :<INPUT type="checkbox" name="choix[]" value="pratique"<?php echo $_GET['sport'] ?>>
 <INPUT type="submit" name ="rechercher" value="Rechercher">
-</FORM> 
+</FORM> -->
+<FORM method="GET" action="trouver.php" >
 
+Manger :<INPUT type="radio" name="choix" id="choix" value="etablissement"><br />
+Boire un verre :<INPUT type="radio" name="choix" id="choix" value="etablissement"><br />
+Sortir :<INPUT type="radio" name="choix" id="choix" value="divers"><br />
+Me promener : <INPUT type="radio" name="choix" id="choix" value="exterieure"><br />
+Me baigner :<INPUT type="radio" name="choix" id="choix" value="exterieure"><br />
+Me cultiver : <INPUT type="radio" name="choix" id="choix" value="culture"><br />
+Faire du sport :<INPUT type="radio" name="choix" id="choix" value="divers">
+<INPUT type="submit" value="Rechercher">
+</FORM>
 </body>
 </html>

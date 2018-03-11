@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,10 +15,10 @@
 <span><img src="images/titre.png" alt="titre"/></span>
 
 <p class="onglets">
-<span><a href="trouver_act.html"> TROUVER UNE ACTIVITÉ</a></span>
+<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
 <span><a href="bons_plans.html">BONS PLANS </a></span>
-<span><a href="act_grp.html"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.html"> ÉVENEMENTS</a> </span>
+<span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
+<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
 
 <?php
 $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
@@ -38,10 +38,10 @@ if (isset($_GET['Rechercher'])){
 		$promener = in_array("promene",$tab) ? "checked" : "";
 		$cultiver = in_array("cultive",$tab) ? "checked" : "";
 		$sport = in_array("pratique",$tab) ? "checked" : "";
-
 	}
+	$rep = $bdd->query('select * from movenmeet where');
 }
 ?>
 
 </body>
-</html>j
+</html>

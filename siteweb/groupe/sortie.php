@@ -48,6 +48,8 @@
 	// Bouton Inscription
 if(isset($_SESSION['utilisateur'])){
 	echo('<form action="rejoindre.php" method="get" autocomplete="off">
+		  
+		  <input type="hidden" name="id" value="'.$_GET['id'].'">
 		  <input type="submit" value="Rejoindre">
 	</form>'); 
 }

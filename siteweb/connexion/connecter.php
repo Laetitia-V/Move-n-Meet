@@ -1,5 +1,6 @@
 <?php
 session_start();
+$h = isset($_GET['h']) ?  $_GET['h'] : NULL;
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,9 +30,16 @@ media="screen"	/>
 		$photo=$ligne['Photo'];
 		
 		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
-		
+		if($h=="1"){
+			echo "<meta http-equiv='refresh' content='2; URL=../groupe/creation.php'>";
+		}
+		elseif($h=="2"){
+			echo "<meta http-equiv='refresh' content='2; URL=../groupe/groupe.php'>";
+		}
+		else{
 		echo "<meta http-equiv='refresh' content='2; URL=../index.php'>";
-	}
+		}
+		}
 	else{
 		echo "<meta http-equiv='refresh' content='2; URL=connecIns.php?mail=".$mail."'>";
 

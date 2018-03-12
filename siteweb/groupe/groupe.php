@@ -44,7 +44,7 @@
 </table> 
 
 <?php
-
+// Bouton Creation
 if(isset($_SESSION['utilisateur'])){
 	echo('<form action="creation.php" method="get" autocomplete="off">
 		  <input type="submit" value="Creation">
@@ -52,6 +52,7 @@ if(isset($_SESSION['utilisateur'])){
 }
 else{
 	echo ('<form action="../connexion/connecIns.php" method="get" autocomplete="off">
+		  <input type="hidden" name="h" value="1">
 		  <input type="submit" value="Creation">
 	</form>');
 }

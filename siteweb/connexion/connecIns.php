@@ -1,14 +1,12 @@
 <?php
 
-<<<<<<< HEAD
+
 $n = isset($_GET['n']) ?  $_GET['n'] : "";
 $p = isset($_GET['p']) ?  $_GET['p'] : "";
 $mail = isset($_GET['mail']) ?  $_GET['mail'] : "";
 
-=======
 $n = isset($_GET['n']) ?  $_GET['n'] : "" ;
 $h = isset($_GET['h']) ?  $_GET['h'] : NULL;
->>>>>>> 20d06f2e21fa787daecb4ca356288750566b4f8c
 ?>
 
 

@@ -28,11 +28,17 @@
 	
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 	$doublon = $bdd -> query("Select * from participant Where id_groupe='".$idGroupe."' AND id_utilisateur='".$idUser."'");
+	$d = $doublon -> fetch();
+	if($d){
+		echo "Vous êtes déja inscrit";
+		
+	}
+	else{
 	$rej = "INSERT INTO participant (Id_groupe, Id_utilisateur) VALUES ('".$idGroupe."','".$idUser."')";
-	echo $rej;
 	$req = $bdd->query($rej);
 	$req -> closeCursor();
 	echo "Vous avez bien rejoint l'activité de groupe ";
+	}
 	echo "<meta http-equiv='refresh' content='3; URL=../index.php'>";
 	
 // ?>

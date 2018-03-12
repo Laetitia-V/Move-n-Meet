@@ -1,10 +1,7 @@
 <?php
 	session_start();
-	// $titre=$_GET['titre'];
-	// $date=$_GET['date'];
-	// $desc=$_GET['desc'];
-	// $adr=$_GET['adr'];
-	// $nbMax=$_GET['max'];
+	$idGroupe=$_GET['id'];
+	$idUser=$_SESSION['utilisateur'][0];
 ?>
 <!doctype html>
 <html>
@@ -28,8 +25,10 @@
 
 // <?php
 	
+	
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	$rej = "INSERT INTO participant (Id_groupe, Id_utilisateur) VALUES ('".$_GET['id']."','".$_SESSION['utilisateur'][0]."')";
+	$doublon = $bdd -> query("Select * from participant Where id_groupe='".$idGroupe."' AND id_utilisateur='".$idUser."'");
+	$rej = "INSERT INTO participant (Id_groupe, Id_utilisateur) VALUES ('".$idGroupe."','".$idUser."')";
 	echo $rej;
 	$req = $bdd->query($rej);
 	$req -> closeCursor();

@@ -28,12 +28,13 @@
 
 // <?php
 	
-	// $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	// $sql = "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max) VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."')";
-	// $rep = $bdd->query($sql);
-	// $rep -> closeCursor();
-	// echo "Votre sortie a bien été enregistré";
-	// echo "<meta http-equiv='refresh' content='3; URL=../index.php'>";
+	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+	$rej = "INSERT INTO participant (Id_groupe, Id_utilisateur) VALUES ('".$_GET['id']."','".$_SESSION['utilisateur'][0]."')";
+	echo $rej;
+	$req = $bdd->query($rej);
+	$req -> closeCursor();
+	echo "Vous avez bien rejoint l'activité de groupe ";
+	echo "<meta http-equiv='refresh' content='3; URL=../index.php'>";
 	
 // ?>
 

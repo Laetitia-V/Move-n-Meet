@@ -1,6 +1,8 @@
 <?php
 
 $n = isset($_GET['n']) ?  $_GET['n'] : "";
+$p = isset($_GET['p']) ?  $_GET['p'] : "";
+$mail = isset($_GET['mail']) ?  $_GET['mail'] : "";
 
 ?>
 
@@ -30,12 +32,12 @@ Nom :
       </p>
 <p>
 Prénom :
-            <input type="text" name="p" value="<?php if(isset($_GET['p'])) echo $_GET['p']; ?>"/>
+            <input type="text" name="p" value="<?php echo $p ?>"/>
       </p>
 <p>
 
 Adresse mail :
-            <input type="text" name="mail" value="<?php if(isset($_GET['mail'])) echo $_GET['mail']; ?>"/>
+            <input type="text" name="mail" value="<?php echo $mail ?>"/>
       </p>
    
 <p>
@@ -60,7 +62,7 @@ Confirmation du mot de passe :
 <p class="titre"> Connexion </p>
       <p>
 Adresse mail :
-            <input type="text" name="mail" value="<?php if(isset($_GET['mail'])) echo $_GET['mail']; ?>"/>
+            <input type="text" name="mail" value="<?php echo $mail ?>"/>
       </p>
       <p>
 Mot de passe :

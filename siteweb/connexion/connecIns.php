@@ -1,9 +1,14 @@
 <?php
 
+<<<<<<< HEAD
 $n = isset($_GET['n']) ?  $_GET['n'] : "";
 $p = isset($_GET['p']) ?  $_GET['p'] : "";
 $mail = isset($_GET['mail']) ?  $_GET['mail'] : "";
 
+=======
+$n = isset($_GET['n']) ?  $_GET['n'] : "" ;
+$h = isset($_GET['h']) ?  $_GET['h'] : NULL;
+>>>>>>> 20d06f2e21fa787daecb4ca356288750566b4f8c
 ?>
 
 
@@ -60,6 +65,7 @@ Confirmation du mot de passe :
 <form action="connecter.php" method="get" autocomplete="off">
 <div id="connec">
 <p class="titre"> Connexion </p>
+		<input type="hidden" name="h" value="<?php echo $h  ?>" />
       <p>
 Adresse mail :
             <input type="text" name="mail" value="<?php echo $mail ?>"/>

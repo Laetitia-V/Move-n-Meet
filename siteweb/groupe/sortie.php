@@ -45,5 +45,17 @@
 			}	
 	
 	$rep -> closeCursor();	
+	// Bouton Inscription
+if(isset($_SESSION['utilisateur'])){
+	echo('<form action="rejoindre.php" method="get" autocomplete="off">
+		  <input type="submit" value="Rejoindre">
+	</form>'); 
+}
+else{
+	echo ('<form action="../connexion/connecIns.php" method="get" autocomplete="off">
+		  <input type="hidden" name="h" value="2">
+		  <input type="submit" value="Rejoindre">
+	</form>');
+}
 	
 ?>

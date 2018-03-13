@@ -30,12 +30,8 @@ echo $choix;
 <?php
 
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-
-
-	
 	if(isset($_GET['choix'])) {
 		$choix=$_GET['choix'];
-
 		$reponse = $bdd->query('select * from  '.$choix.' ');
 		while($donne = $reponse->fetch()){
 		echo $donne['Nom'];?><br><?php		

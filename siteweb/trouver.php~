@@ -30,15 +30,27 @@ echo $choix;
 <?php
 
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+	//$choix=$_GET['choix'];
+	//$souschoix=$_GET['souschoix'];
 	if(isset($_GET['choix'])) {
-		$choix=$_GET['choix'];
-		$reponse = $bdd->query('select * from  '.$choix.' ');
-		while($donne = $reponse->fetch()){
-		echo $donne['Nom'];?><br><?php		
+		if(isset($_GET['souschoix'])){
+			$choix=$_GET['choix'];
+			$souschoix=$_GET['souschoix'];
+			$reponse = $bdd->query('select * from  '.$choix.' where Type="'.$souschoix.'" ');
+			while($donne = $reponse->fetch()){
+				echo $donne['Nom']."<br/>";
 		}
-
+		}
+		else {
+			$choix=$_GET['choix'];
+			$reponse = $bdd->query('select * from  '.$choix.' ');
+			while($donne = $reponse->fetch()){
+				echo $donne['Nom']."<br/>";
+				}
+		}
 	}
-?>
+
+	?>
 
 </body>
 </html>

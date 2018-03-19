@@ -78,7 +78,7 @@ function afficherAutre(){
 			k.style.display="none";
 			l.style.display="none";
 		}
-			if(document.getElementById("promener").checked==true){
+		if(document.getElementById("baigner").checked==true){
 		if(m.style.display=="none") 
 				m.style.display="block";
 		if(n.style.display=="none")
@@ -88,7 +88,7 @@ function afficherAutre(){
 		if(p.style.display=="none")
 				p.style.display="block";		
 		if(q.style.display=="none")
-				q.style.display="block";				}
+				q.style.display="block";		}		
 	else {
 			m.style.display ="none";
 			n.style.display="none";
@@ -122,7 +122,7 @@ function afficherAutre(){
 Manger :<INPUT type="radio" name="choix" id="choix" value="etablissement"> <br />
 Boire un verre :<INPUT type="radio" name="choix" id="boire" value="etablissement"><br />
 Sortir :<INPUT type="radio" name="choix" id="sortir" value="divers"><br />
-Me promener : <INPUT type="radio" name="choix" id="promener" value="exterieure"><br />
+Randonner : <INPUT type="radio" name="choix" id="promener" value="exterieure"><br />
 Me baigner :<INPUT type="radio" name="choix" id="baigner" value="exterieure"><br />
 Me cultiver : <INPUT type="radio" name="choix" id="choix5" value="culture"><br />
 Faire du sport :<INPUT type="radio" name="choix" id="choix6" value="divers">
@@ -137,8 +137,8 @@ Faire du sport :<INPUT type="radio" name="choix" id="choix6" value="divers">
 <span id="nuit" style="display: none"> Boîte de nuit </span><br/> <INPUT type="radio" name="souschoix" id="nuit1" value="nightclub" style="display: none"> <br/>
 <span id="cine" style="display: none"> Cinema </span><br/> <INPUT type="radio" name="souschoix" id="cine1" value="cinema" style="display: none"> <br/>
 
-<span id="riv" style="display: none"> Baignade en rivière </span><br/> <INPUT type="radio" name="souschoix" id="riv1" value="Baignade en Mer" style="display: none"> <br/>
-<span id="mer" style="display: none"> Baignade en mer </span><br/> <INPUT type="radio" name="souschoix" id="mer1" value="Baignade en Rivière" style="display: none"> <br/>
+<span id="riv" style="display: none"> Baignade en rivière </span><br/> <INPUT type="radio" name="souschoix" id="riv1" value="Baignade en Rivière" style="display: none"> <br/>
+<span id="mer" style="display: none"> Baignade en mer </span><br/> <INPUT type="radio" name="souschoix" id="mer1" value="Baignade en Mer" style="display: none"> <br/>
 
 </FORM>
 

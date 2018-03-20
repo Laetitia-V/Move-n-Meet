@@ -1,5 +1,5 @@
 *{
-		font-family: comic sans ms;
+		font-family: arial;
 		border: solid 2px;
 		overflow: scroll;
 }
@@ -54,5 +54,14 @@ span{
 	text-align: right;
 	width: 125px;
 }
-
-
+.activite{
+	margin-left: 10%;
+	border: solid 2px;
+	font-family: arial;
+	font-size: ;
+	float:left;
+	font-size: 27px;
+}
+.detail{
+	color: blue;
+}

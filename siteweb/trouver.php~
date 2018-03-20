@@ -41,6 +41,13 @@ echo $choix;
 				echo $donne['Nom']."<br/>";
 		}
 		}
+		elseif(id['choix']=='promener'){
+			$choix=$_GET['choix'];
+			$reponse = $bdd->query('select * from exterieure where Type="Randonnée" ');
+			while($donne = $reponse->fetch()){
+				echo $donne['Nom']."<br/>";
+				}
+			}
 		else {
 			$choix=$_GET['choix'];
 			$reponse = $bdd->query('select * from  '.$choix.' ');

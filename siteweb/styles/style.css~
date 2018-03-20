@@ -1,11 +1,10 @@
 *{
-		font-family: comic sans ms;
-		border: solid 2px;
-		overflow: visible;
+		font-family: arial;
+		/*border: solid 2px;*/
+		overflow: scroll;
 }
 body {
 	background-color: #A58ECD;
-	overflow: scroll;
 	width: 1500px;
 	height: 1000px;
 }
@@ -55,5 +54,14 @@ span{
 	text-align: right;
 	width: 125px;
 }
-
-
+.activite{
+	margin-left: 10%;
+	border: solid 2px;
+	font-family: arial;
+	font-size: ;
+	float:left;
+	font-size: 27px;
+}
+.detail{
+	color: blue;
+}

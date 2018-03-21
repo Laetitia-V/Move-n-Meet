@@ -58,16 +58,14 @@ option{
 	width: 125px;
 }
 .activite{
-	margin-left: 3%;
+	margin-left: 5%;
 	margin-top: 1%;
 	border: solid 2px;
 	font-family: "american typewriter",arial;
 	float:left;
 	font-size: 15px;
-	width: 25%;
 	border:solid 2px;
-	#background-color: rgba(0, 0, 0066, 0.4);
-	background-color: black;
+	background-color: rgba(0, 0, 0066, 0.4);
 }
 #tit{
 	font-size: 28px;

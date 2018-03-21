@@ -100,12 +100,12 @@ function afficherAutre(){
 <p class="onglets">
 <span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
 <span><a href="bons_plans.html">BONS PLANS </a></span>
-<span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
+<span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVENEMENTS</a> </span></p>
 
 <FORM name="critere" method="GET" action="trouver_act.php" onChange="afficherAutre()" >
-<div class="activite">
-<p >Je cherche à : 
+<div class="choix">
+<p id="tit">Je cherche à : 
 </p>
 Manger :<INPUT type="radio" name="choix" id="choix" value="etablissement">  
 <span id="resto" style="display:none">Restaurant </span> <INPUT type= "radio" name="souschoix" id="sc1" value="restaurant" style="display: none"> 
@@ -120,14 +120,14 @@ Sortir :<INPUT type="radio" name="choix" id="sortir" value="divers">
 <span id="nuit" style="display: none"> Boîte de nuit </span> <INPUT type="radio" name="souschoix" id="nuit1" value="nightclub" style="display: none"> 
 <span id="cine" style="display: none"> Cinema </span> <INPUT type="radio" name="souschoix" id="cine1" value="cinema" style="display: none"> <br/>
 
-Randonner : <INPUT type="radio" name="choix" id="promener" value="exterieure"><br />
+Randonner : <INPUT type="radio" name="promener" id="promener" value="exterieure"><br />
 
 Me baigner :<INPUT type="radio" name="choix" id="baigner" value="exterieure">
 <span id="riv" style="display: none"> Baignade en rivière </span> <INPUT type="radio" name="souschoix" id="riv1" value="Baignade en Rivière" style="display: none">
 <span id="mer" style="display: none"> Baignade en mer </span> <INPUT type="radio" name="souschoix" id="mer1" value="Baignade en Mer" style="display: none"> <br/>
 
 Me cultiver : <INPUT type="radio" name="choix" id="choix5" value="culture"><br />
-Faire du sport :<INPUT type="radio" name="choix" id="choix6" value="divers"> <br/><br/>
+Faire du sport :<INPUT type="radio" name="sport" id="choix6" value="divers"> <br/><br/>
 
 <INPUT type="submit" value="Rechercher" class="bouton">
 
@@ -149,26 +149,39 @@ Faire du sport :<INPUT type="radio" name="choix" id="choix6" value="divers"> <br
 				echo "</div>";
 		}
 		}
-		/*elseif(id['choix']=='promener'){
-			$choix=$_GET['choix'];
-			$reponse = $bdd->query('select * from exterieure where Type="Randonnée" ');
-			while($donne = $reponse->fetch()){
-				echo $donne['Nom']."<br/>";
-				}
-			}*/
 		else {
 			$choix=$_GET['choix'];
 			$reponse = $bdd->query('select * from  '.$choix.' ');
 			while($donne = $reponse->fetch()){
 				echo '<div class="activite">';
-				echo $donne['Nom']."<br/>";
-				echo "<img src='images/mtp.png'>";
-				echo $donne['Numero_Rue']." ";
-				echo $donne['Rue']."<br/>";
+				echo "<h1>".$donne['Nom']."<br/></h1>";
+				echo "<img src='images/cultu.jpg'>";
+				echo $donne['Numero_Rue']." ".$donne['Rue']." ".$donne['Ville']."<br/>";
 				echo "</div>";
 				}
 		}
 	}
+	if(isset($_GET['promener'])){
+			$reponse = $bdd->query('select * from exterieure where Type="Randonnée" ');
+			while($donne = $reponse->fetch()){
+				echo '<div class="activite">';
+				echo '<h1>';
+				echo $donne['Nom']."<br/>";
+				echo "</h1>";
+				echo "<img src='images/rando.jpg'>";
+				echo "<h2>Longueur de : </h2>".$donne['Longueur']."<br/><h2> Durée : </h2>".$donne['Duree']."<br/><h2> Difficulté : </h2>".$donne['Difficulté']."<br/><h2>".$donne['Depart']."</h2><h2> Description : </h2>".$donne['Description'];
+				echo "</div>";
+				}
+			}
+		if(isset($_GET['sport'])) {
+				$reponse = $bdd->query('select * from divers where Type="sport" ');
+			while($donne = $reponse->fetch()){
+				echo '<div class="activite">';
+				echo "<h1>".$donne['Nom']."<br/></h1>";
+				echo "<img src='images/sport.jpg'>";
+				echo "</div>";
+				}
+			}
 	?>
 
 

@@ -1,6 +1,6 @@
 *{
 		font-family: "american typewriter";
-		border: solid 2px;
+		aborder: solid 2px;
 		overflow: scroll;
 }
 body {
@@ -9,10 +9,10 @@ body {
 	width: 100%;
 	height: 100%;
 }
-/*
+
 img{
-	width:300px;
-	height:100px;}*/
+	max-width: 100%;
+	height:100px;}
 
 .ongletsPageA {
 	background-image: url("../images/mtp_accueil.jpg");
@@ -58,16 +58,38 @@ option{
 	width: 125px;
 }
 .activite{
+	margin-left: 3%;
+	margin-top: 1%;
+	border: solid 2px;
+	font-family: "american typewriter",arial;
+	float:left;
+	font-size: 15px;
+	width: 25%;
+	border:solid 2px;
+}
+#tit{
+	font-size: 28px;
+	text-align: center;
+	font-weight: bolder;
+}
+.choix{
 	margin-left: 5%;
 	border: solid 2px;
 	font-family: "american typewriter",arial;
-	font-size: ;
 	float:left;
 	font-size: 27px;
 	display: table-cell;
 	width: 25%;
 	border:solid 2px;
-	
+}
+h1{
+font-weight: bold;
+font-size: 20px;
+text-align: center;
+}
+h2{
+font-style: italic;
+font-size: 16px;
 }
 .detail{
 	color: blue;
@@ -84,7 +106,7 @@ option{
 	margin:auto;
 }
 .bouton11{
-	width: 100px;
+	width: 150px;
 	margin-top: 1%;
 	abackground-color: #9683EC;
 	background-color: #CCCCFF;

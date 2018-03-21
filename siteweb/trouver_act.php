@@ -91,8 +91,8 @@ function afficherAutre(){
 
 <body>
 
+<a class="bouton11" id="connec" href="connecIns.html" >S'inscrire/Se connecter</a>
 
-<p > <a id="connec" href="connecIns.html" >S'inscrire/Se connecter</a> </p>
 
 <span><img src="images/logo-copie.png" alt="logo"></span>
 <span><img src="images/titre.png" alt="titre"/></span>
@@ -101,7 +101,7 @@ function afficherAutre(){
 <span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
 <span><a href="bons_plans.html">BONS PLANS </a></span>
 <span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
+<span><a href="evenements.php"> ÉVENEMENTS</a> </span></p>
 
 <FORM name="critere" method="GET" action="trouver_act.php" onChange="afficherAutre()" >
 <div class="activite">
@@ -127,9 +127,9 @@ Me baigner :<INPUT type="radio" name="choix" id="baigner" value="exterieure">
 <span id="mer" style="display: none"> Baignade en mer </span> <INPUT type="radio" name="souschoix" id="mer1" value="Baignade en Mer" style="display: none"> <br/>
 
 Me cultiver : <INPUT type="radio" name="choix" id="choix5" value="culture"><br />
-Faire du sport :<INPUT type="radio" name="choix" id="choix6" value="divers"> <br/>
+Faire du sport :<INPUT type="radio" name="choix" id="choix6" value="divers"> <br/><br/>
 
-<INPUT type="submit" value="Rechercher">
+<INPUT type="submit" value="Rechercher" class="bouton">
 
 </div>
 </FORM>
@@ -144,21 +144,28 @@ Faire du sport :<INPUT type="radio" name="choix" id="choix6" value="divers"> <br
 			$souschoix=$_GET['souschoix'];
 			$reponse = $bdd->query('select * from  '.$choix.' where Type="'.$souschoix.'" ');
 			while($donne = $reponse->fetch()){
+				echo '<div class="activite">';
 				echo $donne['Nom']."<br/>";
+				echo "</div>";
 		}
 		}
-		elseif(id['choix']=='promener'){
+		/*elseif(id['choix']=='promener'){
 			$choix=$_GET['choix'];
 			$reponse = $bdd->query('select * from exterieure where Type="Randonnée" ');
 			while($donne = $reponse->fetch()){
 				echo $donne['Nom']."<br/>";
 				}
-			}
+			}*/
 		else {
 			$choix=$_GET['choix'];
 			$reponse = $bdd->query('select * from  '.$choix.' ');
 			while($donne = $reponse->fetch()){
-				echo '<div class="detail">'.$donne['Nom']."</div>";
+				echo '<div class="activite">';
+				echo $donne['Nom']."<br/>";
+				echo "<img src='images/mtp.png'>";
+				echo $donne['Numero_Rue']." ";
+				echo $donne['Rue']."<br/>";
+				echo "</div>";
 				}
 		}
 	}

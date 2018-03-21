@@ -66,6 +66,7 @@ option{
 	font-size: 15px;
 	width: 25%;
 	border:solid 2px;
+	background-color: rgba(0, 0, 0066, 0.4);
 }
 #tit{
 	font-size: 28px;

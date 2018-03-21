@@ -108,23 +108,23 @@ function afficherAutre(){
 <p id="tit">Je cherche à : 
 </p>
 Manger :<INPUT type="radio" name="choix" id="choix" value="etablissement">  
-<span id="resto" style="display:none">Restaurant </span> <INPUT type= "radio" name="souschoix" id="sc1" value="restaurant" style="display: none"> 
-<span id="ff" style="display:none">Fast-food</span> <INPUT type="radio" name="souschoix" id="sc2" value="fast_food" style="display: none"><br/>
+<span id="resto" style="display:none">Restaurant </span> <INPUT type= "radio" name="souschoix1" id="sc1" value="restaurant" style="display: none"> 
+<span id="ff" style="display:none">Fast-food</span> <INPUT type="radio" name="souschoix1" id="sc2" value="fast_food" style="display: none"><br/>
 
 Boire un verre :<INPUT type="radio" name="choix" id="boire" value="etablissement"> 
-<span id="bar" style="display: none"> Bar </span><INPUT type="radio" name="souschoix" id="bar1" value="bar" style="display: none"> 
-<span id="cafe" style="display: none"> Café </span> <INPUT type="radio" name="souschoix" id="cafe1" value="cafe" style="display: none"> <br/>
+<span id="bar" style="display: none"> Bar </span><INPUT type="radio" name="souschoix2" id="bar1" value="bar" style="display: none"> 
+<span id="cafe" style="display: none"> Café </span> <INPUT type="radio" name="souschoix2" id="cafe1" value="cafe" style="display: none"> <br/>
 
 
 Sortir :<INPUT type="radio" name="choix" id="sortir" value="divers">
-<span id="nuit" style="display: none"> Boîte de nuit </span> <INPUT type="radio" name="souschoix" id="nuit1" value="nightclub" style="display: none"> 
-<span id="cine" style="display: none"> Cinema </span> <INPUT type="radio" name="souschoix" id="cine1" value="cinema" style="display: none"> <br/>
+<span id="nuit" style="display: none"> Boîte de nuit </span> <INPUT type="radio" name="souschoix3" id="nuit1" value="nightclub" style="display: none"> 
+<span id="cine" style="display: none"> Cinema </span> <INPUT type="radio" name="souschoix3" id="cine1" value="cinema" style="display: none"> <br/>
 
 Randonner : <INPUT type="radio" name="promener" id="promener" value="exterieure"><br />
 
 Me baigner :<INPUT type="radio" name="choix" id="baigner" value="exterieure">
-<span id="riv" style="display: none"> Baignade en rivière </span> <INPUT type="radio" name="souschoix" id="riv1" value="Baignade en Rivière" style="display: none">
-<span id="mer" style="display: none"> Baignade en mer </span> <INPUT type="radio" name="souschoix" id="mer1" value="Baignade en Mer" style="display: none"> <br/>
+<span id="riv" style="display: none"> Baignade en rivière </span> <INPUT type="radio" name="souschoix4" id="riv1" value="Baignade en Rivière" style="display: none">
+<span id="mer" style="display: none"> Baignade en mer </span> <INPUT type="radio" name="souschoix4" id="mer1" value="Baignade en Mer" style="display: none"> <br/>
 
 Me cultiver : <INPUT type="radio" name="choix" id="choix5" value="culture"><br />
 Faire du sport :<INPUT type="radio" name="sport" id="choix6" value="divers"> <br/><br/>
@@ -136,19 +136,56 @@ Faire du sport :<INPUT type="radio" name="sport" id="choix6" value="divers"> <br
 
 <?php
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	//$choix=$_GET['choix'];
-	//$souschoix=$_GET['souschoix'];
 	if(isset($_GET['choix'])) {
-		if(isset($_GET['souschoix'])){
+		if(isset($_GET['souschoix1'])){
 			$choix=$_GET['choix'];
-			$souschoix=$_GET['souschoix'];
+			$souschoix=$_GET['souschoix1'];
 			$reponse = $bdd->query('select * from  '.$choix.' where Type="'.$souschoix.'" ');
 			while($donne = $reponse->fetch()){
 				echo '<div class="activite">';
-				echo $donne['Nom']."<br/>";
+				echo "<h1>".$donne['Nom']."<br/></h1>";
+				if(isset($donne['Photo'])){
+					echo $donne['Photo'];}
+				else {
+					echo "<img src='images/resto.jp2'>";
+			}
+				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>".$donne['Cuisine'];
 				echo "</div>";
 		}
 		}
+		if(isset($_GET['souschoix2'])){
+			$choix=$_GET['choix'];
+			$souschoix=$_GET['souschoix2'];
+			$reponse = $bdd->query('select * from  '.$choix.' where Type="'.$souschoix.'" ');
+			while($donne = $reponse->fetch()){
+				echo '<div class="activite">';
+				echo "<h1>".$donne['Nom']."<br/></h1>";
+				echo "<img src='images/verre.jpg'><br/>";
+				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>".$donne['Cuisine'];
+				echo "</div>";
+		}
+		}
+			if(isset($_GET['souschoix3'])){
+			$choix=$_GET['choix'];
+			$souschoix=$_GET['souschoix3'];
+			$reponse = $bdd->query('select * from  '.$choix.' where Type="'.$souschoix.'" ');
+			while($donne = $reponse->fetch()){
+				echo '<div class="activite">';
+				echo "<h1>".$donne['Nom']."<br/></h1>";
+				echo "<img src='images/sort.jpg'>";
+				echo "</div>";
+		}}
+			if(isset($_GET['souschoix4'])){
+			$choix=$_GET['choix'];
+			$souschoix=$_GET['souschoix4'];
+			$reponse = $bdd->query('select * from  '.$choix.' where Type="'.$souschoix.'" ');
+			while($donne = $reponse->fetch()){
+				echo '<div class="activite">';
+				echo "<h1>".$donne['Nom']."<br/></h1>";
+				echo "<img src='images/baignade.jpg'><br/>";
+				echo "<h2>Ville : </h2>".$donne['Ville']." <br/>".$donne['Distance']." <br/> ". $donne['Eau']."<br/>Classement : ".$donne['Classement']."<br/>".$donne['Description'];
+				echo "</div>";
+		}}
 		else {
 			$choix=$_GET['choix'];
 			$reponse = $bdd->query('select * from  '.$choix.' ');

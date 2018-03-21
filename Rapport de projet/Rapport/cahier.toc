@@ -1,0 +1,9 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Gestion de projet}{2}
+\contentsline {section}{\numberline {3}Description technique}{2}
+\contentsline {section}{\numberline {4}Description fonctionnelle}{2}
+\contentsline {section}{\numberline {5}Conclusions}{4}
+\contentsline {subsection}{\numberline {A}R\IeC {\'e}sum\IeC {\'e} de la contribution}{4}
+\contentsline {subsection}{\numberline {B}Difficult\IeC {\'e}s rencontr\IeC {\'e}es}{4}
+\contentsline {subsection}{\numberline {C}Perspectives}{4}

@@ -1,0 +1,154 @@
+\documentclass{article}
+
+\usepackage[svgnames]{xcolor}
+
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{graphicx}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=2.5cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{Rapport de projet}
+\fancyhead[L]{Aliénor Roussel, Laëtitia Viau, 
+\newline Thibault Souvannavong, Abdellatif Ben Mlah}
+\fancyfoot[C]{}
+
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[C]{\textbf{Page \thepage}}
+
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{document}
+
+\begin{titlepage}
+  \begin{sffamily}
+  \begin{center}
+
+    \textsc{\LARGE Rapport de projet}\\[1cm]
+
+    % Title
+    \HRule \\[0.1cm]
+ \includegraphics[scale=0.12]{logo.png}
+    
+    \HRule \\[1cm]
+    \begin{center}
+       \includegraphics[scale=2.2]{photo_couv.jpg}
+          \\[0.5cm]
+       \end{center} 
+ 
+\Large{Aliénor Roussel, Laëtitia Viau, Thibault Souvannavong et Abdellatif Ben Mlah}
+
+\vfill 
+\vfill
+
+    {\large Projet Licence 3 MIASHS 2017-2018}
+\includegraphics[scale=0.2]{fac.png}
+  \end{center}
+  \end{sffamily}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+L'enjeux de notre projet est d'apporter une interface web permettant d’élaborer une liste d’activités à faire et des bons plans sur Montpellier et ses alentours. A travers ce site web, ses utilisateurs ont également la possibilité de proposer et/ou de rejoindre des activités de groupe. En effet, nous souhaitons offrir la possibilité aux utilisateurs de faire de nouvelles rencontres.\\
+Pour cela, différents critères de recherche en fonction des préférences de l’utilisateur ont été mis en place.\\
+Un utilisateur peut donc à la fois rechercher des idées d'activités et à la fois créer ou rejoindre des activités avec d'autres personnes.
+Notre domaine d'application se limite à Montpellier et ses alentours afin de proposer des types d'activités variés dans le but de répondre aux demandes de chaque utilisateur.
+
+
+\section{Gestion de projet}
+
+\textbf{ Tableau de la contribution de chacun par tâche}
+
+N'ayant pas encore eu les enseignements sur la création de page web dynamique au premier semestre nous avons fais une estimation de planning pour notre projet.
+Il s'est avéré que ce planning a été grandement modifié. 
+En effet, nous avons commencer la création des pages html et la création des feuilles de style CSS en même temps puisque il s'est avéré que les deux étaient liés.
+De plus, la conception de la base de donnée a été plus longue que prévu du fait du manque de données : beaucoup d'informations étaient manquantes dans les données que nous avions récoltées au premier semestre. Nous avons donc nous y adapter.\\
+La quantité et la complexité des tables que nous avons du mettre en place pour avoir au final une base claire et logique a également participé à la durée de la tâche.\\
+Il a par ailleurs fallu s'adapter à des contre-temps tel que le blocage de la faculté et donc le manque de compétences dans certaines branches de programmation. 
+Nous avons donc dû faire des choix pour rendre le projet à temps et n'avons pas pu mettre en place le système de localisation sur carte des activités. \\
+Également nous avons dû chercher comment mettre en place certaines fonctionnalités du site sur internet à cause du retard dans certaines matières (JavaScript). 
+
+
+\section{Description technique}
+\begin{description}
+\item \textbf{Liste des technologies utilisées}
+\begin{itemize}
+\item Git
+\item Php
+\item Javascript
+\item Mamp
+\item Bluefish
+\item LaTex
+\end{itemize}
+\end{description}
+Schéma de l'architecture de l'application
+Schéma de la base de données
+
+\section{Description fonctionnelle}
+
+\begin{description}
+\item \textbf{Liste des fonctionnalités de Move'n Meet}
+\begin{itemize}
+\item Connexion / Inscription sur le site
+\item Création d'une activité avec un nombre de personnes maximum
+\item Recherche d'une idée d'activité à travers des critères et des sous-critères
+\item Parcourir la liste des évènements temporaires
+\item Parcourir une liste de bons plans
+\item Rejoindre une activité déjà crée après s'être connecté
+\end{itemize}
+\end{description}
+
+\begin{description}
+\item \textbf{Liste de gestion des erreurs mise en place}
+\begin{itemize}
+\item Un utilisateur ne peut pas s'inscrire deux fois
+\item Un utilisateur déjà connecté ne peut se reconnecter
+\item Lorsque le nombre de personnes maximum est atteint dans une activité crée, plus personne ne peut s'y inscrire
+\item Une personne déjà inscrite ne peut pas se réinscrire
+\item \textbf{Liste de gestion des erreurs mise en place}
+\item Un email doit contenir un '@'
+\item 
+\end{itemize}
+\end{description}
+
+\newpage
+
+\section{Conclusions}
+
+\subsection{Résumé de la contribution}
+
+\subsection{Difficultés rencontrées}
+\begin{description}
+\item\begin{itemize}
+\item Création de sous choix
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{itemize}
+\end{description}
+\subsection{Perspectives}
+
+
+
+
+
+\newpage
+
+
+\end{document}

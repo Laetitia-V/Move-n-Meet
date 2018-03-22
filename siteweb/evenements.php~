@@ -17,10 +17,10 @@
 <span><img src="images/titre.png" alt="titre"/></span>
 
 <p class="onglets">
-<span><a href="trouver_act.html"> TROUVER UNE ACTIVITÉ</a></span>
+<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
 <span><a href="bons_plans.html">BONS PLANS </a></span>
-<span><a href="act_grp.html"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.html"> ÉVENEMENTS</a> </span>
+<span><a href="act_grp.php"> ACTIVITÉS DE GROUPE</a></span>
+<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
 
 
 <p>  <?php
@@ -28,10 +28,7 @@
  	while($donne = $req->fetch()){
  		
 echo '<div class="activite">';
-echo'<h2><div class="eve">'.$donne['Nom'].'</div></h2>';
-
-echo "<img src='images/eve.jpg'><br/>";
-echo "<h2>Lieu :</h2>".$donne['Lieu']."<br/><h2>Date :</h2>".$donne['Date']."<br/><h2>Horaire :</h2>".$donne['Horaire'];
+echo'<h1>'.$donne['Nom'].'</h1><br/><img src='.$donne['Photo']."><h2>Lieu :</h2>".$donne['Lieu']."<br/><h2>Date :</h2>".$donne['Date']."<br/><h2>Type :</h2>".$donne['Type'];
 echo '</div>';
 }
 ?>

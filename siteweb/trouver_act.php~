@@ -176,7 +176,12 @@ Faire du sport :<INPUT type="radio" name="sport" id="choix6" value="divers"> <br
 			while($donne = $reponse->fetch()){
 				echo '<div class="activite">';
 				echo "<h1>".$donne['Nom']."<br/></h1>";
-				echo "<img src='images/sort.jpg'>";
+					if($souschoix=="nightclub") {
+					echo "<img src='images/nuit.jpg'><br/>";
+				}
+				else {
+					echo "<img src='images/cine.jpg'><br/>";
+					}
 				echo "</div>";
 		}}
 			if(isset($_GET['souschoix4'])){

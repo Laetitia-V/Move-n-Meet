@@ -68,6 +68,8 @@ option{
 	width: 28%;
 	border:solid 2px;
 	background-color: rgba(0, 0, 0066, 0.4);
+	overflow: scroll;
+	height: 30%;
 }
 #tit{
 	font-size: 28px;

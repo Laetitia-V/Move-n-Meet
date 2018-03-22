@@ -98,7 +98,6 @@ function afficherAutre(){
 
 <p class="onglets">
 <span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="bons_plans.html">BONS PLANS </a></span>
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span></p>
 

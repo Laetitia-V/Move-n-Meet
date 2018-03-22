@@ -38,9 +38,13 @@ Prénom :
             <input type="text" name="p" value="<?php echo $p ?>"/>
       </p>
 <p>
+Date de naissance : 
+			<input type="date" name="d" value="jj/mm/aaaa"/>
+	</p>
+<p>
 
 Adresse mail :
-            <input type="text" name="mail" value="<?php echo $mail ?>"/>
+            <input type="email" name="mail" value="<?php echo $mail ?>"/>
       </p>
    
 <p>

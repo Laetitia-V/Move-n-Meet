@@ -32,10 +32,9 @@
 
 
 <table border="1">
+
+	<tr><th>Date</th><th>Activité</th><th>Créateur</th><th>Nombre de participants</th>
 	<?php 
-        
-        
-		
 		$rep = $bdd->query('select * from groupe');
 		
 		while ($ligne = $rep ->  fetch () ){
@@ -43,7 +42,7 @@
             $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
 			$c= $count -> fetch();
             $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
-			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Descriptif']."</td><td>".$ligne['Adresse']."</td><td>".$nbParticipant."</td></tr>";
+			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Adresse']."</td><td>".$nbParticipant."</td></tr>";
 		}
 		$rep -> closeCursor();
 	?>

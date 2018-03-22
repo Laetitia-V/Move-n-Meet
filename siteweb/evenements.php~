@@ -28,10 +28,8 @@
  	while($donne = $req->fetch()){
  		
 echo '<div class="activite">';
-echo'<h2><div class="eve">'.$donne['Nom'].'</div></h2>';
-
+echo'<h2>'.$donne['Nom'].'</h2><br/>'.$donne['Photo']."<h2>Lieu :</h2>".$donne['Lieu']."<br/><h2>Date :</h2>".$donne['Date']."<br/><h2>Type :</h2>".$donne['Type'];
 echo "<img src='images/eve.jpg'><br/>";
-echo "<h2>Lieu :</h2>".$donne['Lieu']."<br/><h2>Date :</h2>".$donne['Date']."<br/><h2>Horaire :</h2>".$donne['Horaire'];
 echo '</div>';
 }
 ?>

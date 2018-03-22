@@ -18,7 +18,8 @@ session_start()
 			}
 			
 	else{
-	echo"<a class='bouton11' id='connec' href='connexion/connecIns.php' > S'inscrire / Se connecter</a>";
+	echo"<a class='bouton11' id='connec' href='connexion/connecIns.php' >";
+	echo "S'inscrire / Se connecter</a>";
 	 }
 ?>
 
@@ -31,7 +32,10 @@ session_start()
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 </p>
-
+<form id="recherche" method="post">
+<input name="saisie" type="text" placeholder="Mots-Clefs..." required />
+<input class="loupe" type="submit" value="" />
+</form>
 <?php if(isset($_SESSION['utilisateur'])){
 echo "Bonjour ".$_SESSION['utilisateur'][1]." !";}
 ?>

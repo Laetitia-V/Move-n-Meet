@@ -100,7 +100,7 @@ function afficherAutre(){
 <span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
 <span><a href="bons_plans.html">BONS PLANS </a></span>
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVENEMENTS</a> </span></p>
+<span><a href="evenements.php"> ÉVÈNEMENTS</a> </span></p>
 
 <FORM name="critere" method="GET" action="trouver_act.php" onChange="afficherAutre()" >
 <div class="choix">
@@ -142,12 +142,18 @@ Faire du sport :<INPUT type="radio" name="sport" id="choix6" value="divers"> <br
 			while($donne = $reponse->fetch()){
 				echo '<div class="activite">';
 				echo "<h1>".$donne['Nom']."<br/></h1>";
-				if(isset($donne['Photo'])){
-					echo $donne['Photo'];}
+				if($souschoix=="fast_food") {
+					echo "<img src='images/fast.jpg'><br/>";
+				}
 				else {
-					echo "<img src='images/resto.jp2'>";
-			}
-				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>".$donne['Cuisine'];
+					echo "<img src='images/restau.jpg'><br/>";
+					}
+				if(isset($donne['Rue'])){
+					echo "<h2> Adresse : </h2>".$donne['Numéro']." ".$donne['Rue'];}
+				echo $donne['Horaires']."<br/>";
+				if(isset($donne['Cuisine'])){
+					echo "<h2> Cuisine : </h2>".$donne['Cuisine'];
+				}
 				echo "</div>";
 		}
 		}

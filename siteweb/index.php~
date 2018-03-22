@@ -13,14 +13,13 @@ session_start()
 
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<div class='bouton11'>";
-			echo "<a id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
 			echo'</div>';
 			}
 			
 	else{
-	echo "<div class='bouton11'>";
-	echo"<a id='connec' href='connexion/connecIns.php' > S'inscrire / Se connecter</a>";
-	echo'</div>';
+	echo"<a class='bouton11' id='connec' href='connexion/connecIns.php' >";
+	echo "S'inscrire / Se connecter</a>";
 	 }
 ?>
 
@@ -38,9 +37,11 @@ session_start()
 echo "Bonjour ".$_SESSION['utilisateur'][1]." !";}
 ?>
 
-<form>
-<input type="texte" name="Bar, restaurant, événement,..." id=texte />
+<form id="recherche" method="post">
+<input name="saisie" type="text" placeholder="Mots-Clefs..." required />
+<input class="loupe" type="submit" value="" />
 </form>
+
 
 
 <FORM>

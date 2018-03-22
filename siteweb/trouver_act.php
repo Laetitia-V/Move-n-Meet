@@ -93,8 +93,9 @@ function afficherAutre(){
 
 <a class="bouton11" id="connec" href="connecIns.html" >S'inscrire/Se connecter</a>
 
-<span><img src="images/logo-copie.png" alt="logo"></span>
-<span><img src="images/titre.png" alt="titre"/></span>
+
+<span><a href="index.php"> <img src="images/logo-copie.png" alt="logo"></a></span>
+<span><a href="index.php"><img src="images/titre.png" alt="titre"/></a></span>
 
 <p class="onglets">
 <span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>

@@ -30,6 +30,7 @@
 <span><a href="evenements.php"> ÉVENEMENTS</a> </span>
 </p>
 
+<p>
 <?php
 
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
@@ -42,9 +43,18 @@
 				echo "<p> Horaire : ".$ligne['Horaire']."</p>";
 				echo "<p> Lieu : ".$ligne['Adresse']."</p>";
 				echo "<p>".$ligne['Descriptif']."</p>";
-			}	
-	
-	$rep -> closeCursor();	
+			}		
+	$rep -> closeCursor();
+?>
+</p>
+<p> Membres inscrits à l'activité : </p>
+
+<?php	
+	$participants= ("SELECT U.Prenom, U.Date_naissance FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND P.Id_groupe='".$_GET['id']."'");
+	$aff=$bdd->query($participants);
+	while ($ligne = $aff ->fetch()) {
+				echo $ligne['Prenom']." ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365);
+	}
 	// Bouton Inscription
 if(isset($_SESSION['utilisateur'])){
 	echo('<form action="rejoindre.php" method="get" autocomplete="off">		  

@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 ?>
 <!doctype html>
 <html>
@@ -31,12 +32,18 @@
 
 <table border="1">
 	<?php 
-		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+        //$compteur
+        
+		
 		$rep = $bdd->query('select * from groupe');
 		
 		while ($ligne = $rep ->  fetch () ){
-			$idGroupe=$ligne['Id_groupe'];
-			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Descriptif']."</td><td>".$ligne['Adresse']."</td><td>".$ligne['Nombre_max']."</td></tr>";
+            $idGroupe=$ligne['Id_groupe'];
+            $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Id_groupe='.$idGroupe);
+			$c= $count -> fetch();
+            $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
+            echo $c[0];
+			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Descriptif']."</td><td>".$ligne['Adresse']."</td><td>".$nbParticipant."</td></tr>";
 		}
 		$rep -> closeCursor();
 	?>

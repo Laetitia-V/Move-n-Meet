@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    
 
 <?php if(isset($_SESSION['utilisateur'])){
 		echo "<a href='../connexion/deconnexion.php'> deconnexion </a>";
@@ -32,7 +33,7 @@
 
 <table border="1">
 	<?php 
-        //$compteur
+        
         
 		
 		$rep = $bdd->query('select * from groupe');

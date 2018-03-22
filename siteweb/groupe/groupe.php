@@ -40,7 +40,7 @@
 		
 		while ($ligne = $rep ->  fetch () ){
             $idGroupe=$ligne['Id_groupe'];
-            $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Id_groupe='.$idGroupe);
+            $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
 			$c= $count -> fetch();
             $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
 			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Descriptif']."</td><td>".$ligne['Adresse']."</td><td>".$nbParticipant."</td></tr>";

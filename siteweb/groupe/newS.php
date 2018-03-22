@@ -33,7 +33,8 @@
 	$rep = $bdd->query($sql);
 	$rep -> closeCursor();
 	echo "Votre sortie a bien été enregistré";
-	echo "<meta http-equiv='refresh' content='3; URL=../index.php'>";
+    // Ajout du créateur dans la liste des participants
+	echo "<meta http-equiv='refresh' content='3; URL=groupe.php'>";
 	
 ?>
 

@@ -35,7 +35,7 @@
 
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 	$sql = ("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
-	$rep = $bdd->query($sql);
+	$rep = $bdd->query("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
 
 	while ($ligne = $rep ->fetch()) {
 				echo  "<h2>".$ligne['Titre']."</h2>";

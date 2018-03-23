@@ -57,7 +57,7 @@
 		  
 		  <p class="bouton">
 		  <input type="submit" value="Ajouter"></p>
-		  </p>
+		  
 </form>
 
 </body>

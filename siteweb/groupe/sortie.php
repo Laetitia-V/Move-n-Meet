@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 ?>
 
 <!doctype html>
@@ -33,7 +34,7 @@
 <p>
 <?php
 
-	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+	
 	$sql = ("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
 	$rep = $bdd->query("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
 
@@ -50,17 +51,31 @@
 <p> Membres inscrits à l'activité : </p>
 
 <?php	
-	$participants= ("SELECT U.Prenom, U.Date_naissance FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND P.Id_groupe='".$_GET['id']."'");
+	$participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND P.Id_groupe='".$_GET['id']."'");
 	$aff=$bdd->query($participants);
-	while ($ligne = $aff ->fetch()) {
+	
+    $inscrit=0;
+    while ($ligne = $aff ->fetch()) {
 				echo $ligne['Prenom']." ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365);
+                if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
+                    $inscrit=1;
+                }
 	}
-	// Bouton Inscription
+    
+    
+    
+    // Bouton Inscription
 if(isset($_SESSION['utilisateur'])){
-	echo('<form action="rejoindre.php" method="get" autocomplete="off">		  
+    if($inscrit==1){
+	echo('<form action="desinscrire.php" method="get" autocomplete="off">		  
+		  <input type="hidden" name="id" value="'.$_GET['id'].'">
+		  <input type="submit" value="Se désinscrire">
+	</form>');}
+    else{
+    echo('<form action="rejoindre.php" method="get" autocomplete="off">		  
 		  <input type="hidden" name="id" value="'.$_GET['id'].'">
 		  <input type="submit" value="Rejoindre">
-	</form>'); 
+	</form>'); }
 }
 else{
 	echo ('<form action="../connexion/connecIns.php" method="get" autocomplete="off">

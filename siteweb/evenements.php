@@ -21,7 +21,6 @@
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 
-
 </p>  <?php
  	$req = $bdd->query('select * from evenement');
  	while($donne = $req->fetch()){

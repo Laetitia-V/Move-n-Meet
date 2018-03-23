@@ -18,7 +18,7 @@
 			}
 			
 	else{
-	echo "<a id='connec' href='../connexion/connecIns.php' > S'inscrire/Se connecter </a>"; }
+	echo "<a id='connec' href='../connexion/connecIns.php' > S'inscrire / Se connecter </a>"; }
 ?>
 
 <span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>

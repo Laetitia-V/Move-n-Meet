@@ -22,7 +22,7 @@
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 
 
-<p>  <?php
+</p>  <?php
  	$req = $bdd->query('select * from evenement');
  	while($donne = $req->fetch()){
  		

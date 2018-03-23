@@ -14,6 +14,7 @@ session_start()
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<div class='bouton11'>";
 			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a href='connexion/profil.php'> Mon profil </a>";
 			echo'</div>';
 			}
 			
@@ -36,7 +37,7 @@ session_start()
 <input class="loupe" type="submit" value="" />
 </form>
 <?php if(isset($_SESSION['utilisateur'])){
-echo "Bonjour ".$_SESSION['utilisateur'][1]." !";}
+echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !";}
 ?>
 
 <form id="recherche" method="post">

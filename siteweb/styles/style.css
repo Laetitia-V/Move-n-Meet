@@ -29,7 +29,16 @@ img{
 .onglets{
 	font-weight: bold;
 	}
-
+.profil{
+	margin: auto;
+	border:2px solid #3F06D0;
+	width: 500px;
+	height: 700px;
+	text-align: center;
+	background-image: url(../images/fond_ins.png);
+	float: left;
+	overflow: hidden;
+}
 p {
 	font-size: 23px;
 }

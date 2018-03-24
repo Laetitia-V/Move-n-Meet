@@ -60,50 +60,6 @@ media="screen"	/>
 		//echo $sql;
 		$rep = $bdd->query($maj);
 		
-		/*		
-		if(isset($_FILES['profil']) AND !empty($_FILES['profil']['name'])) {
-   			$tailleMax = 2097152;
-   			$extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
-   			if($_FILES['profil']['size'] <= $tailleMax) {
-      			$extensionUpload = strtolower(substr(strrchr($_FILES['profil']['name'], '.'), 1));
-      			if(in_array($extensionUpload, $extensionsValides)) {
-         			$chemin = "photo_profil/".$_POST['id'].".".$extensionUpload;
-         			$resultat = move_uploaded_file($_FILES['profil']['tmp_name'], $chemin);
-         			if($resultat) {
-            			$updateprofil = $bdd->prepare('UPDATE utilisateur SET Photo = :profil WHERE Id = :id');
-           				 $updateprofil->execute(array(
-               							'profil' => $_POST['id'].".".$extensionUpload,
-               							'id' => $_POST['id']));
-            							
-         } else {
-            $msg = "Erreur durant l'importation de votre photo de profil";
-         }
-      } else {
-         $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
-      }
-   } else {
-      $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
-   }
-}*/
-			
-		/*
-		$maj = $bdd->query("Select * from utilisateur where Id_utilisateur='".$_POST['id']."'");
-	
-		$ligne=$maj ->fetch();
-		
-		$id=$ligne['Id_utilisateur'];
-		$nom=$ligne['Nom'];
-		$prenom=$ligne['Prenom'];
-		$date_naissance=$ligne['Date_naissance'];
-		$sexe=$ligne['Sexe'];
-		$description=$ligne['Description'];
-		$photo=$ligne['Photo'];
-		$mail=$ligne['mail'];
-		$mdp=$ligne['mdp'];
-		
-		unset($_SESSION['utilisateur']);
-		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
-*/
 		echo "<meta http-equiv='refresh' content='0; URL=connecIns.php'>" ;
 	}
 ?>

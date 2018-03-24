@@ -14,6 +14,7 @@ session_start()
 ?>
  
 <body>
+
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<div class='bouton11'>";
 			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
@@ -27,16 +28,15 @@ session_start()
 	 }
 ?>
 
-<span><img src="images/logo-copie.png" alt="logo"></span>
-<span><img src="images/titre.png" alt="titre"/></span>
+<span><a href="index.php"> <img src="images/logo-copie.png" alt="logo"></a></span>
+<span><a href="index.php"><img src="images/titre.png" alt="titre"/></a></span>
 
 <p class="onglets">
 <span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="act_grp.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
+<span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
+<span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 
-
-<p>  <?php
+</p>  <?php
  	$req = $bdd->query('select * from evenement');
  	while($donne = $req->fetch()){
  		

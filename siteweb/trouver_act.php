@@ -95,6 +95,7 @@ function afficherAutre(){
 
 <body>
 
+<<<<<<< HEAD
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<div class='bouton11'>";
 			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
@@ -122,7 +123,7 @@ function afficherAutre(){
 <p id="tit">Je cherche à : 
 </p>
 Manger :<INPUT type="radio" name="choix" id="choix" value="etablissement">  
-<span id="resto" style="display:none">Restaurant </span> <INPUT type= "radio" name="souschoix1" id="sc1" value="restaurant" style="display: none"> 
+<span id="resto" style="display:none">Restaurant </span><INPUT type= "radio" name="souschoix1" id="sc1" value="restaurant" style="display: none">
 <span id="ff" style="display:none">Fast-food</span> <INPUT type="radio" name="souschoix1" id="sc2" value="fast_food" style="display: none"><br/>
 
 Boire un verre :<INPUT type="radio" name="choix" id="boire" value="etablissement"> 
@@ -179,7 +180,7 @@ Faire du sport :<INPUT type="radio" name="sport" id="choix6" value="divers"> <br
 			while($donne = $reponse->fetch()){
 				echo '<div class="activite">';
 				echo "<h1>".$donne['Nom']."<br/></h1>";
-				echo "<img src='images/verre.jpg'><br/>";
+				echo "<img src='images/boire.jpg'><br/>";
 				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>".$donne['Cuisine'];
 				echo "</div>";
 		}

@@ -13,7 +13,7 @@ session_start()
 
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<a  id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
-			echo "<a href='connexion/profil.php'> Mon profil </a>";
+			echo "<a href='connexion/profil_perso.php'> Mon profil </a>";
 			}
 			
 	else{
@@ -71,7 +71,7 @@ session_start()
  	$req = $bdd->query('select * from etablissement where Bonplan="1" ');
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
- 		echo '<h1> Manger, boire';
+ 		echo '<h1> Manger, boire ';
 				echo $donne['Nom']."<br/>";
 				echo "</h1>";
 							echo "<img src='images/boire.jpg'><br/>";

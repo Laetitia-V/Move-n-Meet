@@ -23,7 +23,7 @@ session_start()
 			}
 			
 	else{
-	echo"<a class='bouton11' id='connec' href='connexion/connecIns.php' >";
+	echo"<a  id='connec' href='connexion/connecIns.php' >";
 	echo "S'inscrire / Se connecter</a>";
 	 }
 ?>

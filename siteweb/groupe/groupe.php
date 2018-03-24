@@ -14,15 +14,13 @@
     
 
 <?php if(isset($_SESSION['utilisateur'])){
-			echo "<div class='bouton11'>";
-			echo "<a class='bouton11' id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a  id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
 			echo "<a href='../connexion/profil_perso.php'> Mon profil </a>";
-			echo'</div>';
 			}
 			
 	else{
 
-	echo"<a class='bouton11' id='connec' href='../connexion/connecIns.php' >";
+	echo"<a id='connec' href='../connexion/connecIns.php' >";
 	echo "S'inscrire / Se connecter</a>";
 	 }
 

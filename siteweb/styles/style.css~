@@ -33,7 +33,7 @@ img{
 	font-weight: bold;
 	text-indent: 12%;
 	}
-.profil{
+/*.profil{
 	margin: auto;
 	border:2px solid #3F06D0;
 	width: 500px;
@@ -42,12 +42,11 @@ img{
 	background-image: url(../images/fond_ins.png);
 	float: left;
 	overflow: hidden;
-}
+}*/
 p {
 	font-size: 23px;
 }
 #connec{
-	apadding-left: 1100px;
 	border: #512A51 2px solid;
 	font-weight: bold;
 	width: 20%;

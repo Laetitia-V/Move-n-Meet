@@ -1,35 +1,118 @@
 <?php
 	session_start();
+    $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 ?>
 
 <!doctype html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="../styles/style.css" type="text/css" media="screen" />
 <title>Move n' Meet</title>
 </head>
 
 <body>
-<p > <a id="connec" href="../connexion/connecIns.php" >S'inscrire/Se connecter</a> </p>
-<span><a href="../index.php"> <img src="images/logo-copie.png" alt="logo"></a></span>
-<span><a href="../index.php"><img src="images/titre.png" alt="titre"/></a></span>
 
+<?php if(isset($_SESSION['utilisateur'])){
+			echo "<div class='bouton11'>";
+			echo "<a class='bouton11' id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a href='../connexion/profil_perso.php'> Mon profil </a>";
+			echo'</div>';
+			}
+			
+	else{
+	echo"<a class='bouton11' id='connec' href='../connexion/connecIns.php' >";
+	echo "S'inscrire / Se connecter</a>";
+	 }
+?>
+
+<span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
+<span><a href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
+
+<p class="ongletsPageA">
+<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
+<span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
+<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
+</p>
+
+<p>
 <?php
 
-	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	$sql = "SELECT * FROM groupe where Id_groupe='".$idGroupe."'";
-	$rep = $bdd->query($sql);
+	
+	$sql = ("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
+	$rep = $bdd->query("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
 
 	while ($ligne = $rep ->fetch()) {
 				echo  "<h2>".$ligne['Titre']."</h2>";
-				echo "Date : ".$ligne['Date']; 
-				echo "Horaire : ".$ligne['Horaire'];
-				echo "Lieu : ".$ligne['Adresse'];
-				echo $ligne['Descriptif'];
-			}	
+				echo "<p> Date : ".$ligne['Date']."</p>"; 
+				echo "<p> Horaire : ".$ligne['Horaire']."</p>";
+				echo "<p> Lieu : ".$ligne['Adresse']."</p>";
+				echo "<p>".$ligne['Descriptif']."</p>";
+			}		
+	$rep -> closeCursor();
+?>
+</p>
+<p> Membres inscrits à l'activité : </p>
+
+<?php	
+	$participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance, U.Photo FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND P.Id_groupe='".$_GET['id']."'");
+	$aff=$bdd->query($participants);
 	
-	$rep -> closeCursor();	
-	$sql = "SELECT
+    $inscrit=0;
+    while ($ligne = $aff ->fetch()) {
+				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> <img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img></a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> ".$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
+                if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
+                    $inscrit=1;
+                }
+	}
+
+        
+	// Bouton Inscription
+
+if(isset($_SESSION['utilisateur'])){
+    if($inscrit==1){
+	echo('<form action="desinscrire.php" method="get" autocomplete="off">		  
+		  <input type="hidden" name="id" value="'.$_GET['id'].'">
+		  <input type="submit" value="Se désinscrire">
+	</form>');}
+    else{
+    echo('<form action="rejoindre.php" method="get" autocomplete="off">		  
+		  <input type="hidden" name="id" value="'.$_GET['id'].'">
+		  <input type="submit" value="Rejoindre">
+	</form>'); }
+}
+else{
+	echo ('<form action="../connexion/connecIns.php" method="get" autocomplete="off">
+		  <input type="hidden" name="h" value="2">
+		  <input type="submit" value="Rejoindre">
+	</form>');
+}
 	
 ?>
+    
+    <h2>Commentaires</h2>
+    
+
+    <form action="commentaireAjout.php" method="get" autocomplete="off">
+      <input type='hidden' name='id' value='<?php echo $_GET['id'] ?>' >
+		  <p>
+	Commentaire :
+              </p>
+				<TEXTAREA name="commentaire" rows=8 COLS=50></TEXTAREA>
+		  
+		  
+		  <p class="bouton">
+		  <input type="submit" value="Publier"></p>
+		  
+</form>
+  <?php  
+    $req=$bdd ->query("SELECT * FROM commentaires WHERE Id_groupe='".$_GET['id']."'");
+    while($com = $req -> fetch ()){
+        echo $com['Auteur']."<br/>";
+        echo $com['Date']."<br/><br/>";
+        echo $com['Commentaire']."<br/><br/><br/>";
+    }
+    
+?>
+    </body>
+</html>

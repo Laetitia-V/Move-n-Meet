@@ -35,7 +35,7 @@ session_start()
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 </p>
-<<<<<<< HEAD
+
 
 <?php
 if(isset($_SESSION['utilisateur'])){
@@ -45,13 +45,13 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root',
 	$rep = $bdd->query($act);
 	echo "</p><p> Vous vous êtes à l'activité de groupe";
 	while ($ligne = $rep ->  fetch () ){
-		echo "<a href=groupe/sortie.php?id='".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date'];
+		echo "<a href='groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date'];
 	}
 }
 	?>
-=======
+
 <div class="recherche">
->>>>>>> 4558a80be8f040bcc00bdbd04d3d60c1113b16cf
+
 <form id="recherche" method="get" action="resultat.php">
 <input class="recherche" name="saisie" type="text" placeholder="Mots-Clefs..." required />
 <input class="loupe" type="submit" value="" />

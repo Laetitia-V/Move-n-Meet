@@ -20,8 +20,8 @@ $h = isset($_GET['h']) ?  $_GET['h'] : NULL;
 </head>
 
 <body>
-<span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
-<span><a href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
+<span><a class= 'logo' href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
+<span><a class='logo' href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
 
 
 
@@ -57,9 +57,7 @@ Confirmation du mot de passe :
       </p>
 <input type="hidden" name="profil" value="default.png"/>
       
-      <p class="bouton">
-      <input type="submit" value="Inscription"></p>
-</p>
+      <input class="bouton" type="submit" value="Inscription"></p>
 </div>
 </form>
 
@@ -77,9 +75,9 @@ Adresse mail :
 Mot de passe :
             <input type="password" name="mdp" value=""/>
       </p>
-     <p class="bouton">
-      <input type="submit" value="Connexion">
-</p>
+     
+      <input class="bouton" type="submit" value="Connexion">
+
 </form> 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.21)  21 MAR 2018 21:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.21)  25 MAR 2018 00:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -635,25 +635,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1] [2] [3] [4] (./cahier.aux) ) 
+[1] <tache.png, id=19, 945.5325pt x 311.1625pt>
+File: tache.png Graphic file (type png)
+ <use tache.png>
+Package pdftex.def Info: tache.png used on input line 76.
+(pdftex.def)             Requested size: 472.76509pt x 155.58087pt.
+
+Overfull \hbox (0.73386pt too wide) in paragraph at lines 75--77
+ [] 
+ []
+
+[2 <./tache.png>] [3] [4] (./cahier.aux) ) 
 Here is how much of TeX's memory you used:
- 4193 strings out of 492995
- 56999 string characters out of 6132704
+ 4198 strings out of 492995
+ 57063 string characters out of 6132704
  149941 words of memory out of 5000000
- 7699 multiletter control sequences out of 15000+600000
+ 7703 multiletter control sequences out of 15000+600000
  6679 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,12n,43p,420b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmss12.pfb>
-Output written on cahier.pdf (5 pages, 1432728 bytes).
+</usr/local/texlive/2017/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmss12.pfb>
+Output written on cahier.pdf (5 pages, 1478754 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
+ 47 PDF objects out of 1000 (max. 8388607)
  28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

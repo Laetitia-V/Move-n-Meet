@@ -59,7 +59,7 @@ Date de naissance *
 	</p>
 	<p>
 Homme 
-<INPUT type="radio" id="genre" name="genre" value="Homme"><br />
+<INPUT type="radio" id="genre" name="genre" value="Homme"><br/>
 Femme 
 <INPUT type="radio" id="genre" name="genre" value="Femme">
 </p>

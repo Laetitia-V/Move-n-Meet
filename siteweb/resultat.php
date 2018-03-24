@@ -55,6 +55,7 @@ if(isset($_GET["saisie"])){
 		echo $donne['Ville']." <br/><br/>".$donne['Distance']."<br/><br/>".$donne['Classement']."<br/><br/>". $donne['Eau']."<br/><br/>".$donne['Description'];
  		echo '</div>';
  		} 
+<<<<<<< HEAD
  	}
  ?>
   <?php
@@ -92,6 +93,11 @@ if(isset($_GET["saisie"])){
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
 echo'<h1>'.$donne['Nom'].'</h1><br/><img src='.$donne['Photo']."><h2>Lieu :</h2>".$donne['Lieu']."<br/><h2>Date :</h2>".$donne['Date']."<br/><h2>Type :</h2>".$donne['Type'];
+=======
+ 	if($saisie !="%$saisie") {
+ 			echo "Pas de résultats trouvés";
+ 	}
+>>>>>>> ad8c7f3947455631c3b28ac127db57bb611bd930
 echo '</div>';
  		} 
  	}

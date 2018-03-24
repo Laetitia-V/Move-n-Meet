@@ -29,7 +29,7 @@
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
 'root', 'root'); 
 ?><?php
-
+echo '<div class="activite">';
 if(isset($_GET["saisie"])){
 	$saisie=$_GET["saisie"];
 	$req = $bdd->query("select * from etablissement where Type LIKE '%$saisie%' ");
@@ -94,6 +94,13 @@ if(isset($_GET["saisie"])){
 echo'<h1>'.$donne['Nom'].'</h1><br/><img src='.$donne['Photo']."><h2>Lieu :</h2>".$donne['Lieu']."<br/><h2>Date :</h2>".$donne['Date']."<br/><h2>Type :</h2>".$donne['Type'];
 echo '</div>';
  		} 
+<<<<<<< HEAD
+=======
+ 	//if(($saisie == " ") || ($saisie =="%")) {
+ 			//echo "Pas de résultats trouvés";
+ 	//}
+echo '</div>';
+>>>>>>> ad8c7f3947455631c3b28ac127db57bb611bd930
  	}
  ?>
  

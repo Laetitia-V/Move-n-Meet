@@ -29,9 +29,9 @@
     
 	$ajout = "INSERT INTO commentaires (Id_com, Id_groupe, Auteur, Commentaire) VALUES (NULL,'".$idGroupe."','".$pseudo."','".$commentaire."')";
 	$req = $bdd->query($ajout);
-	
+	//echo $ajout;
     $req ->closeCursor();
-	echo "Todo bem";
+	//echo "Todo bem";
     
 	
 	echo "<meta http-equiv='refresh' content='2; URL=../index.php'>";

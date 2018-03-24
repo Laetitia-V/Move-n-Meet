@@ -60,6 +60,7 @@
 	while ($ligne = $aff ->fetch()) {
 				echo $ligne['Prenom']." ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365);
 	}
+    $rep -> closeCursor();
 	// Bouton Inscription
 if(isset($_SESSION['utilisateur'])){
 	echo('<form action="rejoindre.php" method="get" autocomplete="off">		  
@@ -75,3 +76,30 @@ else{
 }
 	
 ?>
+    
+    <h2>Commentaires</h2>
+    
+
+    <form action="commentaireAjout.php" method="get" autocomplete="off">
+      <input type='hidden' name='id' value='<?php echo $_GET['id'] ?>' >
+		  <p>
+	Commentaire :
+              </p>
+				<TEXTAREA name="commentaire" rows=8 COLS=50></TEXTAREA>
+		  
+		  
+		  <p class="bouton">
+		  <input type="submit" value="Publier"></p>
+		  
+</form>
+  <?php  
+    $req=$bdd ->query("SELECT * FROM commentaires WHERE Id_groupe='".$_GET['id']."'");
+    while($com = $req -> fetch ()){
+        echo $com['Auteur']."<br/>";
+        echo $com['Date']."<br/><br/>";
+        echo $com['Commentaire']."<br/><br/><br/>";
+    }
+    
+?>
+    </body>
+</html>

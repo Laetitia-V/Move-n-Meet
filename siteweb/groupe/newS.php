@@ -15,6 +15,9 @@
 </head>
 
 <body>
+<a class='bouton11' id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>
+<a href='connexion/profil.php'> Mon profil </a>
+
 <span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
 <span><a href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
 

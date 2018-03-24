@@ -1,6 +1,5 @@
 <?php
 
-
 $n = isset($_GET['n']) ?  $_GET['n'] : "";
 $p = isset($_GET['p']) ?  $_GET['p'] : "";
 $mail = isset($_GET['mail']) ?  $_GET['mail'] : "";
@@ -29,6 +28,7 @@ $h = isset($_GET['h']) ?  $_GET['h'] : NULL;
 <div id="ins">
 <p class="titre"> Inscription </p>
 <form action="enregistrement.php" method="get" autocomplete="off">
+<input type="hidden" name="id"/>
       <p>
 Nom :
             <input type="text" name="n" value="<?php echo $n?>"/>
@@ -55,6 +55,7 @@ Mot de passe :
 Confirmation du mot de passe :
             <input type="password" name="mdp2" value=""/>
       </p>
+<input type="hidden" name="profil" value="default.png"/>
       
       <p class="bouton">
       <input type="submit" value="Inscription"></p>

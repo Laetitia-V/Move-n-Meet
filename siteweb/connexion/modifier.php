@@ -12,7 +12,7 @@ session_start()
 <body>
 <?php
 echo "<div class='bouton11'>";
-echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a></div>";
+echo "<a class='bouton11' id='connec' href='deconnexion.php'> Déconnexion </a></div>";
 ?>
 
 <span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
@@ -25,7 +25,8 @@ echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconne
 </p>
 
 <h2> Modifier votre profil </h2>
-<form action="modification.php" method="get" autocomplete="off" enctype="mutipart/form-data"> 
+<form action="modification.php" method="post" autocomplete="off" enctype="multipart/form-data"> 
+
 	<input type="hidden" name="id" value="<?php echo $_SESSION['utilisateur'][0]?>"/>
 <p>
 Nom *
@@ -37,7 +38,7 @@ Prénom *
       </p>
 <p>
 Photo de profil 
-            <input type="file" name="photo" value=""/>
+            <input type="file" name="profil" value=""/>
       </p>
 <p>
 Date de naissance * 

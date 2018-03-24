@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!doctype html>
 <html>
 <head>
@@ -11,7 +14,18 @@
 ?>
  
 <body>
-<p > <a id="connec" href="connecIns.html" >S'inscrire/Se connecter</a> </p>
+<?php if(isset($_SESSION['utilisateur'])){
+			echo "<div class='bouton11'>";
+			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a href='connexion/profil.php'> Mon profil </a>";
+			echo'</div>';
+			}
+			
+	else{
+	echo"<a class='bouton11' id='connec' href='connexion/connecIns.php' >";
+	echo "S'inscrire / Se connecter</a>";
+	 }
+?>
 
 <span><img src="images/logo-copie.png" alt="logo"></span>
 <span><img src="images/titre.png" alt="titre"/></span>

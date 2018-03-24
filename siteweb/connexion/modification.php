@@ -10,57 +10,84 @@ media="screen"	/>
 	<title>MovenMeet</title>
 <?php
 		
-	if ($_GET['n']=="" || $_GET['p']=="" || $_GET['d']=="" ||$_GET['mdp1']==""||$_GET['mdp2']==""){
+	if ($_POST['n']=="" || $_POST['p']=="" || $_POST['d']=="" ||$_POST['mdp1']==""||$_POST['mdp2']==""){
 		echo "Un des champs obligatoire est vide";
-		echo "<meta http-equiv='refresh' content='1; URL=profil.php'>";
+		echo "<meta http-equiv='refresh' content='2; URL=modification.php'>";
 	}
-	elseif ($_GET['mdp1']!=$_GET['mdp2']){
+	elseif ($_POST['mdp1']!=$_POST['mdp2']){
 		echo "Les mots de passe ne sont pas les mêmes";
-		echo "<meta http-equiv='refresh' content='1; URL=profil.php'>";
+		echo "<meta http-equiv='refresh' content='2; URL=modification.php'>";
 	}
 	else{
 
 		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-		$sql= "UPDATE utilisateur SET Nom='".$_GET['n']."', Prenom='".$_GET['p']."',
-		Date_naissance='".$_GET['d']."',Sexe='".$_GET['genre']."',Description='".$_GET['description']."',
-		Mail='".$_GET['mail']."', Mdp='".$_GET['mdp1']."' WHERE Id_utilisateur='".$_GET['id']."'";
-		//echo $sql;
-		$rep = $bdd->query($sql);
 		
-				
-		if (isset($_FILES['photo']) AND !empty($_FILES['photo']['name'])){
-			$tailleMax=2097152;//limite taille 2Mo
-			$extensionValid= array('jpg', 'jpeg', 'gif', 'png', 'pdf');
-		
-			if($_FILES['photo']['size']<=$tailleMax){
-				$extensionUpload= strtolower(substr(strrchr($_FILES['photo']['name'],'.')), 1);
-			
-				if(in_array($extensionUpload, $extensionValid)){
-					$chemin="photo_profil/".$_SESSION['utilisateur'][0].".".$extensionUpload;
-					$resultat=move_uploaded_file($_FILES['photo']['tmp_name'],$chemin);
-					if($resultat){
-						$updatePhoto= $bdd->prepare('UPDATE utilisateur SET Photo=:photo WHERE Id_utilisateur= :id');
-						$updatePhoto->execute(array(
-							'photo' => $_GET['id'].".".$extensionUpload,
-							'id' => $_GET['id'][0]));
-						
-					}
-					else{
-						echo "Erreur lors de l'importation de votre photo de profil";
-					}
-				}
-				else{
-					echo "Votre photo de profil doit être au format jpg, jpeg, gif, png ou pdf";
-				}
-			}
-		
-			else{
-				echo "Votre photo de profil ne doit pas dépasser 2 Mo";
-			}
+		if(isset($_FILES['profil']) AND !empty($_FILES['profil']['name'])) {
+   			$tailleMax = 2097152;
+   			$extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+   			if($_FILES['profil']['size'] <= $tailleMax) {
+      			$extensionUpload = strtolower(substr(strrchr($_FILES['profil']['name'], '.'), 1));
+      			if(in_array($extensionUpload, $extensionsValides)) {
+         			$chemin = "photo_profil/".$_POST['id'].".".$extensionUpload;
+         			$resultat = move_uploaded_file($_FILES['profil']['tmp_name'], $chemin);
+         			if($resultat) {
+         				$profil=$_POST['id'].".".$extensionUpload;
+         			} 
+         			else {
+            			$msg = "Erreur durant l'importation de votre photo de profil";
+         			}
+      			} 
+      			else {
+         			$msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
+      			}
+   			} 
+   			else {
+      			$msg = "Votre photo de profil ne doit pas dépasser 2Mo";
+   			}
 		}
+		
+		elseif($_POST['genre']=='Femme'){
+			$profil="default_F.png";
+		}
+		
+		elseif($_POST['genre']=='Homme'){
+			$profil="default_H.png";
+		}
+		
+		$maj= "UPDATE utilisateur SET Nom='".$_POST['n']."', Prenom='".$_POST['p']."',
+		Date_naissance='".$_POST['d']."',Sexe='".$_POST['genre']."',Description='".$_POST['description']."',
+		Mail='".$_POST['mail']."', Mdp='".$_POST['mdp1']."', Photo='".$profil."' WHERE Id_utilisateur='".$_POST['id']."'";
+		//echo $sql;
+		$rep = $bdd->query($maj);
+		
+		/*		
+		if(isset($_FILES['profil']) AND !empty($_FILES['profil']['name'])) {
+   			$tailleMax = 2097152;
+   			$extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+   			if($_FILES['profil']['size'] <= $tailleMax) {
+      			$extensionUpload = strtolower(substr(strrchr($_FILES['profil']['name'], '.'), 1));
+      			if(in_array($extensionUpload, $extensionsValides)) {
+         			$chemin = "photo_profil/".$_POST['id'].".".$extensionUpload;
+         			$resultat = move_uploaded_file($_FILES['profil']['tmp_name'], $chemin);
+         			if($resultat) {
+            			$updateprofil = $bdd->prepare('UPDATE utilisateur SET Photo = :profil WHERE Id = :id');
+           				 $updateprofil->execute(array(
+               							'profil' => $_POST['id'].".".$extensionUpload,
+               							'id' => $_POST['id']));
+            							
+         } else {
+            $msg = "Erreur durant l'importation de votre photo de profil";
+         }
+      } else {
+         $msg = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
+      }
+   } else {
+      $msg = "Votre photo de profil ne doit pas dépasser 2Mo";
+   }
+}*/
 			
 		/*
-		$maj = $bdd->query("Select * from utilisateur where Id_utilisateur='".$_GET['id']."'");
+		$maj = $bdd->query("Select * from utilisateur where Id_utilisateur='".$_POST['id']."'");
 	
 		$ligne=$maj ->fetch();
 		
@@ -77,7 +104,7 @@ media="screen"	/>
 		unset($_SESSION['utilisateur']);
 		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
 */
-		echo "<meta http-equiv='refresh' content='1; URL=connecIns.php'>" ;
+		echo "<meta http-equiv='refresh' content='0; URL=connecIns.php'>" ;
 	}
 ?>
 

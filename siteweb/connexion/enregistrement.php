@@ -10,12 +10,12 @@ media="screen"	/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	<title>MovenMeet</title>
 <?php
-function enregistrer($n,$p,$mail,$mdp,$d)
+function enregistrer($id,$n,$p,$mail,$mdp,$d,$photo)
 {		
 		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-		$sql= "INSERT INTO utilisateur (Id_utilisateur, nom, prenom, mail, mdp, date_naissance) VALUES (NULL,'".$n."','".$p."','".$mail."','".$mdp."','".$d."')";
+		$sql= "INSERT INTO utilisateur (Id_utilisateur, nom, prenom, mail, mdp, date_naissance, Photo) VALUES ('".$id."','".$n."','".$p."','".$mail."','".$mdp."','".$d."','".$photo."')";
 		$rep = $bdd->query($sql);
-		$_SESSION['utilisateur']=array($n, $p, $mail, $mdp);	
+		$_SESSION['utilisateur']=array($id, $n, $p, $mail, $mdp);	
 		$rep ->closeCursor();
 		
 }
@@ -30,7 +30,7 @@ function enregistrer($n,$p,$mail,$mdp,$d)
 		
 	 }
 	 else{
-		enregistrer($_GET['n'],$_GET['p'],$_GET['mail'],$_GET['mdp1'],$_GET['d']);
+		enregistrer($_GET['id'],$_GET['n'],$_GET['p'],$_GET['mail'],$_GET['mdp1'],$_GET['d'],$_GET['profil']);
 		echo "<meta http-equiv='refresh' content='1; URL=../index.php'>" ;
 	 }
 ?>

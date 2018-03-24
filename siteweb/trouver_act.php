@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -91,7 +95,18 @@ function afficherAutre(){
 
 <body>
 
-<a class="bouton11" id="connec" href="connecIns.html" >S'inscrire/Se connecter</a>
+<?php if(isset($_SESSION['utilisateur'])){
+			echo "<div class='bouton11'>";
+			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a href='connexion/profil.php'> Mon profil </a>";
+			echo'</div>';
+			}
+			
+	else{
+	echo"<a class='bouton11' id='connec' href='connexion/connecIns.php' >";
+	echo "S'inscrire / Se connecter</a>";
+	 }
+?>
 
 
 <span><a href="index.php"> <img src="images/logo-copie.png" alt="logo"></a></span>

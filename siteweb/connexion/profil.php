@@ -12,7 +12,7 @@ session_start()
 <body>
 <?php
 echo "<div class='bouton11'>";
-echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a></div>";
+echo "<a class='bouton11' id='connec' href='deconnexion.php'> Déconnexion </a></div>";
 ?>
 
 <span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
@@ -31,7 +31,7 @@ $sql= $bdd->query("SELECT * FROM utilisateur WHERE Id_utilisateur='".$_SESSION['
 while ($ligne = $sql ->  fetch () ){
 
 	echo "<p>".$ligne['Prenom']." ".$ligne['Nom']."</p><p>
-		<img src='".$ligne['Photo']."' alt='photo profil'></p><p>
+		<img src='photo_profil/".$ligne['Photo']."' width=160 alt='photo profil'></p><p>
 		Age : ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</p><p> Sexe : ".
 		$ligne['Sexe']."</p><p> Description : ".$ligne['Description']."</p><p>Adresse mail : ".
 		$ligne['Mail']."<p/>";

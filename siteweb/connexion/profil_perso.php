@@ -27,7 +27,7 @@ echo "<a class='bouton11' id='connec' href='deconnexion.php'> Déconnexion </a><
 <h2> Votre profil </h2>
 <?php
 $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-$sql= $bdd->query("SELECT * FROM utilisateur WHERE Id_utilisateur='".$_GET['utilisateur'][0]."'");
+$sql= $bdd->query("SELECT * FROM utilisateur WHERE Id_utilisateur='".$_SESSION['utilisateur'][0]."'");
 while ($ligne = $sql ->  fetch () ){
 
 	echo "<p>".$ligne['Prenom']." ".$ligne['Nom']."</p><p>

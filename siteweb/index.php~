@@ -42,12 +42,12 @@ session_start()
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
 'root', 'root'); 
 ?>
-<h1>Idée de lieu de randonnée </h1>
+<h1> Que faire à Montpellier et ses alentours? </h1>
 <?php
  	$req = $bdd->query('select * from exterieure where Bonplan="1" and Type="Randonnée"');
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
- 		echo '<h1>';
+ 		echo '<h1> Randonnée - ';
 				echo $donne['Nom']."<br/>";
 				echo "</h1>";
 				echo "<img src='images/rando.jpg'>";
@@ -55,7 +55,6 @@ session_start()
  		echo '</div>';
 }
 ?>
-<h1> Idée de lieu de baignade </1>
 <?php
  	$req = $bdd->query('select * from exterieure where Bonplan="1" and Type="Baignade en Rivière"');
  	while($donne = $req->fetch()){
@@ -68,12 +67,11 @@ session_start()
  		echo '</div>';
 }
 ?>
-<h1> Idée de restaurants, cafés </h1>
 <?php
  	$req = $bdd->query('select * from etablissement where Bonplan="1" ');
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
- 		echo '<h1>';
+ 		echo '<h1> Manger, boire';
 				echo $donne['Nom']."<br/>";
 				echo "</h1>";
 							echo "<img src='images/boire.jpg'><br/>";

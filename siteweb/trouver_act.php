@@ -95,7 +95,7 @@ function afficherAutre(){
 
 <body>
 
-<<<<<<< HEAD
+
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<div class='bouton11'>";
 			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";

@@ -42,6 +42,13 @@ session_start()
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
 'root', 'root'); 
 ?>
+<?php
+if(isset($_GET["saisie"])){
+$saisie=$_GET["saisie"];
+$req = $bdd->query('select * from etablissement where Type like "%$saisie%" ');
+ 	while($donne = $req->fetch()){
+ 		echo $donne['Nom'];
+} ?>
 <h1> <p class="rose"> Nos coups de coeur </p>- Que faire à Montpellier et ses alentours?  </h1>
 <?php
  	$req = $bdd->query('select * from exterieure where Bonplan="1" and Type="Randonnée"');

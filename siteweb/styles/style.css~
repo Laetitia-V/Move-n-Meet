@@ -27,7 +27,8 @@ img{
 	background-repeat: no-repeat;
 	padding-top: 15px;
 	font-weight: bold;
-	text-indent: 12%;
+	text-indent: 13%;
+	color: white;
 }	
 .onglets{
 	font-weight: bold;
@@ -47,7 +48,8 @@ p {
 	font-size: 23px;
 }
 .rose{
-color: pink;
+color: #B037A6;
+display: inline;
 text-decoration: underline;
 }
 #connec{

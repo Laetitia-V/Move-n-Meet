@@ -27,7 +27,8 @@ img{
 	background-repeat: no-repeat;
 	padding-top: 15px;
 	font-weight: bold;
-	text-indent: 12%;
+	text-indent: 13%;
+	color: red;
 }	
 .onglets{
 	font-weight: bold;

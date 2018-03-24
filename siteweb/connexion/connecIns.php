@@ -57,7 +57,7 @@ Confirmation du mot de passe :
       </p>
 <input type="hidden" name="profil" value="default.png"/>
       
-      <input class="bouton" type="submit" value="Inscription"></p>
+     <p> <input class="bouton" type="submit" value="Inscription"></p>
 </div>
 </form>
 
@@ -75,10 +75,10 @@ Adresse mail :
 Mot de passe :
             <input type="password" name="mdp" value=""/>
       </p>
-     
-      <input class="bouton" type="submit" value="Connexion">
-
+     <p>
+      <input class="bouton" type="submit" value="Connexion"></p>
+      </div>
 </form> 
 
-
 </body>
+</html>

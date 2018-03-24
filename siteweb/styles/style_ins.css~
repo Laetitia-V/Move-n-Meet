@@ -1,6 +1,6 @@
 *{
 		font-family: "american typewriter",arial;
-		%border: solid 2px;
+		aborder: solid 2px;
 		font-size: 15px;
 		%margin-left: auto;
 		%margin-right: auto;
@@ -11,60 +11,67 @@ html{
 	background-image: url("../images/photo_ins.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-position: 0% 24%;
-	padding-bottom: 50px;
+	abackground-position: 0% 24%;
 	width: 100%;
 	height: 100%;
 }
+body{
+width: 100%;
+height: 100%;
+overflow:scroll;}
+
 #ins{
-	margin-top: 2%;
-	margin-right:1%: 
+	amargin-top: 0;
+	margin-right:1%;
 	border:2px solid #3F06D0;
-	width: 40%;
-	height: 55%;
+	width: 35%;
+	height: 75%;
 	text-align: center;
 	background-image: url(../images/fond_ins.png);
 	float: left;
 	margin-left: 5%;
+	margin-bottom: 2%;
 	overflow: hidden;
 }
 #connec{
-	margin-top: 20%;
+	margin-top: 15%;
+	margin-bottom: 2%;
 	border:2px solid #3F06D0;
-	width: 60%;
-	height: 40%;
+	height: 70%;
+	width: 48%;
 	text-align: center;
 	background-image: url(../images/fond_connec.png);
 	float: right;
 	margin-right: 15%;
-	overflow: hidden;
+	overflow: auto;
 }
 
 .titre{
 	font-weight: bolder;
 	font-size: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 1%;
+	margin-top: 2%;
 }
 
 .bouton{
-	border: 2px solid #3F06D0;
+	border: 2px solid ;
 	color: black;
-	padding:5px;
-	margin-top: 10%;
-	width: 100px;
-	height: 25px;
+	padding-top: 2%;
+	amargin-top: 10%;
+	width: 25%;
+	height: 10%;
 	margin-left: auto;
 	margin-right:auto;
+	background-color: rgba(0, 0, 0066, .35);
 	abackground-image: url(../images/fond_bouton.png);
 }
 p{
-	margin-bottom:30px; 
+	amargin-bottom:17px; 
 }
 a{
 	text-decoration: none;
 	color: black;
+	awidth: 2%;
+	aheight: 2%;
 }
-.logo{
-	width: 2%;
-	height: 2%;
-}
+

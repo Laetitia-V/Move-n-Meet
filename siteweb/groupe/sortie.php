@@ -16,7 +16,7 @@
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<div class='bouton11'>";
 			echo "<a class='bouton11' id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
-			echo "<a href='../connexion/profil.php'> Mon profil </a>";
+			echo "<a href='../connexion/profil_perso.php'> Mon profil </a>";
 			echo'</div>';
 			}
 			
@@ -61,7 +61,7 @@
 	
     $inscrit=0;
     while ($ligne = $aff ->fetch()) {
-				echo $ligne['Prenom']." ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365);
+				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> ".$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365);
                 if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
                     $inscrit=1;
                 }

@@ -12,18 +12,20 @@ session_start()
 <body>
 
 <?php if(isset($_SESSION['utilisateur'])){
-			echo "<div class='bouton11'>";
-			echo "<a class='bouton11' id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a  id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
 			echo "<a href='connexion/profil.php'> Mon profil </a>";
-			echo'</div>';
 			}
 			
 	else{
-	echo"<a class='bouton11' id='connec' href='connexion/connecIns.php' >";
+	echo"<a id='connec' href='connexion/connecIns.php' >";
 	echo "S'inscrire / Se connecter</a>";
 	 }
 ?>
-
+<?php if(isset($_SESSION['utilisateur'])){
+	echo "<p class='bjr'>";
+	echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !";
+	echo "</p>";}
+?>
 <span><img src="images/logo-copie.png" alt="logo"></span>
 <span><img src="images/titre.png" alt="titre"/></span>
 
@@ -36,50 +38,71 @@ session_start()
 <input name="saisie" type="text" placeholder="Mots-Clefs..." required />
 <input class="loupe" type="submit" value="" />
 </form>
-<?php if(isset($_SESSION['utilisateur'])){
-echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !";}
+<?php 
+	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
+'root', 'root'); 
 ?>
-
-<form id="recherche" method="post">
-<input name="saisie" type="text" placeholder="Mots-Clefs..." required />
-<input class="loupe" type="submit" value="" />
-</form>
-
-
-
-<FORM>
-<span class="select-wrapper">
-<Select name="Avec qui ?" >
-<option>Avec qui ?</option>
-<option>Famille</option>
-<option>Amis</option>
-</select>
-</span>
-
-<span class="select-wrapper">
-<Select name="Pour ?" >
-<option>Pour ?</option>
-<option>Rencontres</option>
-<option>Sport</option>
-<option>Manger</option>
-</select>
-</span>
-
-
-<span class="select-wrapper">
-<Select name="Quand?" >
-<option>Quand?</option>
-<option>Toute la journée</option>
-<option>Après-midi</option>
-<option>Soir</option>
-</select>
-</span>
-</form>
-
-<span>
-<p class="rechercher">Rechercher</p>
-</span>
-
+<h1>Idée de lieu de randonnée </h1>
+<?php
+ 	$req = $bdd->query('select * from exterieure where Bonplan="1" and Type="Randonnée"');
+ 	while($donne = $req->fetch()){
+ 		echo '<div class="activite">';
+ 		echo '<h1>';
+				echo $donne['Nom']."<br/>";
+				echo "</h1>";
+				echo "<img src='images/rando.jpg'>";
+				echo "<h2>Longueur de : </h2>".$donne['Longueur']."<br/><h2> Durée : </h2>".$donne['Duree']."<br/><h2> Difficulté : </h2>".$donne['Difficulté']."<br/><h2>".$donne['Depart']."</h2><h2> Description : </h2>".$donne['Description'];
+ 		echo '</div>';
+}
+?>
+<h1> Idée de lieu de baignade </1>
+<?php
+ 	$req = $bdd->query('select * from exterieure where Bonplan="1" and Type="Baignade en Rivière"');
+ 	while($donne = $req->fetch()){
+ 		echo '<div class="activite">';
+ 		echo '<h1>';
+				echo $donne['Nom']."<br/>";
+				echo "</h1>";
+				echo "<img src='images/riv.jpg'><br/>";
+				echo "<h2>Ville : </h2>".$donne['Ville']." <br/><h2>Distance :</h2>".$donne['Distance']."<br/><h2>Classement :</h2> ".$donne['Classement']."<br/><h2>Description :</h2>". $donne['Eau']."<br/>".$donne['Description'];
+ 		echo '</div>';
+}
+?>
+<h1> Idée de restaurants, cafés </h1>
+<?php
+ 	$req = $bdd->query('select * from etablissement where Bonplan="1" ');
+ 	while($donne = $req->fetch()){
+ 		echo '<div class="activite">';
+ 		echo '<h1>';
+				echo $donne['Nom']."<br/>";
+				echo "</h1>";
+							echo "<img src='images/boire.jpg'><br/>";
+				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>".$donne['Cuisine'];
+ 		echo '</div>';
+}
+?>
+<?php
+ 	$req = $bdd->query('select * from divers where Bonplan="1" ');
+ 	while($donne = $req->fetch()){
+ 		echo '<div class="activite">';
+ 		echo '<h1>';
+				echo $donne['Nom']."<br/>";
+				echo "</h1>";
+							echo "<img src='images/boire.jpg'><br/>";
+				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>";
+ 		echo '</div>';
+}
+?>
+<?php
+ 	$req = $bdd->query('select * from culture where Bonplan="1" ');
+ 	while($donne = $req->fetch()){
+ 			echo '<div class="activite">';
+			echo "<h1>".$donne['Nom']."<br/></h1>";
+			echo "<img src='images/cultu.jpg'>";
+			echo $donne['Numero_Rue']." ".$donne['Rue']." ".$donne['Ville']."<br/>";
+ 			echo '</div>';
+}
+?>
 
 </body>
 </html>

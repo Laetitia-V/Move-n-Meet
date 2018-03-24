@@ -20,7 +20,7 @@ html{
 	margin-top: 50px;
 	border:2px solid #3F06D0;
 	width: 500px;
-	height: 670px;
+	height: 700px;
 	text-align: center;
 	background-image: url(../images/fond_ins.png);
 	float: left;

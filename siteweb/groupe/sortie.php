@@ -58,7 +58,10 @@
 	
     $inscrit=0;
     while ($ligne = $aff ->fetch()) {
-				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> <img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img></a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> ".$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
+				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> 
+				<img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img>
+				</a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> "
+				.$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
                 if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
                     $inscrit=1;
                 }

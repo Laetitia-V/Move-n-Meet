@@ -5,6 +5,7 @@
 	$desc=$_GET['desc'];
 	$adr=$_GET['adr'];
 	$nbMax=$_GET['max'];
+	$horaire=$_GET['heure'];
 ?>
 <!doctype html>
 <html>
@@ -31,13 +32,18 @@
 <?php
 	
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	$sql = "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max) VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."')";
+	if($date<time()){
+		echo "La date est déjà passée";
+	}
+	else{
+	$sql = "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max, Horaire) 
+	VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."','".$horaire."')";
 	$rep = $bdd->query($sql);
 	$rep -> closeCursor();
 	echo "Votre sortie a bien été enregistré";
     // Ajout du créateur dans la liste des participants
 	echo "<meta http-equiv='refresh' content='3; URL=groupe.php'>";
-	
+	}
 ?>
 
 </body>

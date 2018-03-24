@@ -43,6 +43,10 @@
 				<input type="date" name="date" value="jj/mm/aaaa"/>
 		  </p>
 		  <p>
+	Horaire : 
+				<input type="time" name='heure'/>
+		</p>
+		  <p>
 
 	Description :
 				<input type="text" name="desc" value=""/>

@@ -34,7 +34,7 @@ session_start()
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 </p>
-<form id="recherche" method="post">
+<form id="recherche" method="get" action="resultat.php">
 <input name="saisie" type="text" placeholder="Mots-Clefs..." required />
 <input class="loupe" type="submit" value="" />
 </form>
@@ -42,23 +42,28 @@ session_start()
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
 'root', 'root'); 
 ?>
-<?php
+<//?php
 if(isset($_GET["saisie"])){
-$saisie=$_GET["saisie"];
-$req = $bdd->query('select * from etablissement where Type like "%$saisie%" ');
+	$saisie=$_GET["saisie"];
+	$req = $bdd->query("select * from etablissement where Type LIKE '%$saisie%' ");
  	while($donne = $req->fetch()){
  		echo $donne['Nom'];
-} ?>
+ 		} 
+ 	//if(($saisie == " ") || ($saisie =="%")) {
+ 			//echo "Pas de résultats trouvés";
+ 	//}
+ 	}
+ ?>
 <h1> <p class="rose"> Nos coups de coeur </p>- Que faire à Montpellier et ses alentours?  </h1>
 <?php
  	$req = $bdd->query('select * from exterieure where Bonplan="1" and Type="Randonnée"');
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
  		echo '<h1> Randonnée - ';
-				echo $donne['Nom']."<br/>";
-				echo "</h1>";
-				echo "<img src='images/rando.jpg'>";
-				echo "<h2>Longueur de : </h2>".$donne['Longueur']."<br/><h2> Durée : </h2>".$donne['Duree']."<br/><h2> Difficulté : </h2>".$donne['Difficulté']."<br/><h2>".$donne['Depart']."</h2><h2> Description : </h2>".$donne['Description'];
+		echo $donne['Nom']."<br/>";
+		echo "</h1>";
+		echo "<img src='images/rando.jpg'>";
+		echo "<h2>Longueur de : </h2>".$donne['Longueur']."<br/><h2> Durée : </h2>".$donne['Duree']."<br/><h2> Difficulté : </h2>".$donne['Difficulté']."<br/><h2>".$donne['Depart']."</h2><h2> Description : </h2>".$donne['Description'];
  		echo '</div>';
 }
 ?>
@@ -67,10 +72,10 @@ $req = $bdd->query('select * from etablissement where Type like "%$saisie%" ');
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
  		echo '<h1>';
-				echo $donne['Nom']."<br/>";
-				echo "</h1>";
-				echo "<img src='images/riv.jpg'><br/>";
-				echo "<h2>Ville : </h2>".$donne['Ville']." <br/><h2>Distance :</h2>".$donne['Distance']."<br/><h2>Classement :</h2> ".$donne['Classement']."<br/><h2>Description :</h2>". $donne['Eau']."<br/>".$donne['Description'];
+		echo $donne['Nom']."<br/>";
+		echo "</h1>";
+		echo "<img src='images/riv.jpg'><br/>";
+		echo "<h2>Ville : </h2>".$donne['Ville']." <br/><h2>Distance :</h2>".$donne['Distance']."<br/><h2>Classement :</h2> ".$donne['Classement']."<br/><h2>Description :</h2>". $donne['Eau']."<br/>".$donne['Description'];
  		echo '</div>';
 }
 ?>
@@ -79,10 +84,10 @@ $req = $bdd->query('select * from etablissement where Type like "%$saisie%" ');
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
  		echo '<h1> Manger, boire - ';
-				echo $donne['Nom']."<br/>";
-				echo "</h1>";
-							echo "<img src='images/boire.jpg'><br/>";
-				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>".$donne['Cuisine'];
+		echo $donne['Nom']."<br/>";
+		echo "</h1>";
+		echo "<img src='images/boire.jpg'><br/>";
+		echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>".$donne['Cuisine'];
  		echo '</div>';
 }
 ?>
@@ -91,10 +96,10 @@ $req = $bdd->query('select * from etablissement where Type like "%$saisie%" ');
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
  		echo '<h1>';
-				echo $donne['Nom']."<br/>";
-				echo "</h1>";
-							echo "<img src='images/boire.jpg'><br/>";
-				echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>";
+		echo $donne['Nom']."<br/>";
+		echo "</h1>";
+		echo "<img src='images/boire.jpg'><br/>";
+		echo $donne['Numéro']." ".$donne['Rue']." <br/>".$donne['Horaires']."<br/>";
  		echo '</div>';
 }
 ?>

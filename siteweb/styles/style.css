@@ -150,8 +150,8 @@ font-size: 16px;
  	text-decoration: none;
 }
 #recherche {
-width:60%;
-height:24px;
+width:80%;
+height:4%;
 background-color: rgba(F,F,FFFF,0.62;
 abox-shadow:1px 1px 2px rgba(0,0,0,.3) inset;
 border-radius:2em;
@@ -160,7 +160,7 @@ border-radius:2em;
 #recherche .loupe {
 background-image: :url("images/loupe.png");
 background-repeat: no-repeat;
-width:24px;
+width:10%;
 }
   
 #recherche input {
@@ -175,7 +175,7 @@ display:block;
 #recherche input[type=text] {
 font:300 12px "American Typewriter", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 background:none;
-width:180px;
+width:10%;
 padding:0 9px;
 color:#666;
 }

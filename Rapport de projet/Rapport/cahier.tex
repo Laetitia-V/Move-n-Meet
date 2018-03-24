@@ -94,6 +94,7 @@ Aussi, nous avons décider de remplacer la page bons plans par nos activités co
 \item Mamp
 \item Bluefish
 \item LaTex
+
 \end{itemize}
 \end{description}
 Schéma de l'architecture de l'application
@@ -105,12 +106,19 @@ Schéma de la base de données
 \item \textbf{Liste des fonctionnalités de Move'n Meet}
 \begin{itemize}
 \item Connexion / Inscription sur le site
+\item Déconnexion du site
 \item Création d'une activité avec un nombre de personnes maximum
 \item Recherche d'une idée d'activité à travers des critères et des sous-critères
 \item Parcourir la liste des évènements temporaires
-\item Parcourir une liste de bons plans
+\item Parcourir une liste de nos coups de coeur
 \item Rejoindre une activité déjà crée après s'être connecté
 \item Se désinscrire d'une activité 
+\item Poster des commentaires sur les activités
+\item Consulter son profil
+\item Modifier les informations de son profil
+\item Voir le profil des autres utilisateurs
+\item 
+\item La personne connectée peut consulter sur son profil ses activités de groupe passées et futures
 \end{itemize}
 \end{description}
 
@@ -119,10 +127,16 @@ Schéma de la base de données
 \begin{itemize}
 \item Un utilisateur ne peut pas s'inscrire deux fois
 \item Un utilisateur déjà connecté ne peut se reconnecter
-\item Lorsque le nombre de personnes maximum est atteint dans une activité crée, plus personne ne peut s'y inscrire
+\item Lorsque le nombre de personnes maximum est atteint dans une activité crée les suivants qui s'inscrivent sont mis en attente dans l'ordre d'inscription en attendant qu'une personne se désiste
 \item Une personne déjà inscrite ne peut pas se réinscrire
 \item Un email doit contenir un '@'
-\item \textbf{Liste de gestion des erreurs mise en place}
+\item Pour créer une activité de groupe il faut que la date soit postérieure
+\item Lors de l'inscription la date de naissance doit être antérieure au jour de l'inscription
+\item Lors de l'inscription les deux mots de passe doivent être similaires
+\item L'administrateur peut supprimer des sorties
+\item Impossible de rejoindre deux fois la même sortie de groupe
+
+\item \textbf{Liste de gestion des erreurs à mettre en place}
 \item  
 \item 
 \end{itemize}
@@ -138,8 +152,8 @@ Schéma de la base de données
 \begin{description}
 \item\begin{itemize}
 \item Création de sous choix
-\item 
-\item 
+\item Mise à jour de la variable de session utilisateur
+\item Création d'une barre de recherche
 \item 
 \item 
 \item 

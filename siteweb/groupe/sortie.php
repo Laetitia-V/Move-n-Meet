@@ -66,15 +66,10 @@
                     $inscrit=1;
                 }
 	}
-<<<<<<< HEAD
-    
-    
-    
-    // Bouton Inscription
-=======
-    $rep -> closeCursor();
+
+        
 	// Bouton Inscription
->>>>>>> e67e8951eedafe5ce34b0f33788d061c43d81060
+
 if(isset($_SESSION['utilisateur'])){
     if($inscrit==1){
 	echo('<form action="desinscrire.php" method="get" autocomplete="off">		  

@@ -137,20 +137,20 @@ font-size: 16px;
 }
 
 #recherche {
-waidth:80%;
-haeight:4%;
-baackground-color: rgba(F,F,FFFF,0.62;
-baox-shadow:1px 1px 2px rgba(0,0,0,.3) inset;
-aborder-radius:2em;
+width:80%;
+height:15%;
+background-color: rgba(F,F,FFFF,0.62;
+box-shadow:1px 1px 2px rgba(0,0,0,.3) inset;
+border-radius:2em;
 }
   
 #recherche .loupe {
-baackground-image: :url("images/loupe.png");
+background-image: :url("images/loupe.png");
 background-repeat: no-repeat;
-waidth:10%;
+width:80%;
 }
   
-#recherche input {
+#//recherche input {
 outline:0;
 border:0;
 margin:0;
@@ -159,12 +159,12 @@ float:left;
 display:block;
 }
   
-#recherche input[type=text] {
+#//recherche input[type=text] {
 faont:300 12px "American Typewriter", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 background:none;
 width:10%;
 padding:0 9px;
 color:#666;
-}
+}*/
 .souschoix{
 color: red;}

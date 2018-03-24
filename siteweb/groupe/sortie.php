@@ -61,7 +61,7 @@
 	
     $inscrit=0;
     while ($ligne = $aff ->fetch()) {
-				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> ".$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365);
+				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> ".$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)."</br>";
                 if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
                     $inscrit=1;
                 }

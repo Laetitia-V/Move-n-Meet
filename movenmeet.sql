@@ -1,14 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.5
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  sam. 24 mars 2018 à 11:34
+-- Généré le :  sam. 24 mars 2018 à 23:53
 -- Version du serveur :  5.6.38
--- Version de PHP :  7.1.12
+-- Version de PHP :  7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `movenmeet`
@@ -53,7 +59,7 @@ CREATE TABLE `commentaires` (
   `Id_groupe` int(11) NOT NULL,
   `Auteur` varchar(255) NOT NULL,
   `Commentaire` text NOT NULL,
-  `Date` date DEFAULT NULL
+  `Date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -61,8 +67,13 @@ CREATE TABLE `commentaires` (
 --
 
 INSERT INTO `commentaires` (`Id_com`, `Id_groupe`, `Auteur`, `Commentaire`, `Date`) VALUES
-(1, 2, 'moi', 'ca marche ou pas ', '2018-03-24'),
-(12, 2, 'lol', 'ljljmk', NULL);
+(1, 2, 'moi', 'ca marche ou pas ', '2018-03-24 00:00:00'),
+(12, 2, 'lol', 'ljljmk', '0000-00-00 00:00:00'),
+(13, 2, 'a', 'gvgvh', '0000-00-00 00:00:00'),
+(14, 2, 'a', 'hjkljb', '0000-00-00 00:00:00'),
+(15, 2, 'a', 'jhvjgjh ', '0000-00-00 00:00:00'),
+(16, 2, 'a', 'jjjjjjj', '0000-00-00 00:00:00'),
+(17, 2, 'a', 'h', '2018-03-24 15:00:46');
 
 -- --------------------------------------------------------
 
@@ -1863,7 +1874,7 @@ INSERT INTO `exterieure` (`Nom`, `Longueur`, `Duree`, `Difficulté`, `Depart`, `
 
 CREATE TABLE `groupe` (
   `Id_groupe` int(11) NOT NULL,
-  `Horaire` datetime DEFAULT NULL,
+  `Horaire` time DEFAULT NULL,
   `Date` date NOT NULL,
   `Descriptif` text NOT NULL,
   `Titre` varchar(255) NOT NULL,
@@ -1883,7 +1894,12 @@ INSERT INTO `groupe` (`Id_groupe`, `Horaire`, `Date`, `Descriptif`, `Titre`, `Ad
 (3, NULL, '2020-02-28', 'qdsfddfdsfsf', 'srgfsgdfg', 'fsdfsdfsdf', 10, NULL, NULL, NULL),
 (4, NULL, '2018-03-04', 'qdcqdcqc', 'sqcqc', 'qscqcqsc', 23, NULL, NULL, NULL),
 (5, NULL, '2018-03-02', ';jhkjk', 'jyfjygjg', 'jhgjh', 20, NULL, NULL, NULL),
-(6, NULL, '2018-03-05', ',hjgj', 'jhgj', 'hhfhgf', 20, NULL, NULL, NULL);
+(6, NULL, '2018-03-05', ',hjgj', 'jhgj', 'hhfhgf', 20, NULL, NULL, NULL),
+(7, NULL, '2019-11-12', 'Repas gras', 'huile', 'Cuisine', 5, NULL, NULL, NULL),
+(8, NULL, '2020-12-29', 'tgtg', 'tg', 'ou', 5, NULL, NULL, NULL),
+(9, '17:34:00', '2020-03-03', 'jhjh', 'hhhh', 'jhjh', 6, NULL, NULL, NULL),
+(10, '14:00:00', '2019-06-05', '', 'jhv', 'qkbuf', 5, NULL, NULL, 0),
+(11, '12:32:00', '2019-06-07', '', 'sc', 'ZAC', 3, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1897,6 +1913,13 @@ CREATE TABLE `participant` (
   `Ordre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `participant`
+--
+
+INSERT INTO `participant` (`Id_groupe`, `Id_utilisateur`, `Ordre`) VALUES
+(2, 468, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -1907,6 +1930,17 @@ CREATE TABLE `type_act_groupe` (
   `Id_Type` int(11) NOT NULL,
   `Nom` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `type_act_groupe`
+--
+
+INSERT INTO `type_act_groupe` (`Id_Type`, `Nom`) VALUES
+(1, 'Sport'),
+(2, 'Culture'),
+(3, 'Nature'),
+(4, 'Se rencontrer'),
+(5, 'Jeux');
 
 -- --------------------------------------------------------
 
@@ -1932,7 +1966,170 @@ CREATE TABLE `utilisateur` (
 
 INSERT INTO `utilisateur` (`Id_utilisateur`, `Nom`, `Prenom`, `Date_naissance`, `Sexe`, `Description`, `Photo`, `Mail`, `Mdp`) VALUES
 (464, 'lol', 'lol', NULL, NULL, NULL, NULL, 'lol', 'lol'),
-(466, 'fpa', 'lol', NULL, NULL, NULL, NULL, 'ok', 'ok');
+(466, 'fpa', 'lol', NULL, NULL, NULL, NULL, 'ok', 'ok'),
+(467, 'a', 'a', '2008-06-04', 'Homme', 'aaazzz', 'default_H.png', 'a@a', 'a'),
+(468, 'h', 'h', '1998-06-18', 'Homme', 'hh', '468.jpg', 'h@h', 'h'),
+(469, 'y', 'y', '2012-06-22', NULL, NULL, 'default.png', 'y@y', 'y'),
+(470, 'k', 'k', '1996-02-14', NULL, NULL, 'default.png', 'k@k', 'k'),
+(471, 'l', 'l', '2012-03-07', NULL, NULL, 'default.png', 'l@l', 'l'),
+(472, 'm', 'm', '1870-06-09', NULL, NULL, 'default.png', 'm@m', 'm'),
+(473, 'f', 'f', '2008-02-12', NULL, NULL, 'default.png', 'f@f', 'f'),
+(474, 'm', 'm', '2010-02-02', NULL, NULL, 'default.png', 'm@m', 'm'),
+(475, 'll', 'll', '2004-02-11', NULL, NULL, 'default.png', 'l@ll', 'll'),
+(476, 'mm', 'mm', '2006-02-07', NULL, NULL, 'default.png', 'm@mm', 'm'),
+(477, 'pp', 'pp', '2018-03-01', NULL, NULL, 'default.png', 'p@p', 'pp'),
+(478, 'klm', 'o', '1996-01-02', NULL, NULL, 'default.png', 'ko@ko', 'kk'),
+(479, 'jk', 'jk', '1980-02-06', NULL, NULL, 'default.png', 'k@kj', 'kl'),
+(480, 'oo', 'oo', '2010-02-04', NULL, NULL, 'default.png', 'o@o', 'o'),
+(481, 'ppp', 'ppp', '2002-01-01', NULL, NULL, 'default.png', 'p@pp', 'ppp'),
+(482, 'jjj', 'jjj', '2018-03-01', NULL, NULL, 'default.png', 'j@j', 'jj'),
+(483, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(484, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(485, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(486, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(487, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(488, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(489, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(490, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(491, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(492, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(493, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(494, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(495, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(496, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(497, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(498, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(499, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(500, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(501, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(502, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(503, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(504, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(505, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(506, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(507, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(508, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(509, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(510, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(511, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(512, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(513, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(514, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(515, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(516, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(517, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(518, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(519, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(520, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(521, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(522, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(523, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(524, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(525, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(526, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(527, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(528, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(529, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(530, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(531, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(532, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(533, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(534, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(535, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(536, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(537, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(538, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(539, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(540, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(541, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(542, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(543, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(544, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(545, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(546, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(547, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(548, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(549, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(550, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(551, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(552, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(553, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(554, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(555, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(556, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(557, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(558, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(559, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(560, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(561, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(562, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(563, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(564, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(565, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(566, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(567, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(568, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(569, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(570, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(571, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(572, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(573, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(574, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(575, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(576, 'hh', 'hh', '2003-06-19', NULL, NULL, 'default.png', 'h@h', 'h'),
+(577, 'kkk', 'kkk', '2014-12-30', 'Femme', '', 'default_F.png', 'kkk@kkk', 'kkk'),
+(578, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(579, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(580, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(581, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(582, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(583, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(584, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(585, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(586, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(587, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(588, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(589, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(590, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(591, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(592, 'kkk', 'kkk', '2014-12-30', NULL, NULL, 'default.png', 'kkk@kkk', 'kkk'),
+(593, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(594, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(595, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(596, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(597, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(598, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(599, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(600, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(601, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(602, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(603, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(604, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(605, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(606, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(607, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(608, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(609, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(610, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(611, 'lololo', 'lolo', '1995-09-12', NULL, NULL, 'default.png', 'l@l', 'll'),
+(612, 'jn', 'jn', '1967-09-12', NULL, NULL, 'default.png', 'hh@hhhhh', 'h'),
+(613, 'jn', 'jn', '1967-09-12', NULL, NULL, 'default.png', 'hh@hhhhh', 'h'),
+(614, 'jn', 'jn', '1967-09-12', NULL, NULL, 'default.png', 'hh@hhhhh', 'h'),
+(615, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(616, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(617, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(618, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(619, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(620, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(621, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(622, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(623, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(624, 'mmmm', 'mmm', '1976-03-12', NULL, NULL, 'default.png', 'sss@ss', 'a'),
+(625, 'nn', 'nanan', '0000-00-00', NULL, NULL, 'default.png', 'j@j', 'a'),
+(626, 'kqbc', 'skhvb', '2018-03-08', NULL, NULL, 'default.png', 'sdv@t', 'e'),
+(627, '<fez', 'fu', '2017-02-02', NULL, NULL, 'default.png', 'ujvfy@a', 't'),
+(628, 'tt', 'tt', '2016-02-01', NULL, NULL, 'default.png', 'y@y', 'y'),
+(629, 'kj', 'luig', '1990-01-01', NULL, NULL, 'default.png', 'jv@r', 'aa');
 
 --
 -- Index pour les tables déchargées
@@ -2018,16 +2215,28 @@ ALTER TABLE `utilisateur`
 --
 
 --
+-- AUTO_INCREMENT pour la table `commentaires`
+--
+ALTER TABLE `commentaires`
+  MODIFY `Id_com` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT pour la table `groupe`
 --
 ALTER TABLE `groupe`
-  MODIFY `Id_groupe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id_groupe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `type_act_groupe`
+--
+ALTER TABLE `type_act_groupe`
+  MODIFY `Id_Type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `Id_utilisateur` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=467;
+  MODIFY `Id_utilisateur` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=630;
 
 --
 -- Contraintes pour les tables déchargées
@@ -2047,7 +2256,6 @@ ALTER TABLE `activite`
 --
 ALTER TABLE `groupe`
   ADD CONSTRAINT `groupe_ibfk_1` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
-  ADD CONSTRAINT `groupe_ibfk_2` FOREIGN KEY (`Id_Type`) REFERENCES `type_act_groupe` (`Id_Type`),
   ADD CONSTRAINT `groupe_ibfk_3` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
   ADD CONSTRAINT `groupe_ibfk_4` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
   ADD CONSTRAINT `groupe_ibfk_5` FOREIGN KEY (`Id_Createur`) REFERENCES `utilisateur` (`Id_utilisateur`);
@@ -2057,3 +2265,7 @@ ALTER TABLE `groupe`
 --
 ALTER TABLE `participant`
   ADD CONSTRAINT `participant_ibfk_1` FOREIGN KEY (`Id_utilisateur`) REFERENCES `utilisateur` (`Id_utilisateur`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

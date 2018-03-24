@@ -66,7 +66,7 @@ media="screen"	/>
 		//echo $sql;
 		$rep = $bdd->query($maj);
 		
-		echo "<meta http-equiv='refresh' content='0; URL=connecIns.php'>" ;
+		echo "<meta http-equiv='refresh' content='5; URL=connecIns.php'>" ;
 	}
 ?>
 

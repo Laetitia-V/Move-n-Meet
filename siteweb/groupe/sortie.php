@@ -66,10 +66,15 @@
                     $inscrit=1;
                 }
 	}
+<<<<<<< HEAD
     
     
     
     // Bouton Inscription
+=======
+    $rep -> closeCursor();
+	// Bouton Inscription
+>>>>>>> e67e8951eedafe5ce34b0f33788d061c43d81060
 if(isset($_SESSION['utilisateur'])){
     if($inscrit==1){
 	echo('<form action="desinscrire.php" method="get" autocomplete="off">		  
@@ -90,3 +95,30 @@ else{
 }
 	
 ?>
+    
+    <h2>Commentaires</h2>
+    
+
+    <form action="commentaireAjout.php" method="get" autocomplete="off">
+      <input type='hidden' name='id' value='<?php echo $_GET['id'] ?>' >
+		  <p>
+	Commentaire :
+              </p>
+				<TEXTAREA name="commentaire" rows=8 COLS=50></TEXTAREA>
+		  
+		  
+		  <p class="bouton">
+		  <input type="submit" value="Publier"></p>
+		  
+</form>
+  <?php  
+    $req=$bdd ->query("SELECT * FROM commentaires WHERE Id_groupe='".$_GET['id']."'");
+    while($com = $req -> fetch ()){
+        echo $com['Auteur']."<br/>";
+        echo $com['Date']."<br/><br/>";
+        echo $com['Commentaire']."<br/><br/><br/>";
+    }
+    
+?>
+    </body>
+</html>

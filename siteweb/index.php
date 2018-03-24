@@ -24,7 +24,8 @@ session_start()
 <?php if(isset($_SESSION['utilisateur'])){
 	echo "<p class='bjr'>";
 	echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !";
-	echo "</p>";}
+	
+	}
 ?>
 <span><img src="images/logo-copie.png" alt="logo"></span>
 <span><img src="images/titre.png" alt="titre"/></span>
@@ -34,6 +35,19 @@ session_start()
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 </p>
+
+<?php
+if(isset($_SESSION['utilisateur'])){
+$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root', 'root'); 
+	$act= "Select G.Titre, G.Date, G.Id_groupe from groupe G, participant P, utilisateur U where U.Id_utilisateur='".$_SESSION['utilisateur'][0]."' and P.Id_groupe=G.Id_groupe";
+	//echo $act;
+	$rep = $bdd->query($act);
+	echo "</p><p> Vous vous êtes à l'activité de groupe";
+	while ($ligne = $rep ->  fetch () ){
+		echo "<a href=groupe/sortie.php?id='".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date'];
+	}
+}
+	?>
 <form id="recherche" method="get" action="resultat.php">
 <input name="saisie" type="text" placeholder="Mots-Clefs..." required />
 <input class="loupe" type="submit" value="" />

@@ -52,7 +52,7 @@ Prénom *
       </p>
 <p>
 Photo de profil 
-            <input type="file" name="profil" value=""/>
+            <input type="file" name="profil" value="<?php echo $_SESSION['utilisateur'][6] ?>"/>
       </p>
 <p>
 Date de naissance * 

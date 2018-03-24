@@ -46,16 +46,22 @@ media="screen"	/>
    			}
 		}
 		
-		elseif($_POST['genre']=='Femme'){
-			$profil="default_F.png";
+		elseif($_SESSION['utilisateur'][6]!='default_H.png' && $_SESSION['utilisateur'][6]!='default.png' && $_SESSION['utilisateur'][6]!='default_F.png'){
+			$profil=$_SESSION['utilisateur'][6];
 		}
 		
-		elseif($_POST['genre']=='Homme'){
+		elseif($_POST['genre']=='Femme' || ($_POST['genre']=='' && $_SESSION['utilisateur'][4]=='Femme')){
+			$profil="default_F.png";
+			$genre="Femme";
+		}
+		
+		elseif($_POST['genre']=='Homme' || ($_POST['genre']=='' && $_SESSION['utilisateur'][4]=='Homme')){
 			$profil="default_H.png";
+			$genre="Homme";
 		}
 		
 		$maj= "UPDATE utilisateur SET Nom='".$_POST['n']."', Prenom='".$_POST['p']."',
-		Date_naissance='".$_POST['d']."',Sexe='".$_POST['genre']."',Description='".$_POST['description']."',
+		Date_naissance='".$_POST['d']."',Sexe='".$genre."',Description='".$_POST['description']."',
 		Mail='".$_POST['mail']."', Mdp='".$_POST['mdp1']."', Photo='".$profil."' WHERE Id_utilisateur='".$_POST['id']."'";
 		//echo $sql;
 		$rep = $bdd->query($maj);

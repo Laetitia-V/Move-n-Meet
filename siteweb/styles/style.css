@@ -46,6 +46,11 @@ img{
 p {
 	font-size: 23px;
 }
+.rose{
+color: #B037A6;
+display: inline;
+text-decoration: underline;
+}
 #connec{
 	border: #512A51 2px solid;
 	font-weight: bold;

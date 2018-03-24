@@ -1,5 +1,13 @@
 <?php
 session_start();
+$n=$_POST['n'];
+$p=$_POST['p'];
+$d=$_POST['d'];
+$mdp1=$_POST['mdp1'];
+$mdp2=$_POST['mdp2'];
+$photo=$_SESSION['utilisateur'][6];
+$mail=$_SESSION['utilisateur'][7];
+$id=$_SESSION['utilisateur'][0];
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,11 +18,11 @@ media="screen"	/>
 	<title>MovenMeet</title>
 <?php
 		
-	if ($_POST['n']=="" || $_POST['p']=="" || $_POST['d']=="" ||$_POST['mdp1']==""||$_POST['mdp2']==""){
+	if ($n=="" || $p=="" || $d=="" ||$mdp1==""|| $mdp2==""){
 		echo "Un des champs obligatoire est vide";
 		echo "<meta http-equiv='refresh' content='2; URL=modification.php'>";
 	}
-	elseif ($_POST['mdp1']!=$_POST['mdp2']){
+	elseif ($mdp1!=$mdp2){
 		echo "Les mots de passe ne sont pas les mêmes";
 		echo "<meta http-equiv='refresh' content='2; URL=modification.php'>";
 	}
@@ -46,8 +54,8 @@ media="screen"	/>
    			}
 		}
 		
-		elseif($_SESSION['utilisateur'][6]!='default_H.png' && $_SESSION['utilisateur'][6]!='default.png' && $_SESSION['utilisateur'][6]!='default_F.png'){
-			$profil=$_SESSION['utilisateur'][6];
+		elseif($photo!='default_H.png' && $photo!='default.png' && $photo!='default_F.png'){
+			$profil=$photo;
 		}
 		
 		elseif($_POST['genre']=='Femme' || ($_POST['genre']=='' && $_SESSION['utilisateur'][4]=='Femme')){
@@ -60,13 +68,18 @@ media="screen"	/>
 			$genre="Homme";
 		}
 		
-		$maj= "UPDATE utilisateur SET Nom='".$_POST['n']."', Prenom='".$_POST['p']."',
-		Date_naissance='".$_POST['d']."',Sexe='".$genre."',Description='".$_POST['description']."',
+		$maj= "UPDATE utilisateur SET Nom='".$n."', Prenom='".$p."',
+		Date_naissance='".$d."',Sexe='".$genre."',Description='".$_POST['description']."',
 		Mail='".$_POST['mail']."', Mdp='".$_POST['mdp1']."', Photo='".$profil."' WHERE Id_utilisateur='".$_POST['id']."'";
-		//echo $sql;
 		$rep = $bdd->query($maj);
-		
-		echo "<meta http-equiv='refresh' content='5; URL=connecIns.php'>" ;
+        $rep ->closeCursor();
+        
+        //Récuperer l'id_utilisateur
+        $req= $bdd -> query ("SELECT Id_utilisateur FROM utilisateur WHERE Id_utilisateur=".$id);
+        $User= $req -> fetch ();
+        $idUser=$User[0];
+        
+        echo "<meta http-equiv='refresh' content='15; URL=modifSession.php?id=".$idUser."'>" ; //id=1
 	}
 ?>
 

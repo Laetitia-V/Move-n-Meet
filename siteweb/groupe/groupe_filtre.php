@@ -1,6 +1,5 @@
 <?php
 	session_start();
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 ?>
 <!doctype html>
 <html>
@@ -36,31 +35,18 @@
 
 <table border="1">
 
-<?php 
-$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-$sql= "SELECT * FROM type_act_groupe ";
-$rep = $bdd->query($sql);
-		
-?>	
 
-<form action='groupe_filtre.php' method='get' autocomplete='off'>
-
-		<p> Rechercher une activité par type : 
-		<SELECT name='type' size='1'> <?php while ($ligne = $rep ->  fetch () ){ echo "<OPTION value='".$ligne['Id_type']."'>".$ligne['Nom']."</OPTION>";}?> </SELECT> 
-		
-		 <input type="submit" value="Rechercher"></p>
-	</form>	
-		
-	<tr><th>Date</th><th>Activité</th><th>Créateur</th><th>Nombre de participants</th>
+<tr><th>Date</th><th>Activité</th><th>Créateur</th><th>Nombre de participants</th>
 	<?php 
-		$rep = $bdd->query('select G.Date, G.Titre, G.Adresse, U.Prenom from groupe G, utilisateur U where U.Id_utilisateur=G.Id_createur ');
+		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+		$rep = $bdd->query("select G.Date, G.Titre, G.Adresse from groupe G, type_act_groupe T where G.Id_type='".$_GET['type']."' and G.Id_type=T.Id_type");
 		
 		while ($ligne = $rep ->  fetch () ){
             $idGroupe=$ligne['Id_groupe'];
             $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
 			$c= $count -> fetch();
             $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
-			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Prenom']."</td><td>".$nbParticipant."</td></tr>";
+			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Adresse']."</td><td>".$nbParticipant."</td></tr>";
 		}
 		$rep -> closeCursor();
 	?>

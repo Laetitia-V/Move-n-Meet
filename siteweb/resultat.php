@@ -36,9 +36,9 @@ if(isset($_GET["saisie"])){
  	while($donne = $req->fetch()){
  		echo $donne['Nom'];
  		} 
- 	//if(($saisie == " ") || ($saisie =="%")) {
- 			//echo "Pas de résultats trouvés";
- 	//}
+ 	if($saisie !="%$saisie") {
+ 			echo "Pas de résultats trouvés";
+ 	}
 echo '</div>';
  	}
  ?>

@@ -31,40 +31,50 @@
 <span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="evenements.php"> ÉVENEMENTS</a> </span>
 </p>
-
-<form action="newS.php" method="get" autocomplete="off">
+<?php 
+$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+		$sql= "SELECT * FROM type_act_groupe ";
+		$rep = $bdd->query($sql);
+		
+?>		
+<form action='newS.php' method='get' autocomplete='off'>
 <input type='hidden' name='id' >
+<input type='hidden' name='createur' value='<?php echo $_SESSION['utilisateur'][0] ?>'/>
+		<p> Type :
+		<SELECT name='type'> 
+		<?php while ($ligne = $rep -> fetch () ){ 
+					echo "<OPTION value='".$ligne['Id_Type']."'>".$ligne['Nom']."</OPTION>";}
+		?> </SELECT> 
+		</p>
 		  <p>
 	Titre :
-				<input type="text" name="titre" value=""/>
+				<input type='text' name='titre' value=''/>
 		  </p>
 		  <p>
 	Date :
-				<input type="date" name="date" value="jj/mm/aaaa"/>
+				<input type='date' name='date' value='jj/mm/aaaa'/>
 		  </p>
 		  <p>
 	Horaire : 
-				<input type="time" name='heure'/>
+				<input type='time' name='heure'/>
 		</p>
 		  <p>
 
 	Description :
-				<input type="text" name="desc" value=""/>
+				<TEXTAREA name='description' rows=4 COLS=40></TEXTAREA>
 		  </p>
 	   
 		   <p>
 	Adresse :
-				<input type="text" name="adr" value=""/>
+				<input type='text' name='adr' value=''/>
 		  </p>
 		  <p>
 	Nombre de participants  :
-				<input type="number" name="max" value=""/>
+				<input type='number' name='max' value=''/>
 		  </p>
 		  
-		  <p class="bouton">
-		  <input type="submit" value="Ajouter"></p>
+		  <p class='bouton'>
+		  <input type='submit' value='Ajouter'></p>
 		  
 </form>
 
-</body>
-</html>

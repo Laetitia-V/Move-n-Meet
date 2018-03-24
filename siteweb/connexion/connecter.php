@@ -1,6 +1,8 @@
 <?php
 session_start();
 $h = isset($_GET['h']) ?  $_GET['h'] : NULL;
+$mail=isset($_GET['mail']) ? $_GET['mail'] : $_SESSION['connect'][0];
+$mdp=isset($_GET['mdp']) ? $_GET['mdp'] : $_SESSION['connect'][1];                  
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,8 +15,7 @@ media="screen"	/>
 
 <?php 
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-	$mail=$_GET['mail'];
-	$mdp=$_GET['mdp'];
+	
 	$sql= ("Select * from utilisateur where utilisateur.Mail='".$mail."'");
 	$rep = $bdd->query($sql);
 	$ligne=$rep ->fetch();

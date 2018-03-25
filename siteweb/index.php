@@ -5,28 +5,31 @@ session_start()
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
 <title>Move n' Meet</title>
 </head>
 
 <body>
-
+<span>
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<a  id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
-			echo "<a href='connexion/profil_perso.php'> Mon profil </a>";
+			echo "<a id='connec' href='connexion/profil_perso.php'> Mon profil </a>";
 			}
 			
 	else{
 	echo"<a id='connec' href='connexion/connecIns.php' >";
 	echo "S'inscrire / Se connecter</a>";
 	 }
+	 
 ?>
+
 <?php if(isset($_SESSION['utilisateur'])){
 	echo "<p class='bjr'>";
 	echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !";
-	
+	echo "</p>";
 	}
 ?>
+</span>
 <span><img src="images/logo-copie.png" alt="logo"></span>
 <span><img src="images/titre.png" alt="titre"/></span>
 
@@ -36,6 +39,17 @@ session_start()
 <span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
 </p>
 
+<div class="barre">
+<form id="recherche" method="get" action="resultat.php">
+<input name="saisie" type="text" placeholder="Mots-Clefs..." required >
+<input class="loupe" type="submit" value="">
+</form>
+</div>
+
+<?php 
+	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
+'root', 'root'); 
+?>
 
 <?php
 if(isset($_SESSION['utilisateur'])){
@@ -43,23 +57,13 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root',
 	$act= "Select G.Titre, G.Date, G.Id_groupe from groupe G, participant P, utilisateur U where U.Id_utilisateur='".$_SESSION['utilisateur'][0]."' and P.Id_groupe=G.Id_groupe";
 	//echo $act;
 	$rep = $bdd->query($act);
-	echo "</p><p> Vous vous êtes à l'activité de groupe";
+	echo "</p><p> Vous êtes inscrit à l'activité de groupe";
 	while ($ligne = $rep ->  fetch () ){
 		echo "<a href='groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date'];
 	}
 }
 	?>
 
-<div class="recherche">
-
-<form id="recherche" method="get" action="resultat.php">
-<input class="recherche" name="saisie" type="text" placeholder="Mots-Clefs..." required />
-<input class="loupe" type="submit" value="" />
-</form></div>
-<?php 
-	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
-'root', 'root'); 
-?>
 <h1> <p class="rose"> Nos coups de coeur </p>- Que faire à Montpellier et ses alentours?  </h1>
 <?php
  	$req = $bdd->query('select * from exterieure where Bonplan="1" and Type="Randonnée"');

@@ -98,7 +98,7 @@ function afficherAutre(){
 
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<a id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
-			echo "<a href='connexion/profil_perso.php'> Mon profil </a>";
+			echo "<a id='connec' href='connexion/profil_perso.php'> Mon profil </a>";
 			}
 			
 	else{
@@ -125,8 +125,8 @@ Manger :<INPUT type="radio" name="choix" id="choix" value="etablissement">
 <span id="ff" style="display:none">Fast-food</span> <INPUT type="radio" name="souschoix1" id="sc2" value="fast_food" style="display: none"><br/>
 
 Boire un verre :<INPUT type="radio" name="choix" id="boire" value="etablissement"> 
-<span  id="bar" style="display: none"> Bar </span><INPUT type="radio" name="souschoix2" id="bar1" value="bar" style="display: none"> 
-<span id="cafe" style="display: none"> Café </span> <INPUT type="radio" name="souschoix2" id="cafe1" value="cafe" style="display: none"> <br/>
+<span  id="bar" style="display: none"> Bar </span> <INPUT type="radio" name="souschoix2" id="bar1" value="bar" style="display: none"> 
+<span id="cafe" style="display: none"> Café <INPUT type="radio" name="souschoix2" id="cafe1" value="cafe" style="display: none"> </span> <br/>
 
 Sortir :<INPUT type="radio" name="choix" id="sortir" value="divers">
 <span id="nuit" style="display: none"> Boîte de nuit </span> <INPUT type="radio" name="souschoix3" id="nuit1" value="nightclub" style="display: none"> 

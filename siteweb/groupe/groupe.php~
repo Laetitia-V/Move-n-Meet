@@ -14,15 +14,13 @@
     
 
 <?php if(isset($_SESSION['utilisateur'])){
-			echo "<div class='bouton11'>";
-			echo "<a class='bouton11' id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a  id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
 			echo "<a href='../connexion/profil_perso.php'> Mon profil </a>";
-			echo'</div>';
 			}
 			
 	else{
 
-	echo"<a class='bouton11' id='connec' href='../connexion/connecIns.php' >";
+	echo"<a id='connec' href='../connexion/connecIns.php' >";
 	echo "S'inscrire / Se connecter</a>";
 	 }
 
@@ -36,10 +34,24 @@
 <span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
 <span><a href="../evenements.php"> ÉVÈNEMENTS</a> </span>
 
-
 <table border="1">
 
-	<tr><th>Date</th><th>Activité</th><th>Créateur</th><th>Nombre de participants</th>
+<?php 
+$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+$sql= "SELECT * FROM type_act_groupe ";
+$rep = $bdd->query($sql);
+		
+?>	
+
+<form action='groupe_filtre.php' method='get' autocomplete='off'>
+
+		<p> Rechercher une activité par type : 
+		<SELECT name='type' size='1'> <?php while ($ligne = $rep ->  fetch () ){ echo "<OPTION value='".$ligne['Id_type']."'>".$ligne['Nom']."</OPTION>";}?> </SELECT> 
+		
+		 <input type="submit" value="Rechercher"></p>
+	</form>	
+		
+	<tr><th>Date</th><th>Activité</th><th>Nombre de participants</th>
 	<?php 
 		$rep = $bdd->query('select * from groupe');
 		
@@ -48,7 +60,7 @@
             $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
 			$c= $count -> fetch();
             $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
-			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Adresse']."</td><td>".$nbParticipant."</td></tr>";
+			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</td><td>".$nbParticipant."</td></tr>";
 		}
 		$rep -> closeCursor();
 	?>

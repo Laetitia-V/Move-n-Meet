@@ -1,6 +1,7 @@
 <?php
 	session_start();
     $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+    $statut=$_SESSION['utilisateur'][9];
 ?>
 
 <!doctype html>
@@ -13,15 +14,15 @@
 
 <body>
 
+
+
 <?php if(isset($_SESSION['utilisateur'])){
-			echo "<div class='bouton11'>";
-			echo "<a class='bouton11' id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
+			echo "<a id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
 			echo "<a href='../connexion/profil_perso.php'> Mon profil </a>";
-			echo'</div>';
 			}
 			
 	else{
-	echo"<a class='bouton11' id='connec' href='../connexion/connecIns.php' >";
+	echo"<a id='connec' href='../connexion/connecIns.php' >";
 	echo "S'inscrire / Se connecter</a>";
 	 }
 ?>
@@ -36,6 +37,21 @@
 </p>
 
 <p>
+    
+ <?php  // Supprimer sortie par admin uniquement
+   
+    if($statut=='1'){
+        echo('<form action="supprimerSortie.php" method="get" autocomplete="off">		  
+		  <input type="hidden" name="id" value="'.$_GET['id'].'">
+		  <input type="submit" value="Supprimer sortie">
+	</form>');
+    }
+    ?>   
+    
+    
+    
+    
+    
 <?php
 
 	
@@ -55,17 +71,41 @@
 <p> Membres inscrits à l'activité : </p>
 
 <?php	
-	$participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance, U.Photo FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND P.Id_groupe='".$_GET['id']."'");
+	$participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance, U.Photo FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND Ordre=0 AND P.Id_groupe='".$_GET['id']."'");
 	$aff=$bdd->query($participants);
 	
     $inscrit=0;
     while ($ligne = $aff ->fetch()) {
-				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> <img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img></a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> ".$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
+				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> 
+				<img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img>
+				</a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> "
+				.$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
+        
                 if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
                     $inscrit=1;
                 }
 	}
-
+    $aff -> closeCursor();
+    
+    
+    echo "Liste d'attente:";
+    
+    $participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance, U.Photo FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND Ordre>0 AND P.Id_groupe='".$_GET['id']."' ORDER BY Ordre");
+	$aff=$bdd->query($participants);
+	
+    
+    
+    while ($ligne = $aff ->fetch()) {
+				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> 
+				<img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img>
+				</a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> "
+				.$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
+        
+                if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
+                    $inscrit=1;
+                }
+	}
+    $aff -> closeCursor();
         
 	// Bouton Inscription
 

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$idGroupe=$_GET['id'];
-	$pseudo=$_SESSION['utilisateur'][1];
+	$pseudo=$_SESSION['utilisateur'][10];
     $commentaire=$_GET['commentaire'];
     $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 ?>

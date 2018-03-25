@@ -41,13 +41,14 @@ while ($ligne = $sql ->  fetch () ){
 }
     
     
- ?>
-    <form action="../messagerie/envoiMessage.php" method="get" autocomplete="off">
+    if(isset($_SESSION['utilisateur'])){ 
+    echo ('<form action="../messagerie/envoiMessage.php" method="get" autocomplete="off">
     <input type="hidden" name="idReceveur" value="<?php echo $id ?>">
     <input type="submit" value="Envoyer un message">
     
-    </form>
-
+    </form>');
+    }
+ ?>
 </body>
 </html>
  

@@ -27,7 +27,7 @@
     $rep = $bdd->query("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
     $ligne = $rep ->  fetch ();
     
-	$count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
+	$count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Id_groupe='.$idGroupe);
     $c= $count -> fetch(); 
     $nbParticipant=$c[0];
     $nbMax=$ligne['Nombre_max'];

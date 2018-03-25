@@ -53,7 +53,7 @@
 <p> Membres inscrits à l'activité : </p>
 
 <?php	
-	$participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance, U.Photo FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND P.Id_groupe='".$_GET['id']."'");
+	$participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance, U.Photo FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND Ordre=0 AND P.Id_groupe='".$_GET['id']."'");
 	$aff=$bdd->query($participants);
 	
     $inscrit=0;
@@ -62,11 +62,32 @@
 				<img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img>
 				</a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> "
 				.$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
+        
                 if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
                     $inscrit=1;
                 }
 	}
-
+    $aff -> closeCursor();
+    
+    
+    echo "Liste d'attente:";
+    
+    $participants= ("SELECT U.Id_utilisateur, U.Prenom, U.Date_naissance, U.Photo FROM participant P, utilisateur U WHERE P.Id_utilisateur=U.Id_utilisateur AND Ordre>0 AND P.Id_groupe='".$_GET['id']."' ORDER BY Ordre");
+	$aff=$bdd->query($participants);
+	
+    
+    
+    while ($ligne = $aff ->fetch()) {
+				echo "<a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> 
+				<img width=120 src='../connexion/photo_profil/".$ligne['Photo']."' alt='profil' </img>
+				</a><a href='../connexion/profil_public.php?id=".$ligne['Id_utilisateur']."'> "
+				.$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
+        
+                if($ligne['Id_utilisateur']==$_SESSION['utilisateur'][0]){
+                    $inscrit=1;
+                }
+	}
+    $aff -> closeCursor();
         
 	// Bouton Inscription
 

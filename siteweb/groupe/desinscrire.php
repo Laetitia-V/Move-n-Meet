@@ -33,6 +33,7 @@
         $premierListe= $req -> fetch();
         $id=$premierListe['Id_utilisateur'];
         $ajoutListePrincipale= $bdd -> query ("UPDATE participant SET Ordre=0 WHERE Id_groupe='".$idGroupe."' AND Id_utilisateur='".$id."' ");
+        $majOrdre= $bdd -> query ("UPDATE participant SET Ordre=Ordre-1 WHERE Id_groupe='".$idGroupe."' AND Ordre>0 ");
     }
     else{ // Liste d'attente
          $rep = $bdd->query("DELETE FROM participant WHERE Id_utilisateur='".$idUser."' AND Id_groupe='".$idGroupe."'");

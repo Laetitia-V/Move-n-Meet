@@ -19,13 +19,13 @@ echo "<a  id='connec' href='../connexion/deconnexion.php'> Déconnexion </a></di
 
 <?php include("../includes/menu.php"); ?>
 
-<h2> Votre profil </h2>
+<h1> Votre profil </h1>
 <?php
 $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 $sql= $bdd->query("SELECT * FROM utilisateur WHERE Id_utilisateur='".$_SESSION['utilisateur'][0]."'");
 while ($ligne = $sql ->  fetch () ){
 
-	echo "<p>".$ligne['Prenom']." ".$ligne['Nom']."</p><p>
+	echo " <p>".$ligne['Prenom']." ".$ligne['Nom']."</p><p>
 		<img src='photo_profil/".$ligne['Photo']."' width=160 alt='photo profil'></p><p>
 		Age : ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</p><p> Sexe : ".
 		$ligne['Sexe']."</p><p> Description : ".$ligne['Description']."</p><p>Adresse mail : ".
@@ -40,7 +40,7 @@ $ins = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root',
 	echo "<p>Vous activités de groupe à venir :</p>";
 	$rep = $bdd->query($act);
 	while ($ligne = $rep ->  fetch () ){
-		echo "<p> <a href='groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date']."</p>";
+		echo "<p> <a href='../groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date']."</p>";
 	}
 	   
 

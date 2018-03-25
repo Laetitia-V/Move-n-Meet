@@ -39,7 +39,7 @@
 	$rep = $bdd->query("SELECT * FROM groupe where Id_groupe='".$_GET['id']."'");
 
 	while ($ligne = $rep ->fetch()) {
-				echo  "<h2>".$ligne['Titre']."</h2>";
+				echo  "<h1>".$ligne['Titre']."</h1>";
 				echo "<p> Date : ".$ligne['Date']."</p>"; 
 				echo "<p> Horaire : ".$ligne['Horaire']."</p>";
 				echo "<p> Lieu : ".$ligne['Adresse']."</p>";
@@ -56,7 +56,7 @@
 	
     $inscrit=0;
     while ($ligne = $aff ->fetch()) {
-				echo "<a href='../profil/profil_public.php?id=".$ligne['Id_utilisateur']."'> 
+				echo "<p><a href='../profil/profil_public.php?id=".$ligne['Id_utilisateur']."'> 
 				<img width=120 src='../profil/photo_profil/".$ligne['Photo']."' alt='profil' </img>
 				</a><a href='../profil/profil_public.php?id=".$ligne['Id_utilisateur']."'> "
 				.$ligne['Prenom']."</a> ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</br>";
@@ -123,7 +123,7 @@ else{
 				<TEXTAREA name="commentaire" rows=8 COLS=50></TEXTAREA>
 		  
 		  
-		  <p class="bouton">
+		  <p>
 		  <input type="submit" value="Publier"></p>
 		  
 </form>

@@ -79,7 +79,7 @@ if(isset($_GET["saisie"])){
  	while($donne = $req->fetch()){
  		echo '<div class="activite">';
 echo'<h1>'.$donne['Nom'].'</h1><br/><img src='.$donne['Photo']."><h2>Lieu :</h2>".$donne['Lieu']."<br/><h2>Date :</h2>".$donne['Date']."<br/><h2>Type :</h2>".$donne['Type'];
-=======
+
  	if($saisie !="%$saisie") {
  			echo "Pas de résultats trouvés";
  	}

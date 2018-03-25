@@ -1,5 +1,6 @@
 <?php
-session_start()
+session_start();
+$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 ?>
 <!doctype html>
 <html>
@@ -39,7 +40,11 @@ session_start()
 </p>
 
 
+<<<<<<< HEAD
 <form id="recherche" method="get" action="../activite/resultat.php">
+=======
+<form id="recherche" method="get" action="activite/resultat.php">
+>>>>>>> 8bda66503fff3dbf50186e567bb410bdc3fef58c
 <input name="saisie" type="text" placeholder="Mots-Clefs..." required >
 <input class="loupe" type="submit" value="">
 </form>

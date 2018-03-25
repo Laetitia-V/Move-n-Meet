@@ -33,7 +33,7 @@ if(isset($_SESSION['utilisateur'])){
 $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
 $sql= $bdd->query("SELECT * FROM utilisateur WHERE Id_utilisateur='".$_GET['id']."'");
 while ($ligne = $sql ->  fetch () ){
-	echo "<h2> Profil de ".$ligne['Prenom']."</h2>";
+	echo "<h1> Profil de ".$ligne['Prenom']."</h1>";
 	echo "<p>".$ligne['Prenom']." ".$ligne['Nom']."</p><p>
 		<img src='photo_profil/".$ligne['Photo']."' width=160 alt='photo profil'></p><p>
 		Age : ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</p><p> Sexe : ".

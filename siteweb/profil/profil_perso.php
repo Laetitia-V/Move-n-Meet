@@ -11,7 +11,7 @@ session_start()
 
 <body>
 <?php
-echo "<a  id='connec' href='deconnexion.php'> Déconnexion </a></div>";
+echo "<a  id='connec' href='../connexion/deconnexion.php'> Déconnexion </a></div>";
 ?>
 
 <span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>

@@ -40,7 +40,7 @@ media="screen"	/>
 			echo "<meta http-equiv='refresh' content='2; URL=../groupe/groupe.php'>";
          }
         elseif(isset($_SESSION['connect'])){
-            echo "<meta http-equiv='refresh' content='2; URL=profil_perso.php'>";
+            echo "<meta http-equiv='refresh' content='2; URL=../profil/profil_perso.php'>";
 		}
 		else{
 		echo "<meta http-equiv='refresh' content='2; URL=../index.php'>";

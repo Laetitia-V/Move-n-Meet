@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage[svgnames]{xcolor}
-
+\usepackage{url}
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
@@ -68,7 +68,7 @@ Pour cela, différents critères de recherche en fonction des préférences de l
 Un utilisateur peut donc à la fois rechercher des idées d'activités et à la fois créer ou rejoindre des activités avec d'autres personnes.
 Notre domaine d'application se limite à Montpellier et ses alentours afin de proposer des types d'activités variés dans le but de répondre aux demandes de chaque utilisateur.
 
-\textbf{URL de notre projet : https://github.com/Laetitia-V/Move-n-Meet}
+\textbf{URL de notre projet : \url{https://github.com/Laetitia-V/Move-n-Meet}}
 
 \section{Gestion de projet}
 
@@ -103,8 +103,15 @@ Aussi, nous avons décidé de remplacer la page des bons plans par nos activité
 
 \end{itemize}
 \end{description}
-Schéma de l'architecture de l'application
-Schéma de la base de données
+
+
+\begin{center}
+{\textbf{Schéma de l'architecture de l'application}}
+\includegraphics[scale=0.5]{archi.png}
+
+{\textbf{Schéma de la base de données}}
+\includegraphics[scale=0.5]{bd.png}
+\end{center}
 
 \section{Description fonctionnelle}
 
@@ -124,8 +131,8 @@ Schéma de la base de données
 \item Modifier les informations de son profil
 \item Voir le profil des autres utilisateurs
 \item Utiliser la barre de recherche de la page d'accueil pour chercher une activité directement
-\item La personne connectée peut consulter sur son profil ses activités de groupe futures
-\item  Messagerie entre les participants d'activités de groupe qui permet d'envoyer et de recevoir des messages
+\item Consulter son profil et ses activités de groupe futures lorsque l'on est connecté
+\item  Envoyer et recevoir des messages entre les participants d'activités de groupe
 \end{itemize}
 \end{description}
 
@@ -155,6 +162,7 @@ Schéma de la base de données
 \item Impossible de rejoindre deux fois la même sortie de groupe
 \item Un champ doit être requis pour faire une recherche dans la barre de recherche
 \item Lorsqu'un participant inscrit à une activité de groupe se désinscrit le premier de la liste d'attente est inscrit automatiquement
+\item Un utilisateur ne peut pas créer un compte si son adresse ou son pseudo existe déjà dans la base de donnée
 //
 \end{itemize}
 \end{description}
@@ -178,9 +186,11 @@ Schéma de la base de données
 
 \subsection{Résumé de la contribution}
 
+
+
 \subsection{Difficultés rencontrées}
 \begin{description}
-\begin{itemize}
+\item\begin{itemize}
 \item Création de sous choix
 \item Mise à jour de la variable de session utilisateur
 \item Création d'une barre de recherche
@@ -190,13 +200,24 @@ Schéma de la base de données
 \end{itemize}
 \end{description}
 \subsection{Perspectives}
-Nous envisageons le fait qu'un utilisateur puisse laisser un avis sur les activités et les évènements proposés sur le site. Ainsi selon la côte de popularité, les activités seraient plus ou moins mise en avant. Par ailleurs, nous souhaitons mettre en place un système de promotions sur certaines activités qui apparaîtraient sur la page d'accueil. Pour cela, il faut que l'on se rapproche des prestataires pour établir avec eux les réductions possibles.
-Par rapport aux activités de groupe, nous souhaitons mettre en place un système de rappel d'activité sur la boîte mail ou le téléphone des personnes concernées.
-Nous souhaitons également développer l'application sur mobile avec un système de notifications qui rappellent les activités de groupe où nous sommes inscrits. 
+\begin{description}
+\item\begin{itemize}
+\item Pour Trouver_activité nous envisageons le fait qu’un utilisateur puisse laisser un avis sur les activités et les évènements proposés sur le site. Ainsi selon la côte de popularité, les activités seraient plus ou moins mise en avant.
+De plus, avec plus de moyen, il serait possible d’acheter des données plus fournies (Chambre de commerce) pour avoir un maximum d’informations sur les activités répertoriées sur le site. Cela permettrait de mettre plus de critères dans la recherche d’activités et pouvoir proposer l'activité qui correspond à la personne qui recherche.
 
+\item
+Au départ du projet, une page «Bons plans » était prévue. Cette page devait proposer des promotions permanentes mais aussi des tarifs avantageux pour les utilisateurs de notre site. Cependant, cela demande plus de temps et de moyens pour nouer des relations avec des partenaires et faire un système de bons de réduction électroniques pour les membres du site. 
 
-
-
+\item Pour Activités de groupes, nous souhaitons mettre en place un système de rappel d’activités sur la boîte mail ou le téléphone des personnes concernées. 
+\item La messagerie doit également être améliorée. 
+\item Nous voulons ajouter un système de  « statut » pour chaque membre qui prend en compte le nombres de sorties effectuées, le nombre de sorties crées et le nombre de signalements qui a lieu par exemple lorsqu'un utilisateur à un mauvais comportement lors d’une sortie de groupe. 
+\item Nous avons pour souhait de développer une application qui ne concernerait que les « activités de groupes » pour que les utilisateurs puissent s’inscrire directement depuis leur smartphone et être informés de tout imprévu.
+\\
+\item L'ergonomie du site peut également être amélioré grâce à l'optimisation de la navigation sur le site en fluidifiant les interactions entre l’utilisateur et les pages web. 
+\item L'amélioration du CSS est également un objectif.
+\item Mettre en place un système économique qui ne coûte rien aux utilisateurs tel que la publicité.
+\end{itemize}
+\end{description}
 \newpage
 
 

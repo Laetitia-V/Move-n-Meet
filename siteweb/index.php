@@ -13,7 +13,7 @@ session_start()
 <span>
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<a  id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
-			echo "<a id='connec' href='connexion/profil_perso.php'> Mon profil </a>";
+			echo "<a id='connec' href='profil/profil_perso.php'> Mon profil </a>";
 			}
 			
 	else{
@@ -25,8 +25,7 @@ session_start()
 
 <?php if(isset($_SESSION['utilisateur'])){
 	echo "<p class='bjr'>";
-	echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !";
-	echo "</p>";
+	echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !</p>";
 	}
 ?>
 </span>
@@ -45,24 +44,6 @@ session_start()
 <input class="loupe" type="submit" value="">
 </form>
 </div>
-
-<?php 
-	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',
-'root', 'root'); 
-?>
-
-<?php
-if(isset($_SESSION['utilisateur'])){
-$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root', 'root'); 
-	$act= "Select distinct G.Titre, G.Date, G.Id_groupe from groupe G, participant P, utilisateur U where U.Id_utilisateur='".$_SESSION['utilisateur'][0]."' and P.Id_groupe=G.Id_groupe";
-	echo $act;
-	$rep = $bdd->query($act);
-	echo "</p> <p>Vous êtes inscrit à l'activité de groupe</p>";
-	while ($ligne = $rep ->  fetch () ){
-		echo "<p> <a href='groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date']."</p>";
-	}
-}
-	?>
 
 <h1> <p class="rose"> Nos coups de coeur </p>- Que faire à Montpellier et ses alentours?  </h1>
 <?php

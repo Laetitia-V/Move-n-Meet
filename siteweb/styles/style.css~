@@ -127,6 +127,8 @@ margin-right: 9%;
 	margin-right: 30%;
 	display: inline;
 }
+#bar{
+display: inherit;}
 h1{
 font-weight: bold;
 font-size: 20px;

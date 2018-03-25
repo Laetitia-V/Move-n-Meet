@@ -39,12 +39,12 @@ session_start()
 <span><a href="activite/evenements.php"> ÉVÈNEMENTS</a> </span>
 </p>
 
-<div class="barre">
-<form id="recherche" method="get" action="resultat.php">
+
+<form id="recherche" method="get" action="../activite/resultat.php">
 <input name="saisie" type="text" placeholder="Mots-Clefs..." required >
 <input class="loupe" type="submit" value="">
 </form>
-</div>
+
 
 <?php 
 	$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8',

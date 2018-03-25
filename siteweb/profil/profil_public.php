@@ -13,12 +13,12 @@ $id=$_GET['id'];
 <body>
 <?php
 if(isset($_SESSION['utilisateur'])){
-			echo "<a  id='connec' href='deconnexion.php'> Déconnexion </a>";
+			echo "<a  id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
 			echo "<a id='connec' href='profil_perso.php'> Mon profil </a>";
 			}
 			
 	else{
-	echo"<a id='connec' href='connecIns.php' >";
+	echo"<a id='connec' href='../connexion/connecIns.php' >";
 	echo "S'inscrire / Se connecter</a>";
 	 }
 ?>

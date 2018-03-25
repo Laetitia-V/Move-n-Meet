@@ -14,7 +14,7 @@ function enregistrer($id,$n,$p,$mail,$mdp,$d,$photo)
 {		
 		
 		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-		$sql= "INSERT INTO utilisateur (Id_utilisateur, nom, prenom, mail, mdp, date_naissance, Photo) VALUES ('".$id."','".$n."','".$p."','".$mail."','".$mdp."','".$d."','".$photo."')";
+		$sql= "INSERT INTO utilisateur (Id_utilisateur, nom, prenom, mail, mdp, date_naissance, Photo, Statut) VALUES ('".$id."','".$n."','".$p."','".$mail."','".$mdp."','".$d."','".$photo."','0')";
 		$rep = $bdd->query($sql);
 		$rep ->closeCursor();
 		

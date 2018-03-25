@@ -29,8 +29,9 @@ media="screen"	/>
 		$sexe=$ligne['Sexe'];
 		$description=$ligne['Description'];
 		$photo=$ligne['Photo'];
+        $statut=$ligne['Statut']; // Statut=1 Si utilisateur admin Statut=0 sinon
 		
-		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
+		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp,$statut);
 		if($h=="1"){
 			echo "<meta http-equiv='refresh' content='2; URL=../groupe/creation.php'>";
 		}

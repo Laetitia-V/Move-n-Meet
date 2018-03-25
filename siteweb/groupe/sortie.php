@@ -1,6 +1,7 @@
 <?php
 	session_start();
     $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+    $statut=$_SESSION['utilisateur'][9];
 ?>
 
 <!doctype html>
@@ -12,6 +13,8 @@
 </head>
 
 <body>
+
+
 
 <?php if(isset($_SESSION['utilisateur'])){
 			echo "<a id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
@@ -34,6 +37,21 @@
 </p>
 
 <p>
+    
+ <?php  // Supprimer sortie par admin uniquement
+   
+    if($statut=='1'){
+        echo('<form action="supprimerSortie.php" method="get" autocomplete="off">		  
+		  <input type="hidden" name="id" value="'.$_GET['id'].'">
+		  <input type="submit" value="Supprimer sortie">
+	</form>');
+    }
+    ?>   
+    
+    
+    
+    
+    
 <?php
 
 	

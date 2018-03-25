@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.20)  25 MAR 2018 23:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.20)  25 MAR 2018 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,31 +655,49 @@ File: bd.png Graphic file (type png)
 Package pdftex.def Info: bd.png used on input line 115.
 (pdftex.def)             Requested size: 361.79836pt x 614.74101pt.
  [4 <./bd.png>] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 216--218
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.206 \begin{itemize}
+                     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
-[6] (./cahier.aux) ) 
+[6] <cout.png, id=43, 890.32625pt x 457.71pt>
+File: cout.png Graphic file (type png)
+ <use cout.png>
+Package pdftex.def Info: cout.png used on input line 225.
+(pdftex.def)             Requested size: 445.16203pt x 228.85445pt.
+ [7 <./cout.png (PNG copy)>] (./cahier.aux) ) 
 Here is how much of TeX's memory you used:
- 4214 strings out of 493014
- 57112 string characters out of 6133351
+ 4219 strings out of 493014
+ 57171 string characters out of 6133351
  150554 words of memory out of 5000000
- 7702 multiletter control sequences out of 15000+600000
+ 7706 multiletter control sequences out of 15000+600000
  6847 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,43p,659b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmcsc10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmss12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmtt10.pfb>
-Output written on cahier.pdf (7 pages, 1785904 bytes).
+</usr/local/texlive/2016/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2016/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on cahier.pdf (8 pages, 1819226 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 71 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -6,6 +6,8 @@ $mail = isset($_GET['mail']) ?  $_GET['mail'] : "";
 
 $n = isset($_GET['n']) ?  $_GET['n'] : "" ;
 $h = isset($_GET['h']) ?  $_GET['h'] : NULL;
+$pseudo = isset($_GET['pseudo']) ?  $_GET['pseudo'] : "";
+
 ?>
 
 
@@ -36,6 +38,10 @@ Nom :
 <p>
 Prénom :
             <input type="text" name="p" value="<?php echo $p ?>"/>
+      </p>
+    <p>
+Pseudo :
+            <input type="text" name="pseudo" value="<?php echo $pseudo ?>"/>
       </p>
 <p>
 Date de naissance : 

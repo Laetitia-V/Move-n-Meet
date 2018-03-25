@@ -31,7 +31,18 @@ while ($ligne = $sql ->  fetch () ){
 		$ligne['Sexe']."</p><p> Description : ".$ligne['Description']."</p><p>Adresse mail : ".
 		$ligne['Mail']."<p/>";
 }
-    
+
+$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root', 'root'); 
+$ins = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root', 'root'); 
+	$act= ("Select distinct G.Titre, G.Date, G.Id_groupe from groupe G, participant P, utilisateur U where P.Id_utilisateur='".$_SESSION['utilisateur'][0]."' and P.Id_groupe=G.Id_groupe");
+	//echo "<p class='invicible'>".$act."</p>";
+	//echo $act;
+	echo "<p>Vous activités de groupe à venir :</p>";
+	$rep = $bdd->query($act);
+	while ($ligne = $rep ->  fetch () ){
+		echo "<p> <a href='groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date']."</p>";
+	}
+	   
 
  ?>
     

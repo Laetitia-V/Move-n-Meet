@@ -32,11 +32,11 @@
 	$sql = "INSERT INTO groupe (Id_groupe, Date, Descriptif, Titre, Adresse, Nombre_max, Horaire, Id_type, Id_Createur) 
 	VALUES (NULL,'".$date."','".$desc."','".$titre."','".$adr."','".$nbMax."','".$horaire."','".$type."','".$createur."')";
 	echo $sql ;
-	//$rep = $bdd->query($sql);
-	//$rep -> closeCursor();
+	$rep = $bdd->query($sql);
+	$rep -> closeCursor();
 	echo "Votre sortie a bien été enregistré";
     // Ajout du créateur dans la liste des participants
-	//echo "<meta http-equiv='refresh' content='3; URL=groupe.php'>";
+	echo "<meta http-equiv='refresh' content='3; URL=groupe.php'>";
 	}
 ?>
 

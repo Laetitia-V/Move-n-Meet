@@ -20,45 +20,32 @@
     
 <?php include("../includes/menu.php"); ?>
 
-<table border="1">
 
 <?php 
-$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
+
 $sql= "SELECT * FROM type_act_groupe ";
 $rep = $bdd->query($sql);
 		
 ?>	
 
+
 <form action='groupe_filtre.php' method='get' autocomplete='off'>
 
 		<p> Rechercher une activité par type : 
-		<SELECT name='type' size='1'> <?php while ($ligne = $rep ->  fetch () ){ echo "<OPTION value='".$ligne['Id_type']."'>".$ligne['Nom']."</OPTION>";}?> </SELECT> 
+		<SELECT name='type' size='1'> <?php while ($ligne = $rep ->  fetch () ){ echo "<OPTION value='".$ligne['Id_type']."'>".$ligne['Nom']."</OPTION>";}?> <///SELECT> 
 		
 		 <input type="submit" value="Rechercher"></p>
+	
 	</form>	
-		
-	<tr><th>Date</th><th>Activité</th><th>Nombre de participants</th>
+
 	<?php 
-		$rep = $bdd->query('select * from groupe');
-		
-		while ($ligne = $rep ->  fetch () ){
-            $idGroupe=$ligne['Id_groupe'];
-            $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
-			$c= $count -> fetch();
-            $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
-			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</td><td>".$nbParticipant."</td></tr>";
-		}
-		$rep -> closeCursor();
-	?>
-
-</table> 
-
-<?php
-// Bouton Creation
+	
+	// Bouton Creation
 if(isset($_SESSION['utilisateur'])){
-	echo('<form action="creation.php" method="get" autocomplete="off">
+	echo('<p> <form action="creation.php" method="get" autocomplete="off">
+	Lance toi et crée ton activité groupe pour faire de nouvelles rencontres !
 		  <input type="submit" value="Creation">
-	</form>'); 
+	</form></p>'); 
 }
 else{
 	echo ('<form action="../connexion/connecIns.php" method="get" autocomplete="off">
@@ -66,8 +53,21 @@ else{
 		  <input type="submit" value="Creation">
 	</form>');
 }
-?>
-
+		$rep = $bdd->query('select G.Id_groupe, G.Nombre_max, G.Titre, G.Adresse, G.Date, T.Id_type, G.Id_type, T.Photo from groupe G, type_act_groupe T WHERE G.Id_type=T.Id_type');
+		//echo 'select G.Titre, G.Adresse, G.Date, T.Id_type, G.Id_type, T.Photo from groupe G, type_act_groupe T WHERE G.Id_type=T.Id_type';
+		
+		while ($ligne = $rep ->  fetch () ){
+			echo '<div class="activite">';
+            $idGroupe=$ligne['Id_groupe'];
+            $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
+			$c= $count -> fetch();
+            $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
+			echo "<h1><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></h1><br/><img src='images/".$ligne['Photo']."'><h2>Lieu :</h2>"
+			.$ligne['Adresse']."<br/><h2>Date :</h2>".$ligne['Date']."<br/><h2>Nombre de participants :</h2>".$nbParticipant;
+			echo '</div>';
+		}
+		$rep -> closeCursor();
+	?>
 
 </body>
 </html>

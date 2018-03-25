@@ -17,26 +17,23 @@
 <?php include("../includes/entete.php"); ?>
     
     
-<?php include("../includes/menu.php"); ?>
+<?php include("../includes/menu.php"); 
 
-<table border="1">
-
-<tr><th>Date</th><th>Activité</th><th>Créateur</th><th>Nombre de participants</th>
-	<?php 
-		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-		$rep = $bdd->query("select distinct G.Nombre_max, G.Date, G.Titre, G.Adresse, G.Id_groupe from groupe G, type_act_groupe T where G.Id_type='".$_GET['type']."'");
-		
+//$rep = $bdd->query('select G.Id_groupe, G.Nombre_max, G.Titre, G.Adresse, G.Date, T.Id_type, G.Id_type, T.Photo from groupe G, type_act_groupe T WHERE G.Id_type='.$_GET['type']);
+echo "select G.Id_groupe, G.Nombre_max, G.Titre, G.Adresse, G.Date, T.Id_type, G.Id_type, T.Photo from groupe G, type_act_groupe T WHERE G.Id_type='".$_GET['type']."'";		
+		/*
 		while ($ligne = $rep ->  fetch () ){
+			echo '<div class="activite">';
             $idGroupe=$ligne['Id_groupe'];
             $count= $bdd-> query ('SELECT COUNT(Id_utilisateur) FROM participant WHERE Ordre=0 AND Id_groupe='.$idGroupe);
 			$c= $count -> fetch();
             $nbParticipant=$c[0]."/".$ligne['Nombre_max'];
-			echo "<tr><td>".$ligne['Date']."</td><td><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></td><td>".$ligne['Adresse']."</td><td>".$nbParticipant."</td></tr>";
+			echo "<h1><a href='sortie.php?id=".$idGroupe."'>".$ligne['Titre']."</a></h1><br/><img src='images/".$ligne['Photo']."'><h2>Lieu :</h2>"
+			.$ligne['Adresse']."<br/><h2>Date :</h2>".$ligne['Date']."<br/><h2>Nombre de participants :</h2>".$nbParticipant;
+			echo '</div>';
 		}
-		$rep -> closeCursor();
-	?>
-
-</table> 
+		$rep -> closeCursor();*/
+?>
 
 <a href='groupe.php'> Retour </a>
 

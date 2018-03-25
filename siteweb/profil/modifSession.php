@@ -34,7 +34,7 @@ media="screen"	/>
 		$_SESSION['utilisateur']=array($id,$nom,$prenom,$date_naissance,$sexe,$description,$photo,$mail,$mdp);
 	       echo $_SESSION['utilisateur'][1];
 	$rep ->closeCursor();
-       echo "<meta http-equiv='refresh' content='15; URL=profil_public.php?id=".$idUser."'>" ;
+       echo "<meta http-equiv='refresh' content='0; URL=profil_perso.php?id=".$idUser."'>" ;
 	?>
 
 </head>

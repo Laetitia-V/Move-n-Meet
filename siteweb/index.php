@@ -24,11 +24,6 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root',
 	 
 ?>
 
-<?php if(isset($_SESSION['utilisateur'])){
-	echo "<p class='bjr'>";
-	echo "Bonjour ".$_SESSION['utilisateur'][2]." ".$_SESSION['utilisateur'][1]." !</p>";
-	}
-?>
 </span>
 <span><img src="images/logo-copie.png" alt="logo"></span>
 <span><img src="images/titre.png" alt="titre"/></span>
@@ -42,8 +37,9 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root',
 
 <form id="recherche" method="get" action="activite/resultat.php">
     
-<input name="saisie" type="text" placeholder="Mots-Clefs..." required >
-<input class="loupe" type="submit" value="">
+<input class='barre_recherche'size='100' name="saisie" type="text" placeholder="Mots-Clefs..." required >
+<input class='rech'type="submit" value="Rechercher">
+
 </form>
 
 

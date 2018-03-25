@@ -79,7 +79,7 @@ media="screen"	/>
         $User= $req -> fetch ();
         $idUser=$User[0];
         
-        echo "<meta http-equiv='refresh' content='15; URL=modifSession.php?id=".$idUser."'>" ; //id=1
+        echo "<meta http-equiv='refresh' content='0; URL=modifSession.php?id=".$idUser."'>" ; //id=1
 	}
 ?>
 

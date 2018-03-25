@@ -30,7 +30,6 @@ $pseudo = isset($_GET['pseudo']) ?  $_GET['pseudo'] : "";
 <div id="ins">
 <p class="titre"> Inscription </p>
 <form action="enregistrement.php" method="get" autocomplete="off">
-<input type="hidden" name="id"/>
       <p>
 Nom :
             <input type="text" name="n" value="<?php echo $n?>"/>

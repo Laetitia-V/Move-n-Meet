@@ -54,12 +54,12 @@ session_start()
 <?php
 if(isset($_SESSION['utilisateur'])){
 $bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root', 'root'); 
-	$act= "Select G.Titre, G.Date, G.Id_groupe from groupe G, participant P, utilisateur U where U.Id_utilisateur='".$_SESSION['utilisateur'][0]."' and P.Id_groupe=G.Id_groupe";
-	//echo $act;
+	$act= "Select distinct G.Titre, G.Date, G.Id_groupe from groupe G, participant P, utilisateur U where U.Id_utilisateur='".$_SESSION['utilisateur'][0]."' and P.Id_groupe=G.Id_groupe";
+	echo $act;
 	$rep = $bdd->query($act);
-	echo "</p><p> Vous êtes inscrit à l'activité de groupe";
+	echo "</p> <p>Vous êtes inscrit à l'activité de groupe</p>";
 	while ($ligne = $rep ->  fetch () ){
-		echo "<a href='groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date'];
+		echo "<p> <a href='groupe/sortie.php?id=".$ligne['Id_groupe']."'>".$ligne['Titre']."</a> prévu le ".$ligne['Date']."</p>";
 	}
 }
 	?>

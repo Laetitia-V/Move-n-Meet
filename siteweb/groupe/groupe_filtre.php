@@ -21,11 +21,10 @@
 
 <table border="1">
 
-
 <tr><th>Date</th><th>Activité</th><th>Créateur</th><th>Nombre de participants</th>
 	<?php 
 		$bdd = new PDO('mysql:host=localhost:8889;dbname=movenmeet;charset=utf8','root','root');
-		$rep = $bdd->query("select G.Date, G.Titre, G.Adresse from groupe G, type_act_groupe T where G.Id_type='".$_GET['type']."' and G.Id_type=T.Id_type");
+		$rep = $bdd->query("select distinct G.Nombre_max, G.Date, G.Titre, G.Adresse, G.Id_groupe from groupe G, type_act_groupe T where G.Id_type='".$_GET['type']."'");
 		
 		while ($ligne = $rep ->  fetch () ){
             $idGroupe=$ligne['Id_groupe'];
@@ -38,6 +37,8 @@
 	?>
 
 </table> 
+
+<a href='groupe.php'> Retour </a>
 
 <?php
 // Bouton Creation

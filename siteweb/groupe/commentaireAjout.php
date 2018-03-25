@@ -14,15 +14,9 @@
 </head>
 
 <body>
-<span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
-<span><a href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
-<a class='bouton11' id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>
+<?php include("../includes/entete.php"); ?>s
 
-<p class="ongletsPageA">
-<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVENEMENTS</a> </span>
-</p>
+<?php include("../includes/menu.php"); ?>
 
 <?php
     

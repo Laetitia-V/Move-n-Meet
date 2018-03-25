@@ -17,11 +17,7 @@ echo "<a  id='connec' href='deconnexion.php'> Déconnexion </a></div>";
 <span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
 <span><a href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
 
-<p class="ongletsPageA">
-<span><a href="../trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="../groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="../evenements.php"> ÉVÈNEMENTS</a> </span>
-</p>
+<?php include("../includes/menu.php"); ?>
 
 <h2> Votre profil </h2>
 <?php

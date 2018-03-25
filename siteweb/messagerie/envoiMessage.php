@@ -13,26 +13,10 @@
 <body>
     
 
-<?php if(isset($_SESSION['utilisateur'])){
-			echo "<a  id='connec' href='../connexion/deconnexion.php'> Déconnexion </a>";
-			echo "<a href='../connexion/profil_perso.php'> Mon profil </a>";
-			}
-			
-	else{
 
-	echo"<a id='connec' href='../connexion/connecIns.php' >";
-	echo "S'inscrire / Se connecter</a>";
-	 }
 
-?>
-
-<span><a href="../index.php"> <img src="../images/logo-copie.png" alt="logo"></a></span>
-<span><a href="../index.php"><img src="../images/titre.png" alt="titre"/></a></span>
-
-<p class="ongletsPageA">
-<span><a href="../trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="../evenements.php"> ÉVÈNEMENTS</a> </span>
+<?php include("../includes/menu.php"); ?>
+<?php include("../includes/menu.php"); ?>
 
     <form action="envoi.php" method="post" autocomplete="off">
      <input type="hidden" name="idReceveur" value="<?php echo $idReceveur ?>">

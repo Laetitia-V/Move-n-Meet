@@ -34,9 +34,9 @@ session_start()
 <span><img src="images/titre.png" alt="titre"/></span>
 
 <p class="ongletsPageA">
-<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
+<span><a href="activite/trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
 <span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVÈNEMENTS</a> </span>
+<span><a href="activite/evenements.php"> ÉVÈNEMENTS</a> </span>
 </p>
 
 <div class="barre">

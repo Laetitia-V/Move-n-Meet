@@ -6,7 +6,7 @@ session_start()
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
+      <link rel="stylesheet" href="../styles/style.css" type="text/css" media="screen" />
 <title>Move n' Meet</title>
 <script language="JavaScript">
 function afficherAutre(){
@@ -96,25 +96,9 @@ function afficherAutre(){
 <body>
 
 
-<?php if(isset($_SESSION['utilisateur'])){
-			echo "<a id='connec' href='connexion/deconnexion.php'> Déconnexion </a>";
-			echo "<a id='connec' href='connexion/profil_perso.php'> Mon profil </a>";
-			}
-			
-	else{
-	echo"<a id='connec' href='connexion/connecIns.php' >";
-	echo "S'inscrire / Se connecter</a>";
-	 }
-?>
+<?php include("../includes/entete.php"); ?>
 
-
-<span><a href="index.php"> <img src="images/logo-copie.png" alt="logo"></a></span>
-<span><a href="index.php"><img src="images/titre.png" alt="titre"/></a></span>
-
-<p class="onglets">
-<span><a href="trouver_act.php"> TROUVER UNE ACTIVITÉ</a></span>
-<span><a href="groupe/groupe.php"> ACTIVITÉS DE GROUPE</a></span>
-<span><a href="evenements.php"> ÉVÈNEMENTS</a> </span></p>
+<?php include("../includes/menu.php"); ?>
 
 <FORM name="critere" method="GET" action="trouver_act.php" onChange="afficherAutre()" >
 <div class="choix">

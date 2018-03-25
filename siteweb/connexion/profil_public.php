@@ -1,5 +1,6 @@
 <?php
-session_start()
+session_start();
+$id=$_GET['id'];
 ?>
 <!doctype html>
 <html>
@@ -42,7 +43,15 @@ while ($ligne = $sql ->  fetch () ){
 		Age : ".round((time()-strtotime($ligne['Date_naissance']))/ 3600 / 24 / 365)." ans</p><p> Sexe : ".
 		$ligne['Sexe']."</p><p> Description : ".$ligne['Description']."</p>";
 }
-
+    
+    
  ?>
+    <form action="../messagerie/envoiMessage.php" method="get" autocomplete="off">
+    <input type="hidden" name="idReceveur" value="<?php echo $id ?>">
+    <input type="submit" value="Envoyer un message">
+    
+    </form>
 
+</body>
+</html>
  

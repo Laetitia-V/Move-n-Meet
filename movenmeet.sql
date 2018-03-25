@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 25, 2018 at 03:14 AM
+-- Generation Time: Mar 25, 2018 at 05:23 AM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -1905,6 +1905,27 @@ INSERT INTO `groupe` (`Id_groupe`, `Horaire`, `Date`, `Descriptif`, `Titre`, `Ad
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `Id_message` int(11) NOT NULL,
+  `Id_envoyeur` int(11) NOT NULL,
+  `Id_receveur` int(11) NOT NULL,
+  `Objet` varchar(255) NOT NULL,
+  `Message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`Id_message`, `Id_envoyeur`, `Id_receveur`, `Objet`, `Message`) VALUES
+(1, 469, 464, 'Salut', 'Ca maaaaaaaarche !! ');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `participant`
 --
 
@@ -2200,6 +2221,14 @@ ALTER TABLE `groupe`
   ADD KEY `Id_Createur` (`Id_Createur`);
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`Id_message`),
+  ADD KEY `Id_envoyeur` (`Id_envoyeur`),
+  ADD KEY `Id_receveur` (`Id_receveur`);
+
+--
 -- Indexes for table `participant`
 --
 ALTER TABLE `participant`
@@ -2233,6 +2262,11 @@ ALTER TABLE `commentaires`
 ALTER TABLE `groupe`
   MODIFY `Id_groupe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `Id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `type_act_groupe`
 --
 ALTER TABLE `type_act_groupe`
@@ -2263,6 +2297,13 @@ ALTER TABLE `groupe`
   ADD CONSTRAINT `groupe_ibfk_3` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
   ADD CONSTRAINT `groupe_ibfk_4` FOREIGN KEY (`Id_Adresse`) REFERENCES `adresse` (`Id_adresse`),
   ADD CONSTRAINT `groupe_ibfk_5` FOREIGN KEY (`Id_Createur`) REFERENCES `utilisateur` (`Id_utilisateur`);
+
+--
+-- Constraints for table `message`
+--
+ALTER TABLE `message`
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`Id_envoyeur`) REFERENCES `utilisateur` (`Id_utilisateur`),
+  ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`Id_receveur`) REFERENCES `utilisateur` (`Id_utilisateur`);
 
 --
 -- Constraints for table `participant`

@@ -35,8 +35,14 @@ while ($ligne = $sql ->  fetch () ){
 		$ligne['Sexe']."</p><p> Description : ".$ligne['Description']."</p><p>Adresse mail : ".
 		$ligne['Mail']."<p/>";
 }
+    
 
  ?>
+    
+    <form action="../messagerie/listeMessages.php" method="get" autocomplete="off">
+		  <input type="submit" value="Mes messages">
+	</form>
+    
 <h2> Modifier votre profil </h2>
 <form action="modification.php" method="post" autocomplete="off" enctype="multipart/form-data"> 
 

@@ -18,6 +18,15 @@ img{
 	max-width: 100%;
 	}
 
+p{
+    margin: 2px;
+}
+
+.mess{
+    padding: 3px;
+    border: solid 2px white;
+}
+
 .ongletsPageA {
 	background-image: url("../images/mtp_accueil.jpg");
 	background-size: 100%;
@@ -168,3 +177,4 @@ color:#666;
 }*/
 .souschoix{
 color: red;}
+
